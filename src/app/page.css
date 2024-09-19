@@ -1,0 +1,11 @@
+/* src/app/page.css */
+.hyperlink {
+  text-decoration: underline;
+  text-decoration-color: lightgray; /* Lighter gray underline */
+  color: inherit; /* Inherit text color */
+}
+
+.hyperlink:hover {
+  text-decoration-color: #6ab04c; /* Change underline to a muted green on hover */
+  color: #6ab04c; /* Change text color to a muted green on hover */
+}
