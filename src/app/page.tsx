@@ -5,7 +5,7 @@ export default function Home() {
     <div className="py-8">
       <p className="mb-4">Hey!</p>
       <p>
-        I'm a {" "}
+        I&apos;m a{" "}
         <a
           className="hyperlink"
           href="https://milstein-program.as.cornell.edu/"
@@ -14,10 +14,10 @@ export default function Home() {
         >
           Milstein Scholar
         </a>{" "}
-        at Cornell studying computer science and philosophy. I’m fired up by strong
-        communities, cool ideas, and doing good things in the world. To this
-        end, I’m interested in AI alignment, literature, software for good, and
-        community-building.
+        at Cornell studying computer science and philosophy. I&apos;m fired up
+        by strong communities, cool ideas, and doing good things in the world.
+        To this end, I&apos;m interested in AI alignment, literature, software
+        for good, and community-building.
       </p>
       <br />
       <p>
@@ -62,7 +62,7 @@ export default function Home() {
         >
           Ellis
         </a>
-        . In my past life, I {" "}
+        . In my past life, I{" "}
         <a
           className="hyperlink"
           href="https://scholar.google.com/citations?user=LSidePQAAAAJ&hl=en&authuser=1"
@@ -75,9 +75,9 @@ export default function Home() {
       </p>
       <br />
       <p>
-        On the personal side: I grew up in 3 different continents, and I’m an
-        avid hiker and proud vegetarian. I also love hosting my friends, playing
-        public pianos, journaling, sunsets, and Kurt Vonnegut books!
+        On the personal side: I grew up in 3 different continents, and I&apos;m
+        an avid hiker and proud vegetarian. I also love hosting my friends,
+        playing public pianos, journaling, sunsets, and Kurt Vonnegut books!
       </p>
     </div>
   );
