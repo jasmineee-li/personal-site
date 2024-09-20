@@ -11,8 +11,8 @@ const geistSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Personal Website",
-  description: "Personal website of Your Name",
+  title: "Jasmine Li",
+  description: "Jasmine's personal site",
 };
 
 export default function RootLayout({
