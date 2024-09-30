@@ -76,8 +76,9 @@ export default function Projects() {
       </ul>
 
       {/* New Code Section */}
-      {/* <h2 className="text-2xl font-bold mt-6 mb-4">Code</h2>
-      <div className="grid grid-cols-3 gap-4">
+      <h2 className="text-2xl font-bold mt-6 mb-4">Code</h2>
+      <p>to come :D</p>
+      {/* <div className="grid grid-cols-3 gap-4">
         <div className="border p-4">
           <img
             src="path/to/image1.jpg"
