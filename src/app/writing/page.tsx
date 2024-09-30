@@ -50,11 +50,11 @@ export default function Writing() {
       </ul>
       <h1 className="text-3xl font-bold mb-4">Bookshelf</h1>
       <p>
-        Reading is my life force. Below are books and poems I've enjoyed, in reverse chronological order: summer 2024 and
-        beyond.
+        Reading is my life force. Below are books and poems I&apos;ve enjoyed,
+        in reverse chronological order: summer 2024 and beyond.
       </p>
       <ul className="py-4">
-      <li className="mb-2">
+        <li className="mb-2">
           <a>Alphabet, Inger Christensen</a>
         </li>
         <li className="mb-2">
@@ -64,7 +64,10 @@ export default function Writing() {
           <a>When Breath Becomes Air, Paul Kalanithi</a>
         </li>
         <li className="mb-2">
-          <a>A Supposedly Fun Thing I'll Never Do Again: Essays & Arguments, David Foster Wallace</a>
+          <a>
+            A Supposedly Fun Thing I&apos;ll Never Do Again: Essays & Arguments,
+            David Foster Wallace
+          </a>
         </li>
       </ul>
     </div>
