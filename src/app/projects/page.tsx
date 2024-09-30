@@ -4,7 +4,8 @@ export default function Projects() {
       {/* <h1 className="text-3xl font-bold mb-4">My Projects</h1> */}
       <h2 className="text-2xl font-bold mt-6 mb-4">Research</h2>
       <p>
-        I&apos;m interested in AI alignment, analytical chemistry, and US-CN policy!{" "}
+        I&apos;m interested in AI alignment, analytical chemistry, and US-CN
+        policy!{" "}
       </p>
       <ul className="pl-4">
         <li className="mb-2">
@@ -64,7 +65,7 @@ export default function Projects() {
         </li>
         <li className="mb-2">
           <a href="" className="text-custom-green">
-            China's International Student Recruitment Strategy as a Failed
+            China&apos;s International Student Recruitment Strategy as a Failed
             Exercise of Soft Power
           </a>
           <p className="italic">
