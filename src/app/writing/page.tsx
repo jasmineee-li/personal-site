@@ -1,7 +1,7 @@
 export default function Writing() {
   return (
     <div className="py-8">
-      {/* <h1 className="text-3xl font-bold mb-4">My Projects</h1> */}
+      <h1 className="text-3xl font-bold mb-4">Writing</h1>
       <p>
         I publish personal essays that matter to me at jasminexli.substack.com.{" "}
       </p>
@@ -24,7 +24,7 @@ export default function Writing() {
             href="https://docs.google.com/document/d/1L0C0s5t7LlKUAxJQ6yJ-c_EUr4OWnj0H9jy0X5BMF3A/edit?usp=sharing"
             className="text-custom-green"
           >
-            notes on chinese 'satellite teens'
+            notes on chinese &apos;satellite teens&apos;
           </a>
           <p className="italic">Jan 11, 2024</p>
         </li>
@@ -48,6 +48,7 @@ export default function Writing() {
           <p className="italic">Sep 10, 2024 | Stanford De Novo</p>
         </li>
       </ul>
+      <h1 className="text-3xl font-bold mb-4">Bookshelf</h1>
     </div>
   );
 }
