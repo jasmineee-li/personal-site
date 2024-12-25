@@ -3,9 +3,18 @@ export default function Writing() {
     <div className="py-8">
       <h1 className="text-3xl font-bold mb-4">Writing</h1>
       <p>
-        I publish personal essays that matter to me at jasminexli.substack.com.{" "}
+        I publish personal essays at{" "}
+        <a
+          className="hyperlink"
+          href="https://jasminexli.substack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          jasminexli.substack.com
+        </a>
+        .{" "}
       </p>
-      <p>See a hodgepodge of my other favorite essays & thoughts below:</p>
+      <p>See a hodgepodge of other essays & thoughts below:</p>
       <ul className="py-4">
         <li className="mb-2">
           <a
@@ -48,7 +57,7 @@ export default function Writing() {
           <p className="italic">Sep 10, 2024 | Stanford De Novo</p>
         </li>
       </ul>
-      <h1 className="text-3xl font-bold mb-4">Bookshelf</h1>
+      {/* <h1 className="text-3xl font-bold mb-4">Bookshelf</h1>
       <p>
         Reading is my life force. Below are books and poems I&apos;ve enjoyed,
         in reverse chronological order: summer 2024 and beyond.
@@ -69,7 +78,7 @@ export default function Writing() {
             David Foster Wallace
           </a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
