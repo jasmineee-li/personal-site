@@ -38,7 +38,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Cornell Digital Tech & Innovation
-        </a>. I'm also beginning Cornell AI alignment! In addition, I love to write,
+        </a>. I&apos;m also beginning Cornell AI alignment! In addition, I love to write,
         and I sometimes publish on my{" "}
         <a
           className="hyperlink"
