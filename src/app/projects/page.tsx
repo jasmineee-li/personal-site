@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Projects() {
   return (
     <div className="py-8">
@@ -80,7 +82,13 @@ export default function Projects() {
       {/* <p>to come :D</p> */}
       <div className="grid grid-cols-3 gap-4">
         <div className="border p-4">
-          <img src="assets/ritu.png" alt="Ritu" className="w-full h-auto" />
+          <Image
+            src="/assets/ritu.png"
+            alt="Ritu"
+            width={500}
+            height={300}
+            className="w-full h-auto"
+          />
           <a
             href="https://www.figma.com/design/xK9GDMaTPGRWGEn7wM7sxi/Ritu-Hackathon-Pitch-Deck?node-id=0-1"
             className="text-custom-green"
@@ -93,7 +101,13 @@ export default function Projects() {
           </p>
         </div>
         <div className="border p-4">
-          <img src="assets/ALIGN.png" alt="ALIGN" className="w-full h-auto" />
+          <Image
+            src="/assets/ALIGN.png"
+            alt="ALIGN"
+            width={500}
+            height={300}
+            className="w-full h-auto"
+          />
           <a
             href="https://www.figma.com/design/adCoXHePOw4PVcsFkgJch3/LII-Hackathon?t=zVF9CFd6cRZLcrIe-0"
             className="text-custom-green"
@@ -106,15 +120,22 @@ export default function Projects() {
           </p>
         </div>
         <div className="border p-4">
-          <img
-            src="assets/circles.jpg"
+          <Image
+            src="/assets/circles.jpg"
             alt="Circles"
+            width={500}
+            height={300}
             className="w-full h-auto"
           />
-          <a href="https://devpost.com/software/circles-8cfnod#updates" className="text-custom-green">
+          <a
+            href="https://devpost.com/software/circles-8cfnod#updates"
+            className="text-custom-green"
+          >
             Circles
           </a>
-          <p className="italic">Frictionless friend meetups. Big Red Hacks 2024</p>
+          <p className="italic">
+            Frictionless friend meetups. Big Red Hacks 2024
+          </p>
         </div>
       </div>
     </div>
