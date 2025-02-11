@@ -15,22 +15,50 @@ export default function Home() {
           Milstein Scholar
         </a>{" "}
         at Cornell studying computer science and philosophy. I&apos;m fired up
-        by strong communities, cool ideas, and doing good things in the world.
-        To this end, I&apos;m interested in AI safety and ethics, literature, software
-        for good, and community-building.
+        by strong communities, cool ideas, and doing good things in the world!
+        To this end, I&apos;m interested in AI safety, literature, software for
+        good, and community-building.
       </p>
       <br />
       <p>
-        Currently, I do AI alignment research (most recently {" "}
+        Currently, I do AI alignment research under{" "}
+        <a
+          className="hyperlink"
+          href="https://pi.math.cornell.edu/~levine/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Prof. Lionel Levine
+        </a>{" "}
+        at Cornell, as well as a variety of independent alignment projects (most
+        recently{" "}
         <a
           className="hyperlink"
           href="https://arxiv.org/pdf/2406.20087"
           target="_blank"
           rel="noopener noreferrer"
         >
-          here
+          this
+        </a>{" "}
+        and{" "}
+        <a
+          className="hyperlink"
+          href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          this
         </a>
-        ) and lead development of a fintech product on {" "}
+        ). I also founded{" "}
+        <a
+          className="hyperlink"
+          href="https://cornell-aia.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cornell AI Alignment
+        </a>{" "}
+        and lead development of a fintech product on{" "}
         <a
           className="hyperlink"
           href="https://www.cornelldti.org/"
@@ -38,8 +66,8 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Cornell Digital Tech & Innovation
-        </a>. I&apos;m also beginning Cornell AI alignment! In addition, I love to write,
-        and I sometimes publish on my{" "}
+        </a>
+        . In addition, I love to write, and I sometimes publish on my{" "}
         <a
           className="hyperlink"
           href="https://jasminexli.substack.com/"
@@ -52,7 +80,8 @@ export default function Home() {
       </p>
       <br />
       <p>
-        Previously, I worked in software engineering and data at Meta and {" "}
+        This summer I'll be at Meta, and previously I worked in software
+        engineering at{" "}
         <a
           className="hyperlink"
           href="https://ellis.com/"
@@ -74,8 +103,17 @@ export default function Home() {
       </p>
       <br />
       <p>
-        On the personal side: I grew up in 3 different continents, live in the Telluride House, and am
-        an avid backpacker and proud vegetarian. I also love hosting my friends, journaling, and watching sunsets!
+        On the personal side: I grew up on 3 different continents, live in the
+        <a
+          className="hyperlink"
+          href="https://telluridehouse.org/main/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Telluride House
+        </a>{" "}
+        as a scholar, and am an avid backpacker and proud vegetarian. I also
+        love hosting my friends, journaling, and watching sunsets!
       </p>
     </div>
   );
