@@ -67,7 +67,7 @@ export default function Home() {
         >
           Cornell Digital Tech & Innovation
         </a>
-        . In addition, I love to write, and I sometimes publish on my{" "}
+        . In addition, I love to write and publish on my{" "}
         <a
           className="hyperlink"
           href="https://jasminexli.substack.com/"
