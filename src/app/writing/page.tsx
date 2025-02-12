@@ -28,7 +28,7 @@ export default function Writing() {
             Dec 17, 2023 | Cornell James E. Rice, Jr., Prize
           </p>
         </li>
-        <li className="mb-2">
+        {/* <li className="mb-2">
           <a
             href="https://docs.google.com/document/d/1L0C0s5t7LlKUAxJQ6yJ-c_EUr4OWnj0H9jy0X5BMF3A/edit?usp=sharing"
             className="text-custom-green"
@@ -36,7 +36,7 @@ export default function Writing() {
             notes on chinese &apos;satellite teens&apos;
           </a>
           <p className="italic">Jan 11, 2024</p>
-        </li>
+        </li> */}
         <li className="mb-2">
           <a
             href="https://cornellsun.com/2024/09/10/old-remedies-new-perspectives-finding-healing-in-chinese-medicine/"
