@@ -80,7 +80,7 @@ export default function Home() {
       </p>
       <br />
       <p>
-        This summer I'll be at Meta, and previously I worked in software
+        This summer I&apos;ll be at Meta, and previously I worked in software
         engineering at{" "}
         <a
           className="hyperlink"
