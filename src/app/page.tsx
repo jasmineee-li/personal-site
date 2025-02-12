@@ -103,7 +103,7 @@ export default function Home() {
       </p>
       <br />
       <p>
-        On the personal side: I grew up on 3 different continents, live in the
+        On the personal side: I grew up on 3 different continents, live in the{" "}
         <a
           className="hyperlink"
           href="https://telluridehouse.org/main/"
