@@ -21,24 +21,34 @@ export default function Home() {
       </p>
       <br />
       <p>
-        Currently, I do AI alignment research under{" "}
+        Currently, I work on LLM reasoning faithfulness, benchmarking, and
+        recommendation systems; I am fortunate to be advised by{" "}
         <a
           className="hyperlink"
           href="https://pi.math.cornell.edu/~levine/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Prof. Lionel Levine
+          Lionel Levine
         </a>{" "}
-        at Cornell, as well as a variety of independent alignment projects (most
-        recently{" "}
+        and{" "}
+        <a
+          className="hyperlink"
+          href="https://gargnikhil.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Nikhil Garg
+        </a>{" "}
+        . I also contribute to a variety of independent alignment projects,
+        including{" "}
         <a
           className="hyperlink"
           href="https://arxiv.org/pdf/2406.20087"
           target="_blank"
           rel="noopener noreferrer"
         >
-          this
+          ProgressGym
         </a>{" "}
         and{" "}
         <a
@@ -47,9 +57,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          this
+          SPAR
         </a>
-        ). I also founded{" "}
+        . I founded{" "}
         <a
           className="hyperlink"
           href="https://cornell-aia.org/"
