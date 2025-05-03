@@ -23,13 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen items-center justify-center bg-background">
           <Navbar />
-          <main className="flex-grow px-4">
-            <div className="max-w-[720px] mx-auto">{children}</div>
+          <main className="flex-grow px-4 max-w-[720px] mx-auto">
+            {children}
           </main>
-          <Footer /> {/* Add the Footer here */}
         </div>
+        <Footer />
       </body>
     </html>
   );

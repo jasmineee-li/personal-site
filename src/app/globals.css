@@ -10,12 +10,27 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  /* Add Charter font with fallbacks */
+  font-family: "Charter";
+  font-size: 1.1rem;
 }
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-.text-custom-green {
+/* Remove or update custom green if not needed */
+/* .text-custom-green {
   color: #6ab04c;
+} */
+
+/* Add styles for hyperlinks using accent colors */
+.hyperlink {
+  color: var(--accent);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.hyperlink:hover {
+  color: var(--accent-hover);
 }

@@ -3,9 +3,10 @@ import "./page.css";
 export default function Home() {
   return (
     <div className="py-8">
-      <p className="mb-4">Hello!</p>
+      <h1 className="text-4xl font-bold mb-6">Jasmine Li</h1>
+      <p className="mb-4">Hello! I&apos;m Jasmine.</p>
       <p>
-        I&apos;m Jasmine, a{" "}
+        I&apos;m an undergrad{" "}
         <a
           className="hyperlink"
           href="https://milstein-program.as.cornell.edu/"
@@ -14,15 +15,14 @@ export default function Home() {
         >
           Milstein Scholar
         </a>{" "}
-        at Cornell studying computer science and philosophy. I&apos;m fired up
-        by strong communities, cool ideas, and doing good things in the world!
-        To this end, I&apos;m interested in AI safety, literature, software for
-        good, and community-building.
+        at Cornell, studying CS and philosophy. I care about strong communities,
+        cool ideas, and doing meaningful good in the world.
       </p>
       <br />
       <p>
-        Currently, I work on LLM reasoning faithfulness, benchmarking, and
-        recommendation systems; I am fortunate to be advised by{" "}
+        Currently, I&apos;m focused on helping the development of advanced AI go
+        well. My research focuses on evaluations and benchmarks for LLM honesty
+        and cybersecurity threats. I am fortunate to be advised by{" "}
         <a
           className="hyperlink"
           href="https://pi.math.cornell.edu/~levine/"
@@ -34,32 +34,13 @@ export default function Home() {
         and{" "}
         <a
           className="hyperlink"
-          href="https://gargnikhil.com/"
+          href="https://www.linkedin.com/in/mmazeika"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Nikhil Garg
+          Mantas Mazeika
         </a>{" "}
-        . I also contribute to a variety of independent alignment projects,
-        including{" "}
-        <a
-          className="hyperlink"
-          href="https://arxiv.org/pdf/2406.20087"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ProgressGym
-        </a>{" "}
-        and{" "}
-        <a
-          className="hyperlink"
-          href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          SPAR
-        </a>
-        . I founded{" "}
+        . I also lead{" "}
         <a
           className="hyperlink"
           href="https://cornell-aia.org/"
@@ -68,30 +49,59 @@ export default function Home() {
         >
           Cornell AI Alignment
         </a>{" "}
-        and lead development of a fintech product on{" "}
+        and contributed to a variety of independent alignment projects,
+        including{" "}
         <a
           className="hyperlink"
-          href="https://www.cornelldti.org/"
+          href="https://arxiv.org/pdf/2406.20087"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Cornell Digital Tech & Innovation
+          ProgressGym
         </a>
-        . In addition, I love to write and publish on my{" "}
+        . This summer I&apos;ll be at Gray Swan AI, working on agentic
+        monitoring models and benchmarks.
+      </p>
+      <br />
+      <p>
+        I also really love{" "}
+        <a
+          className="hyperlink"
+          href="https://scholar.google.com/citations?user=LSidePQAAAAJ&hl=en&authuser=1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          bioengineering
+        </a>
+        ,{" "}
         <a
           className="hyperlink"
           href="https://jasminexli.substack.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Substack
+          writing{" "}
         </a>
-        .
-      </p>
-      <br />
-      <p>
-        This summer I&apos;ll be at Meta, and previously I worked in software
-        engineering at{" "}
+        (especially with{" "}
+        <a
+          className="hyperlink"
+          href="https://x.com/jasminexli/status/1897138031410471028"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          friends
+        </a>
+        !), and{" "}
+        <a
+          className="hyperlink"
+          href="https://www.cornelldti.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          building 0-1 products.
+        </a>
+        {/* . In addition, I love to write and publish on my . This summer I&apos;ll
+        be at Meta, and previously I worked in software engineering at{" "}
         <a
           className="hyperlink"
           href="https://ellis.com/"
@@ -109,7 +119,7 @@ export default function Home() {
         >
           researched analytical chemistry
         </a>{" "}
-        and science ethics education.
+        and science ethics education. */}
       </p>
       <br />
       <p>
@@ -122,8 +132,8 @@ export default function Home() {
         >
           Telluride House
         </a>{" "}
-        as a scholar, and am an avid backpacker and proud vegetarian. I also
-        love hosting my friends, journaling, and watching sunsets!
+        as a scholar (🫶), and am an avid backpacker and outdoors person. I like
+        hosting my friends, reading poetry, journaling, and watching sunsets!
       </p>
     </div>
   );
