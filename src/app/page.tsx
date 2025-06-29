@@ -72,8 +72,8 @@ export default function Home() {
         >
           Milstein Scholar
         </a>{" "}
-        at Cornell, studying CS and philosophy. I care about strong communities,
-        cool ideas, and doing meaningful good in the world.
+        at Cornell, studying CS, philosophy, and English. I care about strong
+        communities, cool ideas, and doing meaningful good in the world.
       </p>
       <br />
       <p>
