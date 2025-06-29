@@ -30,7 +30,7 @@ export default function Projects() {
             mechanisms and Llama 2 models
           </a>
           <p className="italic">
-            SP24 Berkeley Supervised Program for Alignment Research, Mentor:
+            ICML 2025 NewInML Workshop. Berkeley Supervised Program for Alignment Research, Mentor:
             Abdur Raheem Ali
           </p>
         </li>

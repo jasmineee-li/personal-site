@@ -1,6 +1,63 @@
+"use client";
 import "./page.css";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const scrollWidth = carousel.scrollWidth;
+    const clientWidth = carousel.clientWidth;
+    let scrollPosition = 0;
+    const scrollSpeed = 1; // pixels per frame
+    const pauseDuration = 2000; // pause at end in milliseconds
+    let isPaused = false;
+
+    const autoScroll = () => {
+      if (isPaused) return;
+
+      scrollPosition += scrollSpeed;
+
+      // Reset to start when reaching the end
+      if (scrollPosition >= scrollWidth - clientWidth) {
+        isPaused = true;
+        setTimeout(() => {
+          scrollPosition = 0;
+          carousel.scrollTo({ left: 0, behavior: "smooth" });
+          setTimeout(() => {
+            isPaused = false;
+          }, 1000);
+        }, pauseDuration);
+        return;
+      }
+
+      carousel.scrollTo({ left: scrollPosition, behavior: "auto" });
+    };
+
+    const interval = setInterval(autoScroll, 50);
+
+    // Pause on hover
+    const handleMouseEnter = () => clearInterval(interval);
+    const handleMouseLeave = () => {
+      if (!isPaused) {
+        const newInterval = setInterval(autoScroll, 50);
+        return () => clearInterval(newInterval);
+      }
+    };
+
+    carousel.addEventListener("mouseenter", handleMouseEnter);
+    carousel.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      clearInterval(interval);
+      carousel.removeEventListener("mouseenter", handleMouseEnter);
+      carousel.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   return (
     <div className="py-8">
       <h1 className="text-4xl font-bold mb-6">Jasmine Li</h1>
@@ -21,8 +78,9 @@ export default function Home() {
       <br />
       <p>
         Currently, I&apos;m focused on helping the development of advanced AI go
-        well. My research focuses on evaluations and benchmarks for LLM honesty
-        and cybersecurity threats. I am fortunate to be advised by{" "}
+        well. This summer, I&apos;m developing agentic monitoring models at Gray
+        Swan AI! Previously, I have also worked on LLM honesty, model
+        calibration, and disposition benchmarking, advised by{" "}
         <a
           className="hyperlink"
           href="https://pi.math.cornell.edu/~levine/"
@@ -39,7 +97,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Mantas Mazeika
-        </a>{" "}
+        </a>
         . I also lead{" "}
         <a
           className="hyperlink"
@@ -49,8 +107,7 @@ export default function Home() {
         >
           Cornell AI Alignment
         </a>{" "}
-        and contributed to a variety of independent alignment projects,
-        including{" "}
+        and contribute to a variety of independent alignment projects, including{" "}
         <a
           className="hyperlink"
           href="https://arxiv.org/pdf/2406.20087"
@@ -59,8 +116,7 @@ export default function Home() {
         >
           ProgressGym
         </a>
-        . This summer I&apos;ll be at Gray Swan AI, working on agentic
-        monitoring models and benchmarks.
+        .
       </p>
       <br />
       <p>
@@ -133,8 +189,73 @@ export default function Home() {
           Telluride House
         </a>{" "}
         as a scholar (🫶), and am an avid backpacker and outdoors person. I like
-        hosting my friends, reading poetry, journaling, and watching sunsets!
+        hosting community events and dinner parties, reading sweeping novels
+        (most recently, East of Eden), journaling, and watching sunsets!
       </p>
+
+      {/* Photo Carousel */}
+      <div className="mt-12">
+        <div className="carousel-container" ref={carouselRef}>
+          <div className="carousel-track">
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_6149.JPG"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_5634.jpg"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_4330.jpg"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_2781.jpg"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_2108.jpg"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_1871.jpg"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_1174.JPEG"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/assets/IMG_0210.JPG"
+                alt="Personal photo"
+                className="carousel-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -9,3 +9,83 @@
   text-decoration-color: #6ab04c; /* Change underline to a muted green on hover */
   color: #6ab04c; /* Change text color to a muted green on hover */
 }
+
+/* Carousel Styles */
+.carousel-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 transparent;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 4px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: #d1d1d1;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  width: max-content;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carousel-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 160px;
+    height: 110px;
+  }
+
+  .carousel-track {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    width: 140px;
+    height: 100px;
+  }
+
+  .carousel-track {
+    gap: 8px;
+  }
+}
