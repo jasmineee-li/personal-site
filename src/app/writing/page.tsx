@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import "./style.css";
 
 interface SubstackPost {
@@ -103,10 +104,12 @@ export default function Writing() {
                 >
                   <div className="substack-post">
                     {imgUrl && (
-                      <img
+                      <Image
                         src={imgUrl}
                         alt={post.title || "Substack post image"}
                         className="substack-thumbnail"
+                        width={240}
+                        height={180}
                         loading="lazy"
                       />
                     )}
