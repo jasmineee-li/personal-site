@@ -67,7 +67,7 @@
   object-position: center;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for carousel */
 @media (max-width: 768px) {
   .carousel-item {
     width: 160px;
@@ -87,5 +87,20 @@
 
   .carousel-track {
     gap: 8px;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.875rem !important; /* 30px instead of larger */
+  }
+  
+  h2 {
+    font-size: 1.5rem !important; /* 24px */
+  }
+  
+  h3 {
+    font-size: 1.25rem !important; /* 20px */
   }
 }

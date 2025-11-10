@@ -14,6 +14,13 @@ body {
   font-family: "Charter";
   font-size: 1.1rem;
 }
+
+/* Responsive font sizing */
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -1,66 +1,66 @@
 "use client";
 import "./page.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    const scrollWidth = carousel.scrollWidth;
-    const clientWidth = carousel.clientWidth;
     let scrollPosition = 0;
-    const scrollSpeed = 1; // pixels per frame
+    const scrollSpeed = 0.5; // pixels per frame
     const pauseDuration = 2000; // pause at end in milliseconds
     let isPaused = false;
+    let animationFrameId: number;
+    let pauseTimeoutId: NodeJS.Timeout;
+    let resumeTimeoutId: NodeJS.Timeout;
 
     const autoScroll = () => {
-      if (isPaused) return;
+      if (isPaused || isHovered) {
+        animationFrameId = requestAnimationFrame(autoScroll);
+        return;
+      }
+
+      const scrollWidth = carousel.scrollWidth;
+      const clientWidth = carousel.clientWidth;
 
       scrollPosition += scrollSpeed;
 
       // Reset to start when reaching the end
       if (scrollPosition >= scrollWidth - clientWidth) {
         isPaused = true;
-        setTimeout(() => {
+        pauseTimeoutId = setTimeout(() => {
           scrollPosition = 0;
-          carousel.scrollTo({ left: 0, behavior: "smooth" });
-          setTimeout(() => {
+          carousel.scrollLeft = 0; // Instant reset instead of smooth
+          resumeTimeoutId = setTimeout(() => {
             isPaused = false;
-          }, 1000);
+          }, 500);
         }, pauseDuration);
-        return;
+      } else {
+        carousel.scrollLeft = scrollPosition; // Direct property assignment is faster
       }
 
-      carousel.scrollTo({ left: scrollPosition, behavior: "auto" });
+      animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    const interval = setInterval(autoScroll, 50);
-
-    // Pause on hover
-    const handleMouseEnter = () => clearInterval(interval);
-    const handleMouseLeave = () => {
-      if (!isPaused) {
-        const newInterval = setInterval(autoScroll, 50);
-        return () => clearInterval(newInterval);
-      }
-    };
-
-    carousel.addEventListener("mouseenter", handleMouseEnter);
-    carousel.addEventListener("mouseleave", handleMouseLeave);
+    animationFrameId = requestAnimationFrame(autoScroll);
 
     return () => {
-      clearInterval(interval);
-      carousel.removeEventListener("mouseenter", handleMouseEnter);
-      carousel.removeEventListener("mouseleave", handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(pauseTimeoutId);
+      clearTimeout(resumeTimeoutId);
     };
-  }, []);
+  }, [isHovered]);
 
   return (
-    <div className="py-8">
-      <h1 className="text-4xl font-bold mb-6">Jasmine Li</h1>
+    <div className="py-6 sm:py-8">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">
+        Jasmine Li
+      </h1>
       <p className="mb-4">Hello! I&apos;m Jasmine.</p>
       <p>
         I&apos;m an undergrad{" "}
@@ -194,63 +194,100 @@ export default function Home() {
       </p>
 
       {/* Photo Carousel */}
-      <div className="mt-12">
-        <div className="carousel-container" ref={carouselRef}>
+      <div className="mt-8 sm:mt-12">
+        <div
+          className="carousel-container"
+          ref={carouselRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div className="carousel-track">
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_6149.JPG"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_5634.jpg"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_4330.jpg"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_2781.jpg"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_2108.jpg"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_1871.jpg"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_1174.JPEG"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
             <div className="carousel-item">
-              <img
+              <Image
                 src="/assets/IMG_0210.JPG"
                 alt="Personal photo"
                 className="carousel-image"
+                width={400}
+                height={300}
+                quality={85}
+                loading="lazy"
               />
             </div>
           </div>

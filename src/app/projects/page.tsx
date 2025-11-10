@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Projects() {
   return (
-    <div className="py-8">
+    <div className="py-6 sm:py-8">
       {/* <h1 className="text-3xl font-bold mb-4">My Projects</h1> */}
-      <h2 className="text-2xl font-bold mt-6 mb-4">Research</h2>
+      <h2 className="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-4">Research</h2>
       {/* <p>
         I&apos;m interested in AI alignment, analytical chemistry, and US-CN
         policy!{" "}
@@ -78,9 +78,9 @@ export default function Projects() {
       </ul>
 
       {/* New Code Section */}
-      <h2 className="text-2xl font-bold mt-6 mb-4">Code</h2>
+      <h2 className="text-xl sm:text-2xl font-bold mt-6 sm:mt-8 mb-4">Code</h2>
       {/* <p>to come :D</p> */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="border p-4">
           <Image
             src="/assets/ritu.png"
