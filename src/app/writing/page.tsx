@@ -66,9 +66,9 @@ export default function Writing() {
     str && str.length > max ? `${str.slice(0, max)}…` : str || "";
 
   return (
-    <div className="py-6 sm:py-8">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-4">Writing</h1>
-      <p className="mb-4 sm:mb-6">
+    <div className="py-12 sm:py-16">
+      <h1 className="text-xl font-medium mb-6 accent-font">Writing</h1>
+      <p className="mb-6 text-base leading-relaxed">
         I publish essays at{" "}
         <a
           className="hyperlink"
@@ -134,8 +134,8 @@ export default function Writing() {
         )}
       </div>
 
-      <div className="mt-8 sm:mt-12">
-        <h2 className="text-xl sm:text-2xl font-bold mb-4">Other Writing</h2>
+      <div className="mt-12 border-t border-gray-200 pt-8">
+        <h2 className="text-xl font-medium mb-6 accent-font">Other Writing</h2>
         <ul className="py-4">
           <li className="mb-2">
             <a

@@ -1,26 +1,16 @@
-/* src/app/page.css */
-.hyperlink {
-  text-decoration: underline;
-  text-decoration-color: lightgray; /* Lighter gray underline */
-  color: inherit; /* Inherit text color */
-}
+/* Home page specific styles */
 
-.hyperlink:hover {
-  text-decoration-color: #6ab04c; /* Change underline to a muted green on hover */
-  color: #6ab04c; /* Change text color to a muted green on hover */
-}
-
-/* Carousel Styles */
+/* Carousel Styles - minimal design */
 .carousel-container {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #e5e5e5 transparent;
+  scrollbar-color: #d0d0d0 transparent;
 }
 
 .carousel-container::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .carousel-container::-webkit-scrollbar-track {
@@ -28,18 +18,18 @@
 }
 
 .carousel-container::-webkit-scrollbar-thumb {
-  background: #e5e5e5;
-  border-radius: 4px;
+  background: #d0d0d0;
+  border-radius: 3px;
 }
 
 .carousel-container::-webkit-scrollbar-thumb:hover {
-  background: #d1d1d1;
+  background: #b0b0b0;
 }
 
 .carousel-track {
   display: flex;
-  gap: 16px;
-  padding: 8px;
+  gap: 12px;
+  padding: 4px;
   width: max-content;
 }
 
@@ -47,17 +37,14 @@
   flex: 0 0 auto;
   width: 200px;
   height: 140px;
-  border-radius: 12px;
+  border-radius: 2px;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+  transition: opacity 0.2s ease;
 }
 
 .carousel-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  opacity: 0.85;
 }
 
 .carousel-image {

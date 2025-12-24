@@ -1,6 +1,6 @@
 export default function Resume() {
   return (
-    <div className="py-6 sm:py-8">
+    <div className="py-12 sm:py-16">
       <iframe
         src="https://drive.google.com/file/d/1eqYPVnBpl7qqDlN32IkAKNUB1UpcsSCb/preview"
         width="100%"
