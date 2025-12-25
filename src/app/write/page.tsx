@@ -158,7 +158,6 @@ export default function WritePage() {
     if (!hasStarted || mode !== "write") return;
 
     const endTime = Date.now() + remainingMs;
-    const segmentMs = currentSegmentMs || remainingMs;
 
     timerIntervalRef.current = setInterval(() => {
       const remaining = endTime - Date.now();
@@ -175,6 +174,7 @@ export default function WritePage() {
     return () => {
       if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasStarted, mode]);
 
   const progressPercent =

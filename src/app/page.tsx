@@ -179,8 +179,8 @@ export default function Home() {
         <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-4">
           {" "}
-          I&apos;m currently researching, and studying CS and English at Cornell
-          as a{" "}
+          I research technical safeguards for artificial intelligence, and study
+          CS and English at Cornell as a{" "}
           <a
             className="hyperlink"
             href="https://milstein-program.as.cornell.edu/"
@@ -202,8 +202,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care lots about making the development of advanced AI go well.
-          I&apos;m currently a{" "}
+          I care about making the development of advanced AI go well. I&apos;m
+          currently a{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
@@ -213,8 +213,9 @@ export default function Home() {
             MATS scholar
           </a>{" "}
           under Victoria Krakovna, developing honeypots for scheming propensity.
-          Most recently, I&apos;ve worked on agentic monitoring at Gray Swan AI
-          and LLM honesty at the Center for AI Safety. I also founded and lead{" "}
+          Most recently, I developed agent security evaluations at Gray Swan AI
+          and developed methods for LLM honesty at the Center for AI Safety. I
+          also founded and lead{" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -223,7 +224,7 @@ export default function Home() {
           >
             Cornell AI Alignment
           </a>
-          . See my{" "}
+          ! See my{" "}
           <Link href="/projects" className="hyperlink">
             research
           </Link>{" "}
@@ -304,7 +305,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-sm mb-6">
-            I'm writing one blog post per day in 2026. My stack is{" "}
+            I&apos;m writing one blog post per day in 2026. My stack is{" "}
             <Link href="/write" className="hyperlink">
               this
             </Link>
