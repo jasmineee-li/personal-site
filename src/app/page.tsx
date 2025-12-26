@@ -268,9 +268,8 @@ export default function Home() {
           >
             outdoor adventures
           </span>
-          , running at dawn, friends&apos; blogs, listening to others talk about
-          their obsessions, tomato egg noodles, self-understanding, and meeting
-          new people. Please reach out and say hi (
+          , tomato egg noodles, self-integrity, and learning what, and how,
+          others love. Please reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
