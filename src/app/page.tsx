@@ -55,6 +55,7 @@ export default function Home() {
   const [persimmonPositions, setPersimmonPositions] = useState<
     PersimmonPosition[]
   >([]);
+  const [persimmonKey, setPersimmonKey] = useState(0);
 
   useEffect(() => {
     const fetchSubstackFeed = async () => {
@@ -115,6 +116,7 @@ export default function Home() {
         });
       }
       setPersimmonPositions(positions);
+      setPersimmonKey((prev) => prev + 1); // Force fresh animation on each hover
       setShowPersimmons(true);
       setActiveFootnote("persimmons");
     } else {
@@ -470,7 +472,7 @@ export default function Home() {
 
       {/* Persimmon animation overlay */}
       {showPersimmons && (
-        <div className="persimmon-overlay">
+        <div className="persimmon-overlay" key={persimmonKey}>
           {persimmonPositions.map((pos) => (
             <Image
               key={pos.id}
