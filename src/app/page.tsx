@@ -306,7 +306,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-sm mb-6">
-            I'm writing one blog post per day in 2026. My stack is{" "}
+            I&apos;m writing one blog post per day in 2026. My stack is{" "}
             <a
 href="https://github.com/jasmineee-li/zap-writing-plugin"
 className="hyperlink"
