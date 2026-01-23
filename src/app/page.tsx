@@ -55,7 +55,6 @@ export default function Home() {
   const [persimmonPositions, setPersimmonPositions] = useState<
     PersimmonPosition[]
   >([]);
-  const [persimmonKey, setPersimmonKey] = useState(0);
 
   useEffect(() => {
     const fetchSubstackFeed = async () => {
@@ -116,7 +115,6 @@ export default function Home() {
         });
       }
       setPersimmonPositions(positions);
-      setPersimmonKey((prev) => prev + 1); // Force fresh animation on each hover
       setShowPersimmons(true);
       setActiveFootnote("persimmons");
     } else {
@@ -268,8 +266,9 @@ export default function Home() {
           >
             outdoor adventures
           </span>
-          , tomato egg noodles, self-integrity, and learning what, and how,
-          others love. Please reach out and say hi (
+          , running at dawn, friends&apos; blogs, listening to others talk about
+          their obsessions, tomato egg noodles, self-understanding, and meeting
+          new people. Please reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
@@ -306,13 +305,13 @@ export default function Home() {
             </div>
           </div>
           <p className="text-sm mb-6">
-            I&apos;m writing one blog post per day in 2026. My stack is{" "}
+            I like to write, and want to write more! My stack is{" "}
             <a
-href="https://github.com/jasmineee-li/zap-writing-plugin"
-className="hyperlink"
+              href="https://github.com/jasmineee-li/zap-writing-plugin"
+              className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
->
+            >
               this
             </a>
             .
@@ -476,7 +475,7 @@ className="hyperlink"
 
       {/* Persimmon animation overlay */}
       {showPersimmons && (
-        <div className="persimmon-overlay" key={persimmonKey}>
+        <div className="persimmon-overlay">
           {persimmonPositions.map((pos) => (
             <Image
               key={pos.id}
