@@ -178,7 +178,6 @@ export default function Home() {
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-4">
-          {" "}
           I research technical safeguards for artificial intelligence, and study
           CS and English at Cornell as a{" "}
           <a
@@ -202,8 +201,10 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care about making the development of advanced AI go well. I&apos;m
-          currently a{" "}
+          I care about making the development of advanced AI go well —
+          that&apos;s one reason I do research. (The other is that it&apos;s
+          incredibly fun and fulfilling, and I get to work with wonderful people
+          who inspire me!) I&apos;m currently a winter 2026{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
@@ -212,10 +213,10 @@ export default function Home() {
           >
             MATS scholar
           </a>{" "}
-          under Victoria Krakovna, developing honeypots for scheming propensity.
-          Most recently, I developed agent security evaluations at Gray Swan AI
-          and developed methods for LLM honesty at the Center for AI Safety. I
-          also founded and lead{" "}
+          under Alex Turner (go Team Shard!!), doing model biology for
+          evaluation awareness. Previously, I developed agent security
+          evaluations at Gray Swan AI and methods for LLM honesty at the Center
+          for AI Safety. I also founded{" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -236,7 +237,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          Other things I love:{" "}
+          I&apos;m most motivated by spending the present well and building
+          flourishing, free futures for humanity. Other loves of mine:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -246,8 +248,7 @@ export default function Home() {
           >
             persimmons
           </span>
-          , progress and flourishing, optimistic science fiction and beautiful
-          poetry, AI for science,{" "}
+          , optimistic science fiction, AI for science,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -255,20 +256,13 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             the 10% pledge 🔸
-          </a>
-          ,{" "}
-          <span
-            className={`hoverable-footnote ${
-              activeFootnote === "climbing" ? "active" : ""
-            }`}
-            onMouseEnter={() => handleFootnoteHover("climbing")}
-            onMouseLeave={() => handleFootnoteHover(null)}
-          >
-            outdoor adventures
-          </span>
-          , running at dawn, friends&apos; blogs, listening to others talk about
-          their obsessions, tomato egg noodles, self-understanding, and meeting
-          new people. Please reach out and say hi (
+          </a>{" "}
+          (you should sign it!), long hikes, running at dawn, my{" "}
+          <Link href="/friends" className="hyperlink">
+            friends
+          </Link>
+          , vegetarianism, self-understanding, and meeting new people. Please
+          reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
