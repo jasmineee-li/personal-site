@@ -46,6 +46,14 @@ const Navbar = () => {
             Now
           </Link>
           <Link
+            href="/friends"
+            className={`grid-navbar-cell ${
+              pathname === "/friends" ? "active" : ""
+            }`}
+          >
+            Friends
+          </Link>
+          <Link
             href="/resume"
             className={`grid-navbar-cell ${
               pathname === "/resume" ? "active" : ""
