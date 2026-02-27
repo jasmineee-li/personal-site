@@ -1,9 +1,9 @@
 export default function Friends() {
   const friends = [
     { name: "Sudarsh", url: "https://sudarsh.com/" },
-    { name: "Jonee", url: "https://joneedssleep.github.io/" },
+    { name: "Jo", url: "https://joneedssleep.github.io/" },
     { name: "Yixiong", url: "https://yixiong.dev/" },
-    { name: "Parv Mahajan", url: "https://parvmahajan.com/" },
+    { name: "Parv", url: "https://parvmahajan.com/" },
     { name: "Jason", url: "https://jason.ml/" },
   ];
 
