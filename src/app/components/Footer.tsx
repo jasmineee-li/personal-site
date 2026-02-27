@@ -2,7 +2,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-200 mt-16 py-8 bg-white">
+    <footer className="border-t border-gray-200 mt-16 py-8" style={{ background: 'var(--background)' }}>
       <div className="max-w-[720px] mx-auto px-6">
         <div className="text-sm text-gray-600 mb-3">
           jasminexinzeli at gmail

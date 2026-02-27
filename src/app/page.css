@@ -5,25 +5,11 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #d0d0d0 transparent;
+  scrollbar-width: none;
 }
 
 .carousel-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.carousel-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.carousel-container::-webkit-scrollbar-thumb {
-  background: #d0d0d0;
-  border-radius: 3px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb:hover {
-  background: #b0b0b0;
+  display: none;
 }
 
 .carousel-track {
@@ -39,7 +25,7 @@
   height: 140px;
   border-radius: 2px;
   overflow: hidden;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   transition: opacity 0.2s ease;
 }
 

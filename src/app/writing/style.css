@@ -16,7 +16,7 @@
   text-decoration: none;
   color: inherit;
   transition: opacity 0.2s ease;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-color);
   padding-top: 1.5rem;
 }
 
@@ -36,7 +36,7 @@
   height: 150px;
   object-fit: cover;
   flex-shrink: 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   border-radius: 2px;
 }
 
@@ -63,18 +63,18 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  color: #1a1a1a;
+  color: var(--foreground);
 }
 
 .substack-date {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .substack-desc {
   font-size: 0.9375rem;
-  color: #4a4a4a;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -83,11 +83,15 @@
 .substack-empty {
   padding: 2rem;
   text-align: center;
-  color: #666;
+  color: var(--text-secondary);
   font-style: italic;
   font-size: 0.9rem;
 }
 
 .substack-error {
   color: #c03030;
+}
+
+[data-theme="dark"] .substack-error {
+  color: #e06060;
 }
