@@ -16,6 +16,43 @@ export default function Now() {
         fellow, based in sunny Berkeley! I&apos;m working on the science of evaluations with Victoria Krakovna and Alex Turner. In particular, I want to figure out how we can make safety and scheming propensity evals still faithfully predict behaviors of interest as models become increasingly evaluation-aware. It would be a real shame if pre-deployment evals stopped working, and I want to prevent that. 
       </p>
 
+      <p className="mb-4 text-base leading-relaxed">
+        I&apos;m also co-organizing{" "}
+        <a
+          className="hyperlink"
+          href="https://proxima.ink/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Proxima
+        </a>{" "}
+        for winter 2026 AI safety fellows in the Berkeley community with my
+        friend{" "}
+        <a
+          className="hyperlink"
+          href="https://parvmahajan.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Parv
+        </a>
+        , and the{" "}
+        <a
+          className="hyperlink"
+          href="http://idealistscollective.org/unconference"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Idealists Unconference
+        </a>{" "}
+        in the UK this April for the wonderful Idealists Collective.
+      </p>
+
+      <p className="mb-4 text-base leading-relaxed">
+        I&apos;ve also been thinking a lot lately about gradual disempowerment
+        and civilizational resilience.
+      </p>
+
       <h2 className="text-lg font-medium mt-10 mb-4 accent-font">
         Current goals
       </h2>
@@ -26,7 +63,7 @@ export default function Now() {
 
       <div className="mt-8 pt-6 border-t border-gray-300">
         <p className="text-sm text-gray-600">
-          Last updated Jan 23, 2025.{" "}
+          Last updated Feb 26, 2026.{" "}
           <a
             href="https://nownownow.com/about"
             className="hyperlink"

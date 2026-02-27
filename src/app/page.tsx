@@ -98,10 +98,6 @@ export default function Home() {
     }
   };
 
-  const handleFootnoteHover = (id: string | null) => {
-    setActiveFootnote(id);
-  };
-
   const handlePersimmonHover = (isHovering: boolean) => {
     if (isHovering) {
       // Generate random positions for persimmons
@@ -178,7 +174,6 @@ export default function Home() {
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-4">
-          {" "}
           I research technical safeguards for artificial intelligence, and study
           CS and English at Cornell as a{" "}
           <a
@@ -202,8 +197,10 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care about making the development of advanced AI go well. I&apos;m
-          currently a{" "}
+          I care about making the development of advanced AI go well —
+          that&apos;s one reason I do research. (The other is that it&apos;s
+          incredibly fun and fulfilling, and I get to work with wonderful people
+          who inspire me!) I&apos;m currently a winter 2026{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
@@ -212,10 +209,10 @@ export default function Home() {
           >
             MATS scholar
           </a>{" "}
-          under Victoria Krakovna, developing honeypots for scheming propensity.
-          Most recently, I developed agent security evaluations at Gray Swan AI
-          and developed methods for LLM honesty at the Center for AI Safety. I
-          also founded and lead{" "}
+          under Alex Turner (go Team Shard!!), doing model biology for
+          evaluation awareness. Previously, I developed agent security
+          evaluations at Gray Swan AI and methods for LLM honesty at the Center
+          for AI Safety. I also founded{" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -236,7 +233,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          Other things I love:{" "}
+          I&apos;m most motivated by spending the present well and building
+          flourishing, free futures for humanity. Other loves of mine:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -246,8 +244,7 @@ export default function Home() {
           >
             persimmons
           </span>
-          , progress and flourishing, optimistic science fiction and beautiful
-          poetry, AI for science,{" "}
+          , optimistic science fiction, AI for science,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -255,96 +252,21 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             the 10% pledge 🔸
-          </a>
-          ,{" "}
-          <span
-            className={`hoverable-footnote ${
-              activeFootnote === "climbing" ? "active" : ""
-            }`}
-            onMouseEnter={() => handleFootnoteHover("climbing")}
-            onMouseLeave={() => handleFootnoteHover(null)}
-          >
-            outdoor adventures
-          </span>
-          , running at dawn, friends&apos; blogs, listening to others talk about
-          their obsessions, tomato egg noodles, self-understanding, and meeting
-          new people. Please reach out and say hi (
+          </a>{" "}
+          (you should sign it!), long hikes, running at dawn, my{" "}
+          <Link href="/friends" className="hyperlink">
+            friends
+          </Link>
+          , vegetarianism, self-understanding, and meeting new people. Please
+          reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
           )!
         </p>
 
-        {/* Recent Posts */}
-        <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
-          <div className="flex justify-between items-baseline mb-2 flex-wrap gap-3">
-            <h2 className="text-xl font-medium accent-font">Recent posts</h2>
-            <div className="flex gap-4 items-center">
-              <button onClick={handleRandomPost} className="random-button">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="random-icon"
-                >
-                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                </svg>
-                Random
-              </button>
-              <Link
-                href="/writing"
-                className="text-sm  hover:text-gray-900 transition-colors"
-              >
-                All posts →
-              </Link>
-            </div>
-          </div>
-          <p className="text-sm mb-6">
-            I like to write, and want to write more! My stack is{" "}
-            <a
-              href="https://github.com/jasmineee-li/zap-writing-plugin"
-              className="hyperlink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              this
-            </a>
-            .
-          </p>
-          {postsLoading ? (
-            <p className="text-sm text-gray-500 py-4">Loading posts...</p>
-          ) : (
-            <ul className="space-y-4">
-              {recentPosts.map((post, index) => (
-                <li key={index}>
-                  <a
-                    href={post.link}
-                    className="block group"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="flex justify-between items-baseline gap-6">
-                      <span className="text-base group-hover:text-[#a10000] transition-colors">
-                        {post.title}
-                      </span>
-                      <span className="text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
-                        {formatDate(post.pubDate)}
-                      </span>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
         {/* Photo Carousel */}
-        <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
+        <div className="mt-10 sm:mt-12">
           <div
             className="carousel-container"
             ref={carouselRef}
@@ -442,6 +364,74 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Recent Posts */}
+        <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
+          <div className="flex justify-between items-baseline mb-2 flex-wrap gap-3">
+            <h2 className="text-xl font-medium accent-font">Recent posts</h2>
+            <div className="flex gap-4 items-center">
+              <button onClick={handleRandomPost} className="random-button">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="random-icon"
+                >
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                </svg>
+                Random
+              </button>
+              <Link
+                href="/writing"
+                className="text-sm hover:text-gray-900 transition-colors"
+              >
+                All posts →
+              </Link>
+            </div>
+          </div>
+          <p className="text-sm mb-6">
+            I like to write, and want to write more! My stack is{" "}
+            <a
+              href="https://github.com/jasmineee-li/zap-writing-plugin"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              this
+            </a>
+            .
+          </p>
+          {postsLoading ? (
+            <p className="text-sm text-gray-500 py-4">Loading posts...</p>
+          ) : (
+            <ul className="space-y-4">
+              {recentPosts.map((post, index) => (
+                <li key={index}>
+                  <a
+                    href={post.link}
+                    className="block group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="flex justify-between items-baseline gap-6">
+                      <span className="text-base group-hover:text-[#a10000] transition-colors">
+                        {post.title}
+                      </span>
+                      <span className="text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
+                        {formatDate(post.pubDate)}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 

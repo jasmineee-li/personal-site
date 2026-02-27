@@ -11,6 +11,17 @@ export default function Projects() {
       <ul className="pl-4">
         <li className="mb-2">
           <a
+            href="https://arxiv.org/abs/2509.01938"
+            className="text-custom-green"
+          >
+            EigenBench: A Comparative Behavioral Measure of Value Alignment
+          </a>
+          <p className="italic">
+            ICLR 2026 Oral. Chang, J., Piff, L., Sana, S., Li, J.X., Levine, L.
+          </p>
+        </li>
+        <li className="mb-2">
+          <a
             href="https://arxiv.org/pdf/2406.20087"
             className="text-custom-green"
           >
@@ -53,26 +64,6 @@ export default function Projects() {
             direct analysis of proteins in physiological samples
           </a>
           <p className="italic">Feb. 2021, Analytical Chemistry</p>
-        </li>
-        <li className="mb-2">
-          <a
-            href="https://docs.google.com/document/d/10l-bHw6ldT6bkbe16vVth880QCvIHAemPjJxxxlihl4/edit?usp=sharing"
-            className="text-custom-green"
-          >
-            Proposal for cheaply evaluating dangerous biochemical experimental
-            capabilities in frontier large-language models
-          </a>
-          <p className="italic">Dec 5, 2023. Personal Research.</p>
-        </li>
-        <li className="mb-2">
-          <a href="" className="text-custom-green">
-            China&apos;s International Student Recruitment Strategy as a Failed
-            Exercise of Soft Power
-          </a>
-          <p className="italic">
-            Jan 6, 2022. Stanford Freeman Spogli Institute for International
-            Studies.
-          </p>
         </li>
       </ul>
 
@@ -136,6 +127,69 @@ export default function Projects() {
           </a>
           <p className="italic">
             Frictionless friend meetups. Big Red Hacks 2024
+          </p>
+        </div>
+      </div>
+
+      {/* Chaos Section */}
+      <h2 className="text-xl font-medium mt-12 border-t border-gray-200 pt-8 mb-2 accent-font">
+        Chaos
+      </h2>
+      <p className="mb-6 italic">oh to organize silly little events with friends!</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="border p-4">
+          <a
+            href="https://proxima.ink/"
+            className="text-custom-green"
+          >
+            Proxima
+          </a>
+          <p className="italic">
+            a community space for creative friends on the internet
+          </p>
+        </div>
+        <div className="border p-4">
+          <a
+            href="https://idealistscollective.org/unconference"
+            className="text-custom-green"
+          >
+            Idealists Collective Unconference
+          </a>
+          <p className="italic">
+            April 2026
+          </p>
+        </div>
+        <div className="border p-4">
+          <a
+            href="https://html-energy-seattle-2025.aninternet.farm/"
+            className="text-custom-green"
+          >
+            HTML Day 2025, Seattle
+          </a>
+          <p className="italic">
+            an HTML freewrite embracing HTML energy, the slow web, and community
+          </p>
+        </div>
+        <div className="border p-4">
+          <a
+            href="https://x.com/jasminexli/status/1944220797196730552"
+            className="text-custom-green"
+          >
+            Saturday 8am Walk &amp; Yaps
+          </a>
+          <p className="italic">
+            weekly saturday morning walks in seattle
+          </p>
+        </div>
+        <div className="border p-4">
+          <a
+            href="https://x.com/jasminexli/status/1897138031410471028"
+            className="text-custom-green"
+          >
+            Pen &amp; Ponder
+          </a>
+          <p className="italic">
+            a 1 month writing experiment &amp; toronto writeathon!
           </p>
         </div>
       </div>

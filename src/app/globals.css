@@ -9,21 +9,57 @@
   --link-hover: #d94d30;
   --border-color: #e0e0e0;
   --accent: #f76045;
+  --text-secondary: #666;
+  --hover-bg: #f5f5f5;
+}
+
+[data-theme="dark"] {
+  --background: #161616;
+  --foreground: #d8d8d8;
+  --link-color: #d8d8d8;
+  --link-hover: #f08070;
+  --border-color: #2a2a2a;
+  --accent: #f08070;
+  --text-secondary: #888;
+  --hover-bg: #1e1e1e;
+}
+
+/* Dark mode overrides for Tailwind utility classes */
+[data-theme="dark"] .bg-white {
+  background-color: var(--background);
+}
+
+[data-theme="dark"] .border-gray-200,
+[data-theme="dark"] .border-gray-300 {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .border {
+  border-color: var(--border-color);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Accent font for titles and nav */
 .accent-font {
-  font-family: "Courier New", Courier, monospace;
-  letter-spacing: 0.02em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.01em;
 }
 
 /* Sidebar layout for footnotes */
@@ -98,14 +134,21 @@ body {
   border-radius: 2px;
 }
 
+/* Smooth theme transition */
+body,
+.grid-navbar,
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 .footnote-caption {
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.5;
   font-style: italic;
 }
 
 .footnote-text {
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.6;
   font-size: 0.9375rem;
 }
@@ -183,7 +226,7 @@ body {
   text-decoration: underline;
   text-decoration-color: rgba(161, 0, 0, 0.3);
   text-underline-offset: 2px;
-  transition: all 1s ease;
+  transition: all 0.3s ease;
 }
 
 .hyperlink:hover {
