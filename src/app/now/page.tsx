@@ -4,7 +4,7 @@ export default function Now() {
       <h1 className="text-xl font-medium mb-6 accent-font">Now</h1>
 
       <p className="mb-4 text-base leading-relaxed">
-        I&apos;m currently a {" "}
+        I&apos;m currently a{" "}
         <a
           className="hyperlink"
           href="https://www.matsprogram.org/"
@@ -13,7 +13,12 @@ export default function Now() {
         >
           MATS 9.0
         </a>{" "}
-        fellow, based in sunny Berkeley! I&apos;m working on the science of evaluations with Victoria Krakovna and Alex Turner. In particular, I want to figure out how we can make safety and scheming propensity evals still faithfully predict behaviors of interest as models become increasingly evaluation-aware. It would be a real shame if pre-deployment evals stopped working, and I want to prevent that. 
+        fellow, based in sunny Berkeley! I&apos;m working on the science of
+        evaluations with Alex Turner. In particular, I want to figure out how we
+        can make safety and scheming propensity evals still faithfully predict
+        behaviors of interest as models become increasingly evaluation-aware. It
+        would be a real shame if pre-deployment evals stopped working, and I
+        want to prevent that.
       </p>
 
       <p className="mb-4 text-base leading-relaxed">
@@ -57,8 +62,14 @@ export default function Now() {
         Current goals
       </h2>
       <ul className="list-disc pl-6 space-y-2 mb-6 text-base leading-relaxed">
-        <li>Finishing up Gray Swan research developing better web agent evaluation infrastructure</li>
-        <li>Learning salsa! Reach out if you want to go to weekly Friday salsa classes in SF together</li>
+        <li>
+          Finishing up Gray Swan research developing better web agent evaluation
+          infrastructure
+        </li>
+        <li>
+          Learning salsa! Reach out if you want to go to weekly Friday salsa
+          classes in SF together
+        </li>
       </ul>
 
       <div className="mt-8 pt-6 border-t border-gray-300">

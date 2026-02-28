@@ -1,13 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; // Import the Footer component
+import Footer from "./components/Footer";
+import WarmAmbience from "./components/WarmAmbience";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -34,10 +42,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} antialiased`}>
-        <div className="flex flex-col min-h-screen">
+      <body className={`${geistSans.variable} ${spaceGrotesk.variable} antialiased`}>
+        <div className="flex flex-col min-h-screen relative">
+          <WarmAmbience />
           <Navbar />
-          <main className="flex-grow px-6 max-w-[720px] mx-auto w-full">
+          <main className="flex-grow px-6 max-w-[720px] mx-auto w-full relative z-[1]">
             {children}
           </main>
           <Footer />

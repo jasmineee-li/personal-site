@@ -25,6 +25,8 @@ export default function Friends() {
           </li>
         ))}
       </ul>
+
+      <p className="mt-8 text-gray-500 italic">work in progress :)</p>
     </div>
   );
 }

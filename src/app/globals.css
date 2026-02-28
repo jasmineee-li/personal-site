@@ -50,8 +50,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.125rem;
-  line-height: 1.7;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -232,6 +232,7 @@ footer {
 .hyperlink:hover {
   color: var(--link-hover);
   text-decoration-color: var(--link-hover);
+  text-shadow: 0 0 8px rgba(247, 96, 69, 0.15);
 }
 
 /* Clean, minimal headings */
