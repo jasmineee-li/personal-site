@@ -60,7 +60,7 @@ export default function Home() {
     const fetchSubstackFeed = async () => {
       try {
         const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-          "https://jasminexli.substack.com/feed"
+          "https://jasminexli.substack.com/feed",
         )}`;
         const response = await fetch(rssUrl);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -200,7 +200,11 @@ export default function Home() {
           I care about making the development of advanced AI go well —
           that&apos;s one reason I do research. (The other is that it&apos;s
           incredibly fun and fulfilling, and I get to work with wonderful people
-          who inspire me!) I&apos;m currently a winter 2026{" "}
+          who inspire me!)
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I&apos;m currently a winter 2026{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
@@ -244,7 +248,7 @@ export default function Home() {
           >
             persimmons
           </span>
-          , optimistic science fiction, AI for science,{" "}
+          , optimistic science fiction, group living,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -253,11 +257,11 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>{" "}
-          (you should sign it!), long hikes, running at dawn, my{" "}
+          (you should sign it!), long hikes, my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
-          , vegetarianism, self-understanding, and meeting new people. Please
+          , tomato egg noodles, self-understanding, and meeting new people. Please
           reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
