@@ -28,7 +28,8 @@ export default function Projects() {
             ProgressGym: Alignment with a Millennium of Moral Progress
           </a>
           <p className="italic">
-            NeurIPS 2024. Qiu, T., Zhang, Y., Huang, Z., Li, J.X., et al.
+            NeurIPS 2024 Spotlight. Qiu, T., Zhang, Y., Huang, Z., Li, J.X., et
+            al.
           </p>
         </li>
         <li>
@@ -38,10 +39,12 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
+            Scaling laws for contrastive activation addition with refusal
+            mechanisms and Llama 2 models
           </a>
           <p className="italic">
-            ICML 2025 NewInML Workshop. Berkeley Supervised Program for Alignment Research, Mentor: Abdur Raheem Ali
+            ICML 2025 NewInML Workshop. Berkeley Supervised Program for
+            Alignment Research, Mentor: Abdur Raheem Ali
           </p>
         </li>
         <li>
@@ -51,7 +54,8 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Machining water through laser cutting of nanoparticle-encased water pancakes
+            Machining water through laser cutting of nanoparticle-encased water
+            pancakes
           </a>
           <p className="italic">Nature Communications, June 2023</p>
         </li>
@@ -62,7 +66,8 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
+            A three-dimensional paper-based isoelectric focusing device for
+            direct analysis of proteins in physiological samples
           </a>
           <p className="italic">Analytical Chemistry, Feb. 2021</p>
         </li>
@@ -82,7 +87,9 @@ export default function Projects() {
           >
             Proxima
           </a>
-          <p className="italic">a community space for creative friends on the internet</p>
+          <p className="italic">
+            a community space for creative friends on the internet
+          </p>
         </li>
         <li>
           <a
@@ -104,7 +111,9 @@ export default function Projects() {
           >
             HTML Day 2025, Seattle
           </a>
-          <p className="italic">an HTML freewrite embracing HTML energy, the slow web, and community</p>
+          <p className="italic">
+            an HTML freewrite embracing HTML energy, the slow web, and community
+          </p>
         </li>
         <li>
           <a
@@ -126,7 +135,9 @@ export default function Projects() {
           >
             Pen &amp; Ponder
           </a>
-          <p className="italic">a 1 month writing experiment &amp; toronto writeathon!</p>
+          <p className="italic">
+            a 1 month writing experiment &amp; toronto writeathon!
+          </p>
         </li>
       </ul>
 
