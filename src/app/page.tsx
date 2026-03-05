@@ -257,7 +257,7 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>{" "}
-          (you should sign it!), hikes (in the PNW, S. America, California), my{" "}
+          (you should sign it!), hiking (in the PNW, S. America, CA), my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
