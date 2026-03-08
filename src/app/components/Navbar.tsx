@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const pathname = usePathname();
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Read initial theme from document (set by blocking script in layout)
@@ -23,6 +24,32 @@ const Navbar = () => {
     localStorage.setItem("theme", next);
   };
 
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/writing", label: "Writing" },
+    { href: "/now", label: "Now" },
+    { href: "/friends", label: "Friends" },
+    { href: "/resume", label: "Resume" },
+  ];
+
   return (
     <nav className="grid-navbar">
       <div className="grid-navbar-content">
@@ -30,54 +57,30 @@ const Navbar = () => {
           <Link href="/" className="grid-navbar-cell">
             Jasmine Li
           </Link>
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`hamburger ${menuOpen ? "open" : ""}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
         </div>
-        <div className="grid-navbar-right">
-          <Link
-            href="/"
-            className={`grid-navbar-cell ${pathname === "/" ? "active" : ""}`}
-          >
-            Home
-          </Link>
-          <Link
-            href="/projects"
-            className={`grid-navbar-cell ${
-              pathname === "/projects" ? "active" : ""
-            }`}
-          >
-            Projects
-          </Link>
-          <Link
-            href="/writing"
-            className={`grid-navbar-cell ${
-              pathname === "/writing" ? "active" : ""
-            }`}
-          >
-            Writing
-          </Link>
-          <Link
-            href="/now"
-            className={`grid-navbar-cell ${
-              pathname === "/now" ? "active" : ""
-            }`}
-          >
-            Now
-          </Link>
-          <Link
-            href="/friends"
-            className={`grid-navbar-cell ${
-              pathname === "/friends" ? "active" : ""
-            }`}
-          >
-            Friends
-          </Link>
-          <Link
-            href="/resume"
-            className={`grid-navbar-cell ${
-              pathname === "/resume" ? "active" : ""
-            }`}
-          >
-            Resume
-          </Link>
+        <div className={`grid-navbar-right ${menuOpen ? "mobile-open" : ""}`}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`grid-navbar-cell ${
+                pathname === link.href ? "active" : ""
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
           <button
             className="theme-toggle"
             onClick={toggleTheme}
@@ -121,6 +124,9 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      {menuOpen && (
+        <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />
+      )}
     </nav>
   );
 };
