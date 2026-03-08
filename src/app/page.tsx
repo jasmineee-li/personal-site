@@ -237,8 +237,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I&apos;m most motivated by spending the present well and building
-          flourishing, free futures for humanity. Other loves of mine:{" "}
+          I would like to spend the present well and help build flourishing,
+          free futures for humanity. A shortlist of things I love:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -257,11 +257,11 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>{" "}
-          (you should sign it!), long hikes, my{" "}
+          (you should sign it!), hiking (in the PNW, S. America, CA), my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
-          , tomato egg noodles, self-understanding, and meeting new people. Please
+          , tomato egg noodles, dancing, shoehorns, meeting new people. Please
           reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com

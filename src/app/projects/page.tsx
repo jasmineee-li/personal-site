@@ -28,7 +28,8 @@ export default function Projects() {
             ProgressGym: Alignment with a Millennium of Moral Progress
           </a>
           <p className="italic">
-            NeurIPS 2024. Qiu, T., Zhang, Y., Huang, Z., Li, J.X., et al.
+            NeurIPS 2024 Spotlight. Qiu, T., Zhang, Y., Huang, Z., Li, J.X., et
+            al.
           </p>
         </li>
         <li>
@@ -82,7 +83,9 @@ export default function Projects() {
           >
             Proxima
           </a>
-          <p className="italic">a community space for creative friends on the internet</p>
+          <p className="italic">
+            a community space for creative friends on the internet
+          </p>
         </li>
         <li>
           <a
@@ -104,7 +107,9 @@ export default function Projects() {
           >
             HTML Day 2025, Seattle
           </a>
-          <p className="italic">an HTML freewrite embracing HTML energy, the slow web, and community</p>
+          <p className="italic">
+            an HTML freewrite embracing HTML energy, the slow web, and community
+          </p>
         </li>
         <li>
           <a
@@ -126,7 +131,9 @@ export default function Projects() {
           >
             Pen &amp; Ponder
           </a>
-          <p className="italic">a 1 month writing experiment &amp; toronto writeathon!</p>
+          <p className="italic">
+            a 1 month writing experiment &amp; toronto writeathon!
+          </p>
         </li>
       </ul>
 
