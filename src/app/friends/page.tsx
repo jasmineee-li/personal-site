@@ -6,28 +6,38 @@ export default function Friends() {
     { name: "Parv", url: "https://parvmahajan.com/" },
     { name: "Jason", url: "https://jason.ml/" },
     { name: "Sujai", url: "https://sujai1.github.io/" },
+    { name: "Vincent", url: "https://vvvincent.me/" },
+    { name: "Richard", url: "https://notrichardren.github.io/" },
+    { name: "Pauline", url: "https://www.paulinewee.com/" },
   ];
+
+  function displayUrl(url: string) {
+    return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  }
 
   return (
     <div className="py-12 sm:py-16">
-      <h1 className="text-xl font-medium mb-6 accent-font">Friends</h1>
+      <h1 className="text-xl font-medium mb-2 accent-font">Friends</h1>
+      <p className="mb-10 text-gray-500 italic">work in progress :)</p>
 
-      <ul className="list-disc pl-6 space-y-2 text-base leading-relaxed">
+      <div className="space-y-8">
         {friends.map((friend) => (
-          <li key={friend.url}>
-            <a
-              className="hyperlink"
-              href={friend.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <a
+            key={friend.url}
+            className="block group"
+            href={friend.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="text-2xl font-semibold accent-font group-hover:text-gray-300 transition-colors">
               {friend.name}
-            </a>
-          </li>
+            </span>
+            <span className="ml-3 text-base text-gray-500 font-mono">
+              {displayUrl(friend.url)} →
+            </span>
+          </a>
         ))}
-      </ul>
-
-      <p className="mt-8 text-gray-500 italic">work in progress :)</p>
+      </div>
     </div>
   );
 }
