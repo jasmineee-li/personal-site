@@ -5,6 +5,7 @@ export default function Friends() {
     { name: "Yixiong", url: "https://yixiong.dev/" },
     { name: "Parv", url: "https://parvmahajan.com/" },
     { name: "Jason", url: "https://jason.ml/" },
+    { name: "Sujai", url: "https://sujai1.github.io/" },
   ];
 
   return (
