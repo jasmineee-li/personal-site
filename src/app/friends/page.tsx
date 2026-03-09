@@ -20,7 +20,7 @@ export default function Friends() {
       <h1 className="text-xl font-medium mb-2 accent-font">Friends</h1>
       <p className="mb-10 text-gray-500 italic">work in progress :)</p>
 
-      <div className="space-y-8">
+      <div className="space-y-5">
         {friends.map((friend) => (
           <a
             key={friend.url}
@@ -29,10 +29,10 @@ export default function Friends() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="text-2xl font-semibold accent-font group-hover:text-gray-300 transition-colors">
+            <span className="text-base font-semibold accent-font group-hover:text-gray-300 transition-colors">
               {friend.name}
             </span>
-            <span className="ml-3 text-base text-gray-500 font-mono">
+            <span className="ml-2 text-sm text-gray-500 font-mono">
               {displayUrl(friend.url)} →
             </span>
           </a>
