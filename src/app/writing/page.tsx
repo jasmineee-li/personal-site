@@ -56,6 +56,13 @@ export default function Writing() {
     }
   };
 
+  const decodeHtmlEntities = (str: string): string => {
+    if (!str) return "";
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = str;
+    return textarea.value;
+  };
+
   const extractFirstImg = (html: string): string | null => {
     if (!html) return null;
     const match = html.match(/<img[^>]+src="([^"]+)"/i);
@@ -115,7 +122,7 @@ export default function Writing() {
                     )}
                     <div className="substack-body">
                       <h3 className="substack-title">
-                        {post.title || "Untitled"}
+                        {decodeHtmlEntities(post.title) || "Untitled"}
                       </h3>
                       {post.pubDate && (
                         <p className="substack-date">
@@ -123,7 +130,7 @@ export default function Writing() {
                         </p>
                       )}
                       <p className="substack-desc">
-                        {truncate(post.description, 160)}
+                        {truncate(decodeHtmlEntities(post.description), 160)}
                       </p>
                     </div>
                   </div>
