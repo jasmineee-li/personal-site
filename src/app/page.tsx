@@ -91,6 +91,13 @@ export default function Home() {
     }
   };
 
+  const decodeHtmlEntities = (str: string): string => {
+    if (!str) return "";
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = str;
+    return textarea.value;
+  };
+
   const handleRandomPost = () => {
     if (allPosts.length > 0) {
       const randomIndex = Math.floor(Math.random() * allPosts.length);
@@ -425,7 +432,7 @@ export default function Home() {
                   >
                     <div className="flex justify-between items-baseline gap-6">
                       <span className="text-base group-hover:text-[#a10000] transition-colors">
-                        {post.title}
+                        {decodeHtmlEntities(post.title)}
                       </span>
                       <span className="text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
                         {formatDate(post.pubDate)}
