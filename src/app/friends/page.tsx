@@ -9,6 +9,7 @@ export default function Friends() {
     { name: "Vincent", url: "https://vvvincent.me/" },
     { name: "Richard", url: "https://notrichardren.github.io/" },
     { name: "Pauline", url: "https://www.paulinewee.com/" },
+    { name: "Chandhana", url: "https://chandhana.com/#🌔" },
   ];
 
   function displayUrl(url: string) {
