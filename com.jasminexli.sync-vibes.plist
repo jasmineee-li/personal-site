@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jasminexli.sync-vibes</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <!-- UPDATE THIS PATH to wherever your repo lives -->
+        <string>/Users/jasminexli/personal-site/sync-vibes.sh</string>
+    </array>
+
+    <!-- Watch the vibes folder for changes -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/jasminexli/Documents/vibes</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/sync-vibes.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/sync-vibes.log</string>
+</dict>
+</plist>
