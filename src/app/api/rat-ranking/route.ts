@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 
-const DATA_FILE = path.join(process.cwd(), "data", "rat-ranking.json");
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+
+const REDIS_KEY = "rat-ranking";
 
 interface Word {
   id: string;
@@ -67,31 +71,28 @@ const SEED_WORDS: Word[] = [
   { id: "f7", text: "idk man (in an argument)", score: -20 },
 ];
 
-function getData(): Data {
-  try {
-    const raw = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    const data: Data = { words: SEED_WORDS, comments: [] };
-    saveData(data);
-    return data;
-  }
+async function getData(): Promise<Data> {
+  const data = await redis.get<Data>(REDIS_KEY);
+  if (data) return data;
+
+  // First access — seed the database
+  const seed: Data = { words: SEED_WORDS, comments: [] };
+  await redis.set(REDIS_KEY, seed);
+  return seed;
 }
 
-function saveData(data: Data) {
-  const dir = path.dirname(DATA_FILE);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+async function saveData(data: Data) {
+  await redis.set(REDIS_KEY, data);
 }
 
 export async function GET() {
-  const data = getData();
+  const data = await getData();
   return NextResponse.json(data);
 }
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const data = getData();
+  const data = await getData();
 
   switch (body.action) {
     case "vote": {
@@ -104,7 +105,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Word not found" }, { status: 404 });
       }
       word.score += delta;
-      saveData(data);
+      await saveData(data);
       return NextResponse.json({ ok: true, score: word.score });
     }
 
@@ -119,7 +120,7 @@ export async function POST(req: NextRequest) {
         score: 0,
       };
       data.words.push(word);
-      saveData(data);
+      await saveData(data);
       return NextResponse.json(word);
     }
 
@@ -141,7 +142,7 @@ export async function POST(req: NextRequest) {
         createdAt: new Date().toISOString(),
       };
       data.comments.unshift(comment);
-      saveData(data);
+      await saveData(data);
       return NextResponse.json(comment);
     }
 
