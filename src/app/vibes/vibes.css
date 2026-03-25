@@ -1,0 +1,46 @@
+.vibes-gallery {
+  column-count: 3;
+  column-gap: 12px;
+  padding-bottom: 3rem;
+}
+
+.vibes-gallery-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vibes-gallery-item:hover {
+  transform: scale(1.015);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .vibes-gallery-item:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
+}
+
+.vibes-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vibes-empty {
+  text-align: center;
+  padding: 4rem 1rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .vibes-gallery {
+    column-count: 2;
+    column-gap: 8px;
+  }
+
+  .vibes-gallery-item {
+    margin-bottom: 8px;
+    border-radius: 4px;
+  }
+}
