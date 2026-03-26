@@ -232,7 +232,7 @@ export default function Home() {
         <p className="leading-relaxed mb-4">
           I care about flourishing, free futures for humanity. I aim to work
           hard on ambitious bets to help make that happen. See my{" "}
-          <Link href="/projects" className="hyperlink">
+          <Link href="/work" className="hyperlink">
             research
           </Link>{" "}
           and{" "}
