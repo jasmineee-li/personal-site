@@ -204,22 +204,19 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care about making the development of advanced AI go well. (The other is that it&apos;s
-          incredibly fun and fulfilling, and I get to work with wonderful people
-          who inspire me!)
-        </p>
-
-        <p className="leading-relaxed mb-4">
-          I&apos;m currently a winter 2026{" "}
+          As of winter 2026, I am a Research Fellow at{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            MATS fellow
-          </a>{" "}
-          under Alex Turner (go Team Shard!), developing a character training technique that reduces evaluation gaming in LLMs. Previously, I developed agent security evaluations used in pre-deployment frontier model testing at Gray Swan AI, and surveyed methods for LLM honesty as an external research collaborator at the Center for AI Safety. I am the founder and director of {" "}
+            MATS
+          </a>
+          , advised by Alex Turner and working on model oversight and control.
+          Previously, I developed automated redteaming infrastructure for
+          frontier lab safety testing at Gray Swan AI, and studied LLM honesty
+          with the Center for AI Safety. I am also the founder of{" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -227,7 +224,14 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Cornell AI Alignment
-          </a>, a research group advancing ---. See my{" "}
+          </a>{" "}
+          and an incoming co-instructor for Cornell's CS 1998: Introduction to
+          AI Safety.
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I care about flourishing, free futures for humanity. I aim to work
+          hard on ambitious bets to help make that happen. See my{" "}
           <Link href="/projects" className="hyperlink">
             research
           </Link>{" "}
@@ -237,10 +241,8 @@ export default function Home() {
           </Link>
           .
         </p>
-
         <p className="leading-relaxed mb-4">
-          I would like to spend the present well and help build flourishing,
-          free futures for humanity. A shortlist of things I love:{" "}
+          A shortlist of other things I love:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -250,7 +252,7 @@ export default function Home() {
           >
             persimmons
           </span>
-          , optimistic science fiction, group living,{" "}
+          , positive hyperstition, hosting fun events/parties,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -258,13 +260,13 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             the 10% pledge 🔸
-          </a>{" "}
-          (you should sign it!), hiking (in the PNW, S. America, CA), my{" "}
+          </a>
+          , hiking (in the PNW, S. America, CA), tomato egg noodles, shoehorns,
+          lifting PRs, rationalist jokes, the Bay Area, my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
-          , tomato egg noodles, dancing, shoehorns, meeting new people. Please
-          reach out and say hi (
+          . Please reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
@@ -372,10 +374,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Recent Posts */}
+        {/* Recent  */}
         <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
           <div className="flex justify-between items-baseline mb-2 flex-wrap gap-3">
-            <h2 className="text-xl font-medium accent-font">Recent posts</h2>
+            <h2 className="text-xl font-medium accent-font">Recent writing</h2>
             <div className="flex gap-4 items-center">
               <button onClick={handleRandomPost} className="random-button">
                 <svg
@@ -402,7 +404,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-sm mb-6">
-            I like to write, and want to write more! My stack is{" "}
+            My stack is{" "}
             <a
               href="https://github.com/jasmineee-li/zap-writing-plugin"
               className="hyperlink"
