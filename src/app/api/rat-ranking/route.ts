@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
 
 export async function GET() {
+  const supabase = getSupabase();
   const [wordsRes, commentsRes] = await Promise.all([
     supabase.from("words").select("id, text, score").order("score", { ascending: false }),
     supabase.from("comments").select("id, text, author, created_at").order("created_at", { ascending: false }).limit(100),
@@ -28,6 +31,7 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const supabase = getSupabase();
   const body = await req.json();
 
   switch (body.action) {
