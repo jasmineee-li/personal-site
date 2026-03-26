@@ -3,29 +3,31 @@ import Image from "next/image";
 export default function Projects() {
   return (
     <div className="py-12 sm:py-16">
-      <h2 className="text-xl font-bold mb-8 accent-font">Research</h2>
+      <h2 className="text-xl font-bold mb-4 accent-font">Research Overview</h2>
 
-      <div className="mb-10 space-y-4 text-sub">
+      <div className="mb-10 space-y-4 text-body-sm">
         <p>My research broadly spans three areas:</p>
-        <p>
-          <span className="font-semibold">Oversight and control.</span> What
-          oversight measures robustly scale to increasingly capable frontier
-          language models? I currently focus on training-time mitigations for
-          evaluation awareness and model introspection — understanding how and
-          when models represent the distinction between evaluation and
-          deployment, and how to intervene on this.
-        </p>
-        <p>
-          <span className="font-semibold">Value alignment and epistemics.</span>{" "}
-          How can we train models to be more honest? How can AI uplift human
-          truth-seeking and moral progress, and how do we prevent harmful value
-          lock-in?
-        </p>
-        <p>
-          <span className="font-semibold">Agent security.</span> How do we
-          design scalable, realistic environments for evaluating agent misuse and
-          misbehavior — for example, in computer use and MCP settings?
-        </p>
+        <ol className="list-decimal pl-6 space-y-3">
+          <li>
+            <span className="font-semibold">Oversight and control.</span> What
+            oversight measures robustly scale to increasingly capable frontier
+            language models? I currently focus on training-time mitigations for
+            evaluation awareness and model introspection — understanding how and
+            when models represent the distinction between evaluation and
+            deployment, and how to intervene on this.
+          </li>
+          <li>
+            <span className="font-semibold">Value alignment and epistemics.</span>{" "}
+            How can we train models to be more honest? How can AI uplift human
+            truth-seeking and moral progress, and how do we prevent harmful value
+            lock-in?
+          </li>
+          <li>
+            <span className="font-semibold">Agent security.</span> How do we
+            design scalable, realistic environments for evaluating agent misuse
+            and misbehavior — for example, in computer use and MCP settings?
+          </li>
+        </ol>
         <p>
           As of March 2026, the research directions that excite me most are:
           understanding model introspection and situational awareness, exploring
@@ -45,6 +47,7 @@ export default function Projects() {
         </p>
       </div>
 
+      <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">Papers</h2>
       <div className="divide-y divide-gray-200">
         <div className="pb-6">
           <a
@@ -181,7 +184,7 @@ export default function Projects() {
       </div>
 
       {/* Organizing Section */}
-      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
         Organizing
       </h2>
       <ul className="list-disc pl-6 space-y-3">
@@ -250,7 +253,7 @@ export default function Projects() {
       </ul>
 
       {/* Code Section */}
-      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
         Code
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
