@@ -3,9 +3,50 @@ import Image from "next/image";
 export default function Projects() {
   return (
     <div className="py-12 sm:py-16">
-      <h2 className="text-xl font-medium mb-6 accent-font">Research</h2>
-      <ul className="list-disc pl-6 space-y-3">
-        <li>
+      <h2 className="text-xl font-bold mb-8 accent-font">Research</h2>
+
+      <div className="mb-10 space-y-4 text-sub">
+        <p>My research broadly spans three areas:</p>
+        <p>
+          <span className="font-semibold">Oversight and control.</span> What
+          oversight measures robustly scale to increasingly capable frontier
+          language models? I currently focus on training-time mitigations for
+          evaluation awareness and model introspection — understanding how and
+          when models represent the distinction between evaluation and
+          deployment, and how to intervene on this.
+        </p>
+        <p>
+          <span className="font-semibold">Value alignment and epistemics.</span>{" "}
+          How can we train models to be more honest? How can AI uplift human
+          truth-seeking and moral progress, and how do we prevent harmful value
+          lock-in?
+        </p>
+        <p>
+          <span className="font-semibold">Agent security.</span> How do we
+          design scalable, realistic environments for evaluating agent misuse and
+          misbehavior — for example, in computer use and MCP settings?
+        </p>
+        <p>
+          As of March 2026, the research directions that excite me most are:
+          understanding model introspection and situational awareness, exploring
+          metacognition-based alignment techniques, alignment pretraining, and
+          operationalizing AI-induced human disempowerment.
+        </p>
+        <p>
+          I want to be the most excellent researcher I can be. I enjoy rapid
+          experimentation and careful truth-seeking. Above all else, I care about
+          real-world impact and choosing the right, most pressing problems to
+          work on.
+        </p>
+        <p>
+          In a past life, I researched analytical chemistry and published in{" "}
+          <span className="italic">Nature Communications</span> and ACS
+          journals.
+        </p>
+      </div>
+
+      <div className="divide-y divide-gray-200">
+        <div className="pb-6">
           <a
             href="https://arxiv.org/abs/2509.01938"
             className="hyperlink"
@@ -14,11 +55,27 @@ export default function Projects() {
           >
             EigenBench: A Comparative Behavioral Measure of Value Alignment
           </a>
-          <p className="italic">
-            ICLR 2026 Oral. Chang, J., Piff, L., Sana, S., Li, J.X., Levine, L.
+          <p className="italic text-sub mt-1">
+            Chang, J., Piff, L., Sana, S.,{" "}
+            <span className="font-semibold not-italic">Li, J.X.</span>, Levine,
+            L.
           </p>
-        </li>
-        <li>
+          <p className="text-sub mt-1">ICLR Oral (Top 5%), 2026</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://arxiv.org/abs/2509.01938"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              arXiv
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
           <a
             href="https://arxiv.org/pdf/2406.20087"
             className="hyperlink"
@@ -27,62 +84,107 @@ export default function Projects() {
           >
             ProgressGym: Alignment with a Millennium of Moral Progress
           </a>
-          <p className="italic">
-            NeurIPS 2024 Spotlight. Qiu, T., Zhang, Y., Huang, Z., Li, J.X., et
-            al.
+          <p className="italic text-sub mt-1">
+            Qiu, T., Zhang, Y., Huang, Z.,{" "}
+            <span className="font-semibold not-italic">Li, J.X.</span>, et al.
           </p>
-        </li>
-        <li>
+          <p className="text-sub mt-1">NeurIPS Spotlight (Top 10%), 2024</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://arxiv.org/abs/2406.20087"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              arXiv
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
           <a
             href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
+            Scaling laws for contrastive activation addition with refusal
+            mechanisms and Llama 2 models
           </a>
-          <p className="italic">
-            ICML 2025 NewInML Workshop. Berkeley Supervised Program for Alignment Research, Mentor: Abdur Raheem Ali
+          <p className="italic text-sub mt-1">Mentored by Abdur Raheem Ali</p>
+          <p className="text-sub mt-1">ICML Workshop, 2025</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              paper
+            </a>
+            ]
           </p>
-        </li>
-        <li>
+        </div>
+
+        <div className="py-6">
           <a
             href="https://www.nature.com/articles/s41467-023-39574-3"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Machining water through laser cutting of nanoparticle-encased water pancakes
+            Machining water through laser cutting of nanoparticle-encased water
+            pancakes
           </a>
-          <p className="italic">Nature Communications, June 2023</p>
-        </li>
-        <li>
+          <p className="text-sub mt-1">Nature Communications, 2023</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://www.nature.com/articles/s41467-023-39574-3"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              paper
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="pt-6">
           <a
             href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
+            A three-dimensional paper-based isoelectric focusing device for
+            direct analysis of proteins in physiological samples
           </a>
-          <p className="italic">Analytical Chemistry, Feb. 2021</p>
-        </li>
-      </ul>
+          <p className="text-sub mt-1">Analytical Chemistry, 2021</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              paper
+            </a>
+            ]
+          </p>
+        </div>
+      </div>
 
-      {/* Fun Section */}
-      <h2 className="text-xl font-medium mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
-        Fun
+      {/* Organizing Section */}
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
+        Organizing
       </h2>
       <ul className="list-disc pl-6 space-y-3">
-        <li>
-          <a
-            href="/vibes"
-            className="hyperlink"
-          >
-            Vibes
-          </a>
-          <p className="italic">a photo stream</p>
-        </li>
         <li>
           <a
             href="https://proxima.ink/"
@@ -93,7 +195,8 @@ export default function Projects() {
             Proxima
           </a>
           <p className="italic">
-            a community space for creative friends on the internet
+            An anthology of speculative fiction and art, imagining
+            post-intelligence explosion futures.
           </p>
         </li>
         <li>
@@ -147,7 +250,7 @@ export default function Projects() {
       </ul>
 
       {/* Code Section */}
-      <h2 className="text-xl font-medium mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-6 accent-font">
         Code
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
