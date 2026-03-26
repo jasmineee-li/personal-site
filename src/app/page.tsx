@@ -225,7 +225,7 @@ export default function Home() {
           >
             Cornell AI Alignment
           </a>{" "}
-          and an incoming co-instructor for Cornell's CS 1998: Introduction to
+          and an incoming co-instructor for Cornell&apos;s CS 1998: Introduction to
           AI Safety.
         </p>
 
