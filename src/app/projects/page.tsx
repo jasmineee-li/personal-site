@@ -76,6 +76,15 @@ export default function Projects() {
       <ul className="list-disc pl-6 space-y-3">
         <li>
           <a
+            href="/vibes"
+            className="hyperlink"
+          >
+            Vibes
+          </a>
+          <p className="italic">a photo stream</p>
+        </li>
+        <li>
+          <a
             href="https://proxima.ink/"
             className="hyperlink"
             target="_blank"

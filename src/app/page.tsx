@@ -204,8 +204,7 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care about making the development of advanced AI go well —
-          that&apos;s one reason I do research. (The other is that it&apos;s
+          I care about making the development of advanced AI go well. (The other is that it&apos;s
           incredibly fun and fulfilling, and I get to work with wonderful people
           who inspire me!)
         </p>
@@ -218,12 +217,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            MATS scholar
+            MATS fellow
           </a>{" "}
-          under Alex Turner (go Team Shard!!), doing model biology for
-          evaluation awareness. Previously, I developed agent security
-          evaluations at Gray Swan AI and methods for LLM honesty at the Center
-          for AI Safety. I also founded{" "}
+          under Alex Turner (go Team Shard!), developing a character training technique that reduces evaluation gaming in LLMs. Previously, I developed agent security evaluations used in pre-deployment frontier model testing at Gray Swan AI, and surveyed methods for LLM honesty as an external research collaborator at the Center for AI Safety. I am the founder and director of {" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -231,8 +227,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Cornell AI Alignment
-          </a>
-          ! See my{" "}
+          </a>, a research group advancing ---. See my{" "}
           <Link href="/projects" className="hyperlink">
             research
           </Link>{" "}

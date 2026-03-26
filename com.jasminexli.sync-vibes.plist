@@ -10,8 +10,7 @@
     <array>
         <string>/bin/bash</string>
         <string>-c</string>
-        <!-- UPDATE THIS PATH to wherever your repo lives -->
-        <string>/Users/jasminexli/personal-site/sync-vibes.sh</string>
+        <string>/Users/jasminexli/personal-site/my-site/sync-vibes.sh</string>
     </array>
 
     <!-- Watch the vibes folder for changes -->
