@@ -269,7 +269,16 @@ export default function Home() {
           >
             Cornell AI Alignment
           </a>{" "}
-          and Cornell&apos;s first AI safety class.
+          and Cornell&apos;s{" "}
+          <a
+            className="hyperlink"
+            href="https://cornell-aia.org/programs/cs1998"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            first AI safety class
+          </a>
+          .
         </p>
 
         <p className="leading-relaxed mb-4">
