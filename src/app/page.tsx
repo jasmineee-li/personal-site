@@ -210,8 +210,8 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Gray Swan AI
-          </a>{" "}
-          and researched LLM honesty with the{" "}
+          </a>
+          , researched LLM honesty with the{" "}
           <a
             className="hyperlink"
             href="https://www.safe.ai/"
@@ -220,7 +220,7 @@ export default function Home() {
           >
             Center for AI Safety
           </a>
-          . I&apos;ve presented alignment benchmarks at{" "}
+          , and presented alignment benchmarks at{" "}
           <a
             className="hyperlink"
             href="https://arxiv.org/abs/2406.20087"
@@ -238,11 +238,8 @@ export default function Home() {
           >
             ICLR
           </a>
-          .
-        </p>
-
-        <p className="leading-relaxed mb-4">
-          I&apos;m on leave from Cornell, where I studied CS &amp; English as a{" "}
+          . I&apos;m on leave from Cornell, where I studied CS &amp; English as
+          a{" "}
           <a
             className="hyperlink"
             href="https://milstein-program.as.cornell.edu/"
@@ -282,7 +279,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          In high school, I really enjoyed microfluidics, and published in{" "}
+          In high school, I really enjoyed tinkering with microfluidics, and
+          published in{" "}
           <a
             className="hyperlink"
             href="https://www.nature.com/articles/s41467-023-39574-3"
@@ -300,11 +298,7 @@ export default function Home() {
           >
             ACS Chemistry
           </a>
-          .
-        </p>
-
-        <p className="leading-relaxed mb-4">
-          A shortlist of other loves:{" "}
+          . Some other loves:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -329,6 +323,9 @@ export default function Home() {
           </a>
           , history of progress, outdoor physical challenges (half-marathon-ing,
           thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my friends.
+        </p>
+
+        <p className="leading-relaxed mb-4">
           Please reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
