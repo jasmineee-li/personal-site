@@ -181,8 +181,68 @@ export default function Home() {
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-4">
-          I research technical safeguards for artificial intelligence, and study
-          CS and English at Cornell as a{" "}
+          I&apos;m trying to make AI development go well.
+        </p>
+        <p className="leading-relaxed mb-2">Now:</p>
+        <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
+          <li>
+            I&apos;m a{" "}
+            <a
+              className="hyperlink"
+              href="https://www.matsprogram.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MATS
+            </a>{" "}
+            9/9.1 Fellow under Alex Turner, working on training mitigations for
+            evaluation gaming.
+          </li>
+          <li>Thinking about compute verification.</li>
+        </ul>
+
+        <p className="leading-relaxed mb-4">
+          Previously, I built automated agent redteaming infra at{" "}
+          <a
+            className="hyperlink"
+            href="https://www.grayswan.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gray Swan AI
+          </a>{" "}
+          and researched LLM honesty with the{" "}
+          <a
+            className="hyperlink"
+            href="https://www.safe.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Center for AI Safety
+          </a>
+          . I&apos;ve presented alignment benchmarks at{" "}
+          <a
+            className="hyperlink"
+            href="https://arxiv.org/abs/2406.20087"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            NeurIPS
+          </a>{" "}
+          and{" "}
+          <a
+            className="hyperlink"
+            href="https://arxiv.org/abs/2509.01938"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ICLR
+          </a>
+          .
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I&apos;m on leave from Cornell, where I studied CS &amp; English as a{" "}
           <a
             className="hyperlink"
             href="https://milstein-program.as.cornell.edu/"
@@ -198,25 +258,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Telluride Scholar
-          </a>
-          .
-        </p>
-
-        <p className="leading-relaxed mb-4">
-          As of winter 2026, I am a Research Fellow at{" "}
-          <a
-            className="hyperlink"
-            href="https://www.matsprogram.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MATS
-          </a>
-          , advised by Alex Turner and working on model oversight and control.
-          Previously, I developed automated redteaming infrastructure for
-          frontier lab safety testing at Gray Swan AI, and studied LLM honesty
-          with the Center for AI Safety. I am also the founder of{" "}
+            Telluride
+          </a>{" "}
+          scholar. While there, I founded{" "}
           <a
             className="hyperlink"
             href="https://cornell-aia.org/"
@@ -225,24 +269,33 @@ export default function Home() {
           >
             Cornell AI Alignment
           </a>{" "}
-          and founding co-instructor of Cornell&apos;s CS 1998: Introduction to
-          AI Safety.
+          and Cornell&apos;s first AI safety class.
         </p>
 
         <p className="leading-relaxed mb-4">
-          I care about flourishing, free futures for humanity. I aim to work
-          hard on ambitious bets to help make that happen. See my{" "}
-          <Link href="/work" className="hyperlink">
-            research
-          </Link>{" "}
+          In high school, I really enjoyed microfluidics, and published in{" "}
+          <a
+            className="hyperlink"
+            href="https://www.nature.com/articles/s41467-023-39574-3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Nature
+          </a>{" "}
           and{" "}
-          <Link href="/now" className="hyperlink">
-            what I&apos;m up to now
-          </Link>
+          <a
+            className="hyperlink"
+            href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ACS Chemistry
+          </a>
           .
         </p>
+
         <p className="leading-relaxed mb-4">
-          A shortlist of other things I love:{" "}
+          A shortlist of other loves:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -252,7 +305,11 @@ export default function Home() {
           >
             persimmons
           </span>
-          , positive hyperstition, hosting fun events/parties,{" "}
+          , positive hyperstition, party hosting,{" "}
+          <Link href="/writing" className="hyperlink">
+            writing
+          </Link>
+          ,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -261,12 +318,9 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>
-          , hiking (in the PNW, S. America, CA), tomato egg noodles, shoehorns,
-          lifting PRs, rationalist jokes, the Bay Area, my{" "}
-          <Link href="/friends" className="hyperlink">
-            friends
-          </Link>
-          . Please reach out and say hi (
+          , history of progress, outdoor physical challenges (half-marathon-ing,
+          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my friends.
+          Please reach out and say hi (
           <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
             jasminexinzeli@gmail.com
           </a>
