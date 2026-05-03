@@ -321,7 +321,11 @@ export default function Home() {
             the 10% pledge 🔸
           </a>
           , history of progress, outdoor physical challenges (half-marathon-ing,
-          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my friends.
+          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my{" "}
+          <Link href="/friends" className="hyperlink">
+            friends
+          </Link>
+          .
         </p>
 
         <p className="leading-relaxed mb-4">
