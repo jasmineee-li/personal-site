@@ -180,10 +180,9 @@ export default function Home() {
       {/* Main Content */}
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
-        <p className="leading-relaxed mb-4">
-          I&apos;m trying to make AI development go well.
+        <p className="leading-relaxed mb-2">
+          I&apos;m trying to make AI development go well. Currently:
         </p>
-        <p className="leading-relaxed mb-2">Now:</p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
             I&apos;m a{" "}
@@ -296,7 +295,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            ACS Chemistry
+            analytical chemistry
           </a>
           . Some other loves:{" "}
           <span
@@ -322,7 +321,11 @@ export default function Home() {
             the 10% pledge 🔸
           </a>
           , history of progress, outdoor physical challenges (half-marathon-ing,
-          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my friends.
+          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my{" "}
+          <Link href="/friends" className="hyperlink">
+            friends
+          </Link>
+          .
         </p>
 
         <p className="leading-relaxed mb-4">
