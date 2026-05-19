@@ -295,7 +295,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            analytical chemistry
+            Analytical Chemistry
           </a>
           . Some other loves:{" "}
           <span
