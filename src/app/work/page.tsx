@@ -167,7 +167,7 @@ export default function Projects() {
             A three-dimensional paper-based isoelectric focusing device for
             direct analysis of proteins in physiological samples
           </a>
-          <p className="text-sub mt-1">Analytical Chemistry, 2021</p>
+          <p className="text-sub mt-1">ANALYTICAL CHEMISTRY, 2021</p>
           <p className="text-sub mt-1">
             [
             <a
