@@ -1,80 +1,54 @@
+import Link from "next/link";
+
+const archive = [{ date: "Feb 26, 2026", href: "/now/2026-02-26" }];
+
 export default function Now() {
   return (
     <div className="py-12 sm:py-16">
       <h1 className="text-xl font-medium mb-6 accent-font">Now</h1>
 
       <p className="mb-4 text-base leading-relaxed">
-        I&apos;m currently a{" "}
-        <a
-          className="hyperlink"
-          href="https://www.matsprogram.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          MATS 9.0
-        </a>{" "}
-        fellow, based in sunny Berkeley! I&apos;m working on the science of
-        evaluations with Alex Turner. In particular, I want to figure out how we
-        can make safety and scheming propensity evals still faithfully predict
-        behaviors of interest as models become increasingly evaluation-aware. It
-        would be a real shame if pre-deployment evals stopped working, and I
-        want to prevent that.
+        I moved to London! Back in the homeland and excited to explore this
+        lovely city, though I miss the Bay Area a bunch.
       </p>
 
       <p className="mb-4 text-base leading-relaxed">
-        I&apos;m also co-organizing{" "}
+        I&apos;m currently at{" "}
         <a
           className="hyperlink"
-          href="https://proxima.ink/"
+          href="https://www.safer-ai.org/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Proxima
+          SaferAI
         </a>{" "}
-        for winter 2026 AI safety fellows in the Berkeley community with my
-        friend{" "}
-        <a
-          className="hyperlink"
-          href="https://parvmahajan.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Parv
-        </a>
-        , and the{" "}
-        <a
-          className="hyperlink"
-          href="http://idealistscollective.org/unconference"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Idealists Unconference
-        </a>{" "}
-        in the UK this April for the wonderful Idealists Collective.
+        as a Research Scientist, where I&apos;m helping engage Chinese labs in
+        AI safety. Thinking most about: AI verification, US-China engagement, &amp;
+        philanthropic capital deployment/grantmaking.
       </p>
 
       <p className="mb-4 text-base leading-relaxed">
-        I&apos;ve also been thinking a lot lately about gradual disempowerment
-        and civilizational resilience.
+        Text me if you want to do some fun backpacking/biking trip in UK/Europe
+        this summer — I&apos;m itching to be outside!! I&apos;ll probably also
+        visit Ox and Cam soon, for all the friends there.
       </p>
 
-      <h2 className="text-lg font-medium mt-10 mb-4 accent-font">
-        Current goals
-      </h2>
-      <ul className="list-disc pl-6 space-y-2 mb-6 text-base leading-relaxed">
-        <li>
-          Finishing up Gray Swan research developing better web agent evaluation
-          infrastructure
-        </li>
-        <li>
-          Learning salsa! Reach out if you want to go to weekly Friday salsa
-          classes in SF together
-        </li>
-      </ul>
+      <div className="mt-10 pt-6 border-t border-gray-300">
+        <h2 className="text-lg font-medium mb-4 accent-font">Archive</h2>
+        <ul className="space-y-2 text-base leading-relaxed">
+          {archive.map((entry) => (
+            <li key={entry.href}>
+              <Link href={entry.href} className="hyperlink">
+                {entry.date}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="mt-8 pt-6 border-t border-gray-300">
         <p className="text-sm text-gray-600">
-          Last updated Feb 26, 2026.{" "}
+          Last updated Jun 9, 2026.{" "}
           <a
             href="https://nownownow.com/about"
             className="hyperlink"
