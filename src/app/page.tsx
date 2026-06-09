@@ -185,23 +185,32 @@ export default function Home() {
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
-            I&apos;m a{" "}
+            I&apos;m a Research Scientist at{" "}
             <a
               className="hyperlink"
-              href="https://www.matsprogram.org/"
+              href="https://www.safer-ai.org/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              MATS
-            </a>{" "}
-            9/9.1 Fellow under Alex Turner, working on training mitigations for
-            evaluation gaming.
+              SaferAI
+            </a>
+            , working on safety engagements for Chinese AI labs.
           </li>
-          <li>Thinking about compute verification.</li>
+          <li>Thinking about AI verification.</li>
         </ul>
 
         <p className="leading-relaxed mb-4">
-          Previously, I built automated agent redteaming infra at{" "}
+          Previously, I was a{" "}
+          <a
+            className="hyperlink"
+            href="https://www.matsprogram.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MATS
+          </a>{" "}
+          9/9.1 Fellow under Alex Turner, working on training mitigations for
+          evaluation gaming. I also built automated agent redteaming infra at{" "}
           <a
             className="hyperlink"
             href="https://www.grayswan.ai/"
