@@ -12,6 +12,13 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      { source: '/inspector', destination: '/inspector.html' },
+      { source: '/inspector/agent', destination: '/inspector/agent.html' },
+      { source: '/inspector/redteam', destination: '/inspector/redteam.html' },
+    ];
+  },
 };
 
 export default nextConfig;

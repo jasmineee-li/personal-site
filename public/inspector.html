@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspector Agents</title>
+<meta name="description" content="A working prototype of automated AI compute verification, by Jason Hausenloy and Jasmine Li.">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<style>
+  :root {
+    --bg: #faf6ec;
+    --ink: #1a1a1a;
+    --ink-soft: #5a5277;
+    --muted: #8b8478;
+    --rule: #d8cfb8;
+    --accent: #c0392b;
+    --link: #2563eb;
+    --serif: "Iowan Old Style", "Source Serif 4", "Charter", "Georgia", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--serif); font-size: 18px; line-height: 1.65;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; height: auto; }
+
+  /* ───── Layout ───── */
+  .layout {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 660px) 280px;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  /* ───── TOC ───── */
+  .toc {
+    grid-column: 1;
+    position: sticky; top: 32px;
+    font-size: 13px; line-height: 1.55; color: var(--muted);
+    font-family: var(--serif);
+  }
+  .toc-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 10px; padding-left: 12px;
+  }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc li {
+    padding: 6px 0 6px 0;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .toc li.sub {
+    padding: 3px 0 3px 14px;
+    margin-left: 4px;
+    border-left: 1px solid var(--rule);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+  .toc li.coming { color: #c0b9a8; font-style: italic; font-weight: 400; }
+  .toc li.active { color: var(--accent); }
+  .toc li.active.sub { border-left-color: var(--accent); }
+  .toc a { color: inherit; text-decoration: none; display: block; }
+  .toc a:hover { color: var(--accent); }
+
+  /* ───── Article ───── */
+  article {
+    grid-column: 2;
+    position: relative;
+  }
+  article h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 44px; line-height: 1.05;
+    letter-spacing: -0.012em;
+    margin: 0 0 16px 0;
+  }
+  article .dek {
+    font-style: italic; font-size: 22px; line-height: 1.4;
+    color: var(--ink-soft); margin: 0 0 24px 0;
+  }
+  article .byline {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 8px 0;
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  article .byline a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  article .byline a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  article .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-soft);
+    margin: 0 0 18px 0;
+  }
+  article .eyebrow .sep { color: var(--muted); margin: 0 4px; }
+  article h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 30px; line-height: 1.15;
+    margin: 64px 0 18px 0;
+    letter-spacing: -0.005em;
+  }
+  article h3 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 21px; line-height: 1.25;
+    margin: 36px 0 10px 0;
+  }
+  article p { margin: 0 0 18px 0; }
+  article a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--link); }
+  article a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  article em { font-style: italic; }
+  article strong { font-weight: 600; }
+  article ul, article ol { padding-left: 24px; margin: 0 0 18px 0; }
+  article li { margin: 0 0 8px 0; }
+  article hr { border: 0; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+  article code {
+    font-family: var(--mono); font-size: 0.88em;
+    background: rgba(0,0,0,0.04); padding: 1px 5px; border-radius: 3px;
+  }
+
+  /* ───── Margin images (Tufte-style on desktop, inline on mobile) ─────
+     Float right with negative margin so they drop into the right gutter
+     and stack with `clear: right` instead of overlapping each other. */
+  .marginal {
+    float: right; clear: right;
+    width: 264px;
+    margin: 8px -304px 32px 24px;
+    font-family: var(--mono); font-size: 11px;
+    line-height: 1.55; color: var(--muted);
+    text-align: left;
+  }
+  .marginal .label {
+    display: block; text-transform: uppercase;
+    font-size: 9px; letter-spacing: 0.2em;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .marginal img {
+    display: block; width: 100%; height: auto;
+    margin-bottom: 6px;
+    border: 1px solid var(--rule);
+  }
+  /* Watercolour-on-cream sketches: cream is pre-matched to page bg */
+  .marginal img.watercolor {
+    border: none;
+    margin-bottom: 0;
+  }
+  /* Hero-size marginal — bigger than the regular sidebar images.
+     Only goes wide enough to overflow into the viewport's whitespace
+     when the layout is centered with room to spare (≥1464px viewport).
+     Below that, falls back to regular .marginal width so it fits col3. */
+  .marginal.hero {
+    width: 420px;
+    margin-right: -460px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 1463px) {
+    .marginal.hero {
+      width: 264px;
+      margin-right: -304px;
+    }
+  }
+  .marginal .placeholder-box {
+    display: block; width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--rule);
+    background: rgba(0,0,0,0.025);
+    margin-bottom: 6px;
+  }
+  /* Body-width scrollable log block (for the bigger H100 log) */
+  .log-block {
+    margin: 24px 0;
+    background: #1c1a17;
+    color: #e6dfd1;
+    padding: 14px 18px;
+    border-radius: 4px;
+    max-height: 340px;
+    overflow: auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.55;
+    white-space: pre;
+  }
+  .log-block::-webkit-scrollbar { width: 8px; height: 8px; }
+  .log-block::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+  .log-block .lh {
+    color: #888178;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #3a352e;
+    white-space: normal;
+  }
+  .log-block .k { color: #a8d3b8; }
+  .log-block .n { color: #e69aa6; }
+  .log-block .s { color: #f6c98e; }
+  .log-block .c { color: #888178; font-style: italic; }
+  .log-block .hd { color: #f0e8d8; }
+
+  /* Scrollable log/code preview inside a marginal */
+  .marginal .scroll-box {
+    display: block;
+    background: #1c1a17;
+    color: #e6dfd1;
+    padding: 9px 11px;
+    border-radius: 3px;
+    max-height: 220px;
+    overflow: auto;
+    white-space: pre;
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+  .marginal .scroll-box::-webkit-scrollbar { width: 6px; }
+  .marginal .scroll-box::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+  .marginal .scroll-box .k { color: #a8d3b8; }
+  .marginal .scroll-box .n { color: #e69aa6; }
+  .marginal .scroll-box .s { color: #f6c98e; }
+  .marginal .scroll-box .c { color: #888178; font-style: italic; }
+  /* Tiny grid-tables in the margin (CSS grid, not <table>, so they
+     can sit inside a span without breaking the inline-flow rules) */
+  .marginal .mini, .marginal .mini-board {
+    display: grid;
+    margin: 4px 0 6px;
+    font-size: 10.5px;
+    font-family: var(--mono);
+    line-height: 1.45;
+  }
+  .marginal .mini       { grid-template-columns: auto 1fr; }
+  .marginal .mini-board { grid-template-columns: 18px auto auto 1fr; }
+  .marginal .mini > span, .marginal .mini-board > span {
+    padding: 3px 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .marginal .mini .hd, .marginal .mini-board .hd {
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 9.5px;
+  }
+  .marginal .mini-board .rk  { color: var(--muted); }
+  .marginal .mini-board .tbd { color: var(--muted); font-style: italic; }
+
+  /* ───── Sidenotes (Tufte) ───── */
+  .sn-ref {
+    color: var(--accent); font-size: 0.72em;
+    vertical-align: super; cursor: pointer; padding: 0 1px; line-height: 0;
+    font-family: var(--mono);
+  }
+  .sn-ref::before { content: "["; color: var(--muted); }
+  .sn-ref::after  { content: "]"; color: var(--muted); }
+  span.sidenote {
+    display: block; position: absolute;
+    right: -304px; width: 264px;
+    margin: 0;
+    font-size: 13px; line-height: 1.55;
+    color: var(--ink-soft);
+    font-family: var(--serif); font-style: normal;
+    text-align: left;
+  }
+  span.sidenote .sn-num {
+    color: var(--accent); font-weight: 600;
+    margin-right: 5px; font-family: var(--mono);
+  }
+
+  /* ───── Buttons ───── */
+  .resource-row {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin: 18px 0 28px 0;
+  }
+  .resource-btn {
+    border: 1px solid var(--ink); padding: 8px 14px;
+    text-decoration: none !important; border-bottom: 1px solid var(--ink) !important;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink) !important; background: transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .resource-btn:hover {
+    background: var(--ink); color: var(--bg) !important;
+    border-color: var(--ink) !important;
+  }
+
+  /* ───── Summary (no box, just an eyebrow + indented bullets) ───── */
+  .summary {
+    margin: 28px 0 48px 0;
+    font-size: 17px;
+    line-height: 1.6;
+    position: relative;
+  }
+  .summary-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .summary ul {
+    margin: 0;
+    padding-left: 22px;
+    list-style: disc;
+  }
+  .summary li {
+    margin-bottom: 14px;
+  }
+  .summary strong { font-weight: 600; }
+  .summary li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ───── Collapsible plan (no box, inline) ───── */
+  article details.plan { margin: 18px 0; }
+  article details.plan summary {
+    cursor: pointer;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    list-style: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 1px;
+  }
+  article details.plan summary::-webkit-details-marker { display: none; }
+  article details.plan summary::before {
+    content: "▸";
+    color: var(--accent);
+    display: inline-block;
+    transition: transform 0.15s;
+    font-size: 11px;
+    font-style: normal;
+  }
+  article details.plan[open] summary::before { transform: rotate(90deg); }
+  article details.plan summary:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  article details.plan ul { margin: 14px 0 4px 0; }
+
+  /* ───── Difficulty tags ───── */
+  article .diff {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    margin-right: 6px;
+    color: var(--muted);
+    text-transform: lowercase;
+  }
+  article .diff.easy   { color: #3a7a3a; }
+  article .diff.medium { color: #b07a20; }
+  article .diff.hard   { color: #b04030; }
+  article .diff.research { color: #6b4d8a; }
+
+  /* ───── Coming-next stub ───── */
+  .next-stub {
+    margin: 72px 0 0 0;
+    padding: 24px 28px;
+    border: 1px dashed var(--rule);
+    background: rgba(192, 57, 43, 0.04);
+    font-family: var(--mono); font-size: 12px;
+    line-height: 1.65; color: var(--ink-soft);
+  }
+  .next-stub b {
+    display: block; margin-bottom: 8px;
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; font-size: 10px;
+  }
+
+  /* ───── Left-margin sidebar art (mirror of .marginal, on the left) ───── */
+  .marginal-left {
+    float: left; clear: left;
+    width: 200px;
+    margin: 8px 24px 32px -240px;
+    font-family: var(--mono); font-size: 11px;
+    line-height: 1.55; color: var(--muted);
+    text-align: left;
+  }
+  .marginal-left .label {
+    display: block; text-transform: uppercase;
+    font-size: 9px; letter-spacing: 0.2em;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .marginal-left img {
+    display: block; width: 100%; height: auto;
+  }
+
+  /* ───── End-of-page tag ───── */
+  .end-tag {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 64px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .end-tag::before, .end-tag::after {
+    content: ""; display: inline-block;
+    width: 64px; height: 1px;
+    vertical-align: middle;
+    background: var(--rule);
+    margin: 0 18px;
+  }
+
+  /* ───── Mobile ───── */
+  @media (max-width: 1080px) {
+    .layout {
+      grid-template-columns: 1fr;
+      max-width: 720px; padding: 32px 20px 64px;
+    }
+    article { grid-column: 1; }
+    .toc {
+      position: static; grid-column: 1;
+      margin-bottom: 32px; padding-bottom: 24px;
+      border-bottom: 1px dashed var(--rule);
+    }
+    span.sidenote {
+      position: static; width: auto;
+      margin: 12px 0; padding: 10px 14px;
+      background: rgba(192, 57, 43, 0.04);
+      border-left: 2px solid var(--accent);
+      display: block;
+    }
+    .marginal {
+      float: none; clear: none;
+      position: static; right: auto; width: auto;
+      margin: 24px 0;
+      font-size: 13px;
+    }
+    /* Hero override needs the same treatment (otherwise it stays floated). */
+    .marginal.hero {
+      float: none; clear: none;
+      width: auto;
+      margin: 24px 0 18px 0;
+    }
+    .marginal img {
+      max-width: 360px;
+    }
+    .marginal .placeholder-box {
+      max-width: 360px;
+      aspect-ratio: 4 / 3;
+    }
+    .marginal .scroll-box {
+      max-width: 100%;
+    }
+    article h1 { font-size: 36px; }
+    article h2 { font-size: 26px; }
+    .marginal-left {
+      float: none; clear: none;
+      position: static; width: auto;
+      margin: 24px 0;
+      font-size: 13px;
+    }
+    .marginal-left img {
+      max-width: 360px;
+    }
+  }
+  @media (max-width: 600px) {
+    article h1 { font-size: 30px; }
+    article .dek { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="toc" aria-label="Contents">
+    <div class="toc-label">contents</div>
+    <ul>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#prizes">Challenges</a></li>
+      <li><a href="#challenge">The Verifier Challenge</a></li>
+      <li><a href="#overview">Our prototype</a></li>
+      <li class="sub"><a href="#properties">What we wanted to verify</a></li>
+      <li class="sub"><a href="#agent">The inspector agent</a></li>
+      <li class="sub"><a href="#laptop">Laptop-scale testbed (Jason)</a></li>
+      <li class="sub"><a href="#h100">H100 testbed (Jasmine)</a></li>
+      <li class="sub"><a href="#results">Results</a></li>
+      <li class="sub"><a href="#didnt">Current limitations</a></li>
+      <!-- <li class="sub"><a href="#anatomy">Anatomy of an H100 log</a></li> -->
+
+      <li><a href="#next">Our next steps</a></li>
+      <li><a href="#closing">Support us</a></li>
+    </ul>
+  </aside>
+
+  <article>
+
+    <p class="eyebrow">AI Compute Verification <span class="sep">—</span> Prototype <span class="sep">·</span> Work in Progress</p>
+    <h1>Inspector Agents</h1>
+    <p class="dek">A working prototype of automated AI compute verification. We trained a small GPT on a laptop, ran real training workloads on H100s, and asked Claude to read the logs and tell us what was running inside.</p>
+
+    <p class="byline">
+      <span><a href="https://jasonhausenloy.com">Jason Hausenloy</a> &nbsp;·&nbsp; <a href="https://jasminexli.com">Jasmine Li</a></span>
+      <span>2026-04-29</span>
+    </p>
+
+    <div class="summary">
+      <span class="marginal hero" style="margin-top:-12px;"><img class="watercolor" src="/assets/inspector-blog/server-racks.png?v=3" alt=""></span>
+      <span class="summary-label">summary</span>
+      <ul>
+        <li>Jason and Jasmine are running the <a href="#challenge"><strong>Verifier Challenge</strong></a>: an open competition to build the best AI verifiers.</li>
+        <li><strong>AI verification</strong> is the problem of confirming what has been computed inside an AI datacenter, such as through reading its hardware records ("logs").</li>
+        <li>It's <strong>the prerequisite for almost any kind of AI rule we'd want</strong>: an AI lab proving it's keeping its own safety commitments, a regulator enforcing the law, the US and China checking each other on any kind of future deal.</li>
+        <li>Like <a href="#prizes">some problems before it</a> — self-driving, image recognition, reading sealed scrolls — building good verifiers is <strong>orphaned</strong>: too applied for academia, too unprofitable for VCs, too technical for most philanthropy.</li>
+        <li>Before running the competition, we built <a href="#overview">the smallest possible working version</a> ourselves, on a laptop and some rented GPUs — and, to our knowledge, <strong>the first</strong>.</li>
+        <li><a href="#laptop">Jason trained</a> a small, 3.2M-parameter GPT end-to-end on his MacBook, capturing each training step, and then built a small automated AI verifier (a lightly scaffolded Claude agent) to read them.</li>
+        <li><a href="#h100">Jasmine ran</a> an analogous testbed on two H100 SXM hosts on RunPod, in different US regions: an eight-phase schedule of training, inference, fine-tuning, and idle workloads. Three of the phases lie about what they're actually doing — training labeled as inference, the larger model labeled as the smaller one, fine-tuning labeled as a fresh pretraining run — with ground-truth labels released alongside the prover's claims.</li>
+        <li>We've open-sourced all of the above: <a href="https://github.com/jasonhausenloy/inspector-agents">github.com/jasonhausenloy/inspector-agents</a> and <a href="https://huggingface.co/datasets/jasminexli/verifier-challenge-traces">huggingface.co/datasets/jasminexli/verifier-challenge-traces</a>, CC-BY-4.0.</li>
+      </ul>
+    </div>
+
+    <div class="resource-row">
+      <a class="resource-btn" href="https://github.com/jasonhausenloy/inspector-agents">GitHub</a>
+      <a class="resource-btn" href="https://huggingface.co/datasets/jasminexli/verifier-challenge-traces">Hugging Face dataset</a>
+    </div>
+
+    <h2 id="intro">Introduction</h2>
+
+    <p>In what seemed like a lifetime ago, Sam Altman testified to Congress that he wanted a regime to oversee the development of AI modelled after the IAEA (the International Atomic Energy Agency, the body that tries to verify nuclear-non-proliferation deals). Enforced, perhaps, by on-the-ground inspectors.</p>
+
+    <p>What, indeed, would these inspectors be doing? Like everyone else in AI governance at the time, we were fuzzy on the details — there wasn't exactly an enriched uranium stockpile to test for — and fumbling in the dark.</p>
+
+    <p><span class="marginal"><span class="label">Mar-a-Lago, 2017</span><img src="/assets/inspector-blog/trump-xi.jpg" alt="Trump and Xi 1-on-1 meeting at Mar-a-Lago, 2017">Trump and Xi at Mar-a-Lago, 2017. <em>White House photo, public domain.</em></span>These days, the vibes have shifted away from multilateral fora (UN? UN who?). But a bilateral treaty between the US and China may still be a legacy-defining project for President Trump (a "Deal of The Century", if you will, for the dealmaker-in-chief).</p>
+
+    <p>And how would such a deal be enforced? As the old Reagan saying goes, "trust but verify."</p>
+
+    <p>This faces a few problems: your inspector would need to be accurate and thorough enough to catch violations (datacenter logs are huge), they'd need to be trusted by all parties (would the Chinese really trust the Swiss?), and preserve AI-relevant intellectual property.</p>
+
+    <p>Like everyone, we were not AI-pilled enough. One way, perhaps the best way, to verify a deal on AI, is to use the AIs themselves.</p>
+
+    <hr>
+
+    <h2 id="prizes">Challenges</h2>
+
+    <p><span class="marginal"><span class="label">Stanley</span><img src="/assets/inspector-blog/stanley.jpg" alt="Stanley, the Stanford VW Touareg that won the 2005 DARPA Grand Challenge">Stanley in the Mojave, 2005. <em>Wikipedia, CC BY-SA.</em></span>In 2004, the military's innovation arm, DARPA, launched its first Grand Challenge: build a self-driving car capable of crossing 142 miles of the Mojave Desert, with a $1m prize. No team finished, so DARPA ran it again, with a $2m prize. Stanford's "Stanley", a modified Volkswagen Touareg, finished the course in just under seven hours.</p>
+
+    <p><span class="marginal"><span class="label">Waymo, 2026</span><img src="/assets/inspector-blog/waymo-sf.jpg" alt="A Waymo parked on a residential street in San Francisco">A Waymo parked outside Jason's SF block!</span>Sebastian Thrun, who led the team, later went on to start Google's self-driving car division. Now we ride Waymos across SF.</p>
+
+    <p>In 2009, then-Princeton professor Fei-Fei Li launched ImageNet: a hand-labelled dataset of 14m images, alongside a competition to ask entrants to classify images in 1,000 categories. In 2012, a graduate student named Alex Krizhevsky entered AlexNet, a deep CNN trained on two consumer GPUs, and won by &gt;10%. The deep learning revolution produced the modern AI industry we know today.<span class="marginal"><span class="label">AlexNet, 2012</span><img src="/assets/inspector-blog/alexnet.png" alt="AlexNet architecture diagram, Krizhevsky et al. 2012">AlexNet's architecture (Krizhevsky, Sutskever, Hinton, 2012). <em>Wikipedia, CC BY-SA.</em></span></p>
+
+    <p>In 2023, Nat Friedman, Daniel Gross, and a small team launched the Vesuvius Challenge: a $1 million prize for anyone who could read the inside of a Herculaneum scroll — papyrus carbonized by Mount Vesuvius in 79 AD, sealed for 1,944 years, too fragile to unroll. Within 10 months, a 21-year-old named Luke Farritor recovered the first word: <em>πορφύραc</em>, "purple." Similar techniques have since recovered hundreds of previously unreadable scrolls.<span class="marginal"><span class="label">Herculaneum scroll</span><img src="/assets/inspector-blog/herculaneum.jpg" alt="Carbonized Herculaneum papyrus scroll">A carbonized Herculaneum scroll, the kind the Vesuvius Challenge is unrolling. <em>Wikimedia Commons, public domain.</em></span></p>
+
+    <p>Like the problems before it — self-driving, image recognition, reading sealed scrolls — building good verifiers is orphaned: too applied for academia, too unprofitable for VCs, too technical for most philanthropy. Funding pre-paradigmatic fields is hard. Also, the field of AI verification doesn't exist yet: spanning agent security, cryptography, hardware, standards and policy. To succeed, verification requires buy-in across rivals; a verifier built, closed-source, by one US lab (or, worse, the NSA) is not a verifier any Chinese ministry will accept, and vice versa.</p>
+
+    <hr>
+
+    <h2 id="challenge">The Verifier Challenge</h2>
+
+    <p><span class="marginal"><span class="label">Leaderboard (mockup)</span><span class="mini-board"><span class="hd">#</span><span class="hd">team</span><span class="hd">score</span><span class="hd">approach</span><span class="rk">1</span><span class="tbd">—</span><span class="tbd">—</span><span class="tbd">—</span><span class="rk">2</span><span class="tbd">—</span><span class="tbd">—</span><span class="tbd">—</span><span class="rk">3</span><span class="tbd">—</span><span class="tbd">—</span><span class="tbd">—</span><span class="rk">…</span><span class="tbd">…</span><span class="tbd">…</span><span class="tbd">…</span></span>Public scoring on held-out adversarial logs. Approach column open: cryptographic, agent-based, hybrid.</span>We (Jason and Jasmine) are building the "Verifier Challenge", an open competition to build the best system for telling, just from a datacenter's logs, what AI is being trained inside.</p>
+
+    <p>A prerequisite to ~every form of AI governance will require solving the problem of AI verification: for AI labs to prove to their employees and to regulators they're respecting their safety standards, for the US and China to verify compliance to any kind of AI deal, even — as a basic check — for security teams to catch a rogue AI.</p>
+
+    <p>Before we run a competition, we wanted to work on basic prototyping ourselves of an <i>automated inspector agent:&nbsp;</i>. This post will briefly run over some of what we did, what we learned, and the next steps.</p>
+
+    <hr>
+
+    <h2 id="overview">Our prototype</h2>
+
+    <h3 id="properties">What we wanted to verify</h3>
+
+    <p>We picked two properties of compute usage to monitor:</p>
+
+    <ol>
+      <li><strong>Training versus inference</strong> — is the chip training a new model, or serving an existing one?</li>
+      <li><strong>Model size</strong> — is the model being trained the size that was declared?</li>
+    </ol>
+
+    <p>We picked these because both are foundational to any serious agreement on compute; the former is needed to institute FLOP caps on training compute, and the latter for model-size caps. Eval-gating — the proposal that a lab can only proceed to its next training run conditional on passing a set of evaluations — also rests on a verifier.</p>
+
+    <h3 id="agent">The inspector agent</h3>
+
+    <p>We use Claude Sonnet 4.6 and Opus-4.7 with <a href="https://github.com/jasonhausenloy/inspector-agents/blob/main/inspector/prompts.py">custom system and user prompts</a>, accessed through Anthropic API. The system prompt is frozen and cached for an hour, the log payload is cached for five minutes, and the agent's output is structured JSON. Each call sends the agent a captured trace and the protocol schema, and the agent emits a verdict together with a stated confidence and a list of cited signals. We describe the agent's actual verdicts on real data <a href="#results">further down</a>.</p>
+
+    <h3 id="laptop">Laptop-scale testbed (Jason)</h3>
+
+    <p>The point of this half of the prototype was to verify the basic loop end-to-end at small scale — train a model, capture a structured log of every step and every inference token, hand the log to the agent, and have the agent classify what was running — before scaling to a real datacenter. On a laptop every memory counter is readable and every kernel is mine, so this is the comfortable half of the experiment.</p>
+
+    <p>I trained a 3.2-million-parameter character-level GPT — four transformer blocks, four heads, 256 hidden dimensions — on Tiny Shakespeare (a 1 MB corpus of the plays — yes, <em>"something is rotten in the state of Denmark"</em> is in there), on Apple Silicon's MPS backend (Apple's GPU compute backend, the M-series equivalent of CUDA).<span class="marginal"><span class="label">Spec</span>4 layers · 4 heads · 256 hidden · seq 128 · vocab 65 · MPS · ~5 min wall clock for 9k steps.</span> It took ~5 minutes of wall clock training time for the model to be able to tell ROMEO is followed by a colon! Then, I ran inference on the trained checkpoint and captured another few minutes of token-by-token output.</p>
+
+    <p>The log from this training run recorded the following parameters:</p>
+
+    <ul>
+      <li>Per training step: loss; gradient norms (global and per parameter group); Adam optimiser state norms.</li>
+      <li>Phase timings (data load, forward, backward, optimiser); tokens per second; learning rate.</li>
+      <li>System telemetry: process RSS, MPS allocated and driver memory, CPU%, system load, network I/O.</li>
+      <li>Every fifty steps: full model fingerprint, top-five-largest-tensor min/max/mean/std summaries, and a per-parameter-group weight-norm snapshot.</li>
+      <li>A SHA-256 hash chained to the previous record. Reorder a record and the chain breaks. Edit one and the chain breaks.</li><li>Per inference token: the full softmax distribution at the moment of sampling, the attention pattern at every layer and every head, the KL divergence from the previous step's distribution at the same position, the latency, the KV-cache bytes.</li></ul>
+
+    <p>I did a full capture of this data, which was about <strong>320 MB on disk</strong>: roughly 9,000 hash-chained training records, 240 inference records, 100 raw-tensor snapshots if you want the actual matrices, four full model checkpoints, and one Chrome profiler trace. The log format is at <a href="https://github.com/jasonhausenloy/inspector-agents/blob/main/logs/schema.md"><code>logs/schema.md</code></a>; everything is also written to <a href="https://jason.ml/everything">jason.ml/everything</a> in more depth, with actual numbers.<span class="marginal"><span class="label">One training-step record</span><span class="scroll-box">{
+  <span class="k">"step"</span>: <span class="n">200</span>,
+  <span class="k">"loss"</span>: <span class="n">2.31</span>,
+  <span class="k">"grad_norm"</span>: <span class="n">1.17</span>,
+  <span class="k">"step_time_seconds"</span>: <span class="n">0.06</span>,
+  <span class="k">"tokens_per_second"</span>: <span class="n">68260.3</span>,
+  <span class="k">"learning_rate"</span>: <span class="n">0.0003</span>,
+  <span class="k">"forward_ms"</span>: <span class="n">15.749</span>,
+  <span class="k">"backward_ms"</span>: <span class="n">38.542</span>,
+  <span class="k">"optimizer_ms"</span>: <span class="n">4.744</span>,
+  <span class="k">"telemetry"</span>: {
+    <span class="k">"process_rss_mb"</span>: <span class="n">414.28</span>,
+    <span class="k">"mps_allocated_mb"</span>: <span class="n">51.9</span>,
+    <span class="k">"system_load_1m"</span>: <span class="n">7.0</span>
+  },
+  <span class="k">"grad_norms_per_group"</span>: {
+    <span class="k">"embed"</span>: <span class="n">0.80</span>,
+    <span class="k">"blocks"</span>: <span class="n">0.86</span>,
+    <span class="k">"head"</span>: <span class="n">0.0</span>,
+    <span class="k">"ln"</span>: <span class="n">0.02</span>
+  },
+  <span class="k">"weight_norms_per_group"</span>: {
+    <span class="k">"embed"</span>: <span class="n">5.12</span>,
+    <span class="k">"blocks"</span>: <span class="n">57.81</span>,
+    <span class="k">"head"</span>: <span class="n">0.0</span>,
+    <span class="k">"ln"</span>: <span class="n">16.58</span>
+  },
+  <span class="k">"optimizer_state_norms"</span>: {
+    <span class="k">"adam_m_norm"</span>: <span class="n">0.17</span>,
+    <span class="k">"adam_v_norm"</span>: <span class="n">0.0089</span>,
+    <span class="k">"tracked_params"</span>: <span class="n">52</span>
+  },
+  <span class="k">"flops"</span>: <span class="n">78863400960</span>,
+  <span class="k">"op_type"</span>: <span class="s">"training"</span>,
+  <span class="k">"model_hash_prefix"</span>: <span class="s">"sha256:546a946947ee7117"</span>,
+  <span class="k">"prev_record_hash"</span>: <span class="s">"6cc01ed1fb49062f671b04acd121bdb8a0bf8150fd9f5f7f3ec29ebcecac48ae"</span>,
+  <span class="k">"record_id"</span>: <span class="s">"trec_000200"</span>,
+  <span class="k">"window_start"</span>: <span class="s">"2026-04-29T05:20:29Z"</span>,
+  <span class="k">"window_end"</span>: <span class="s">"2026-04-29T05:20:29Z"</span>
+}</span>One step out of 9,000. Scroll to read.</span><span class="marginal"><span class="label">Training loss</span><svg viewBox="0 0 240 110" width="100%" style="display:block; background:#fff; border:1px solid var(--rule); padding:6px;" font-family="ui-monospace, monospace"><line x1="32" y1="14" x2="32" y2="92" stroke="#888" stroke-width="0.4"></line><line x1="32" y1="92" x2="234" y2="92" stroke="#888" stroke-width="0.4"></line><text x="28" y="18" font-size="8" fill="#888" text-anchor="end">4.41</text><text x="28" y="95" font-size="8" fill="#888" text-anchor="end">1.17</text><text x="32" y="105" font-size="8" fill="#888">step 0</text><text x="234" y="105" font-size="8" fill="#888" text-anchor="end">9k</text><polyline fill="none" stroke="var(--accent)" stroke-width="1.2" points="32,14 38,28 46,42 56,52 68,58 82,63 98,67 116,71 134,74 154,76 174,79 194,81 212,84 222,86 234,88"></polyline></svg>Loss over the 9,000-step laptop run, ~11 min wall clock on MPS.</span></p>
+
+    <h3 id="h100">H100 testbed (Jasmine)</h3>
+
+    <p>The H100 testbed is a sanity check on whether the laptop approach extends to a real datacenter setting. The laptop run is comfortable, since every counter is readable and every kernel is ours, but a real datacenter is the opposite: the chip is shared, the access is mediated, and the counters you most want to read are usually the ones the cloud provider does not expose. The point of this half of the experiment is to test whether the same agent-on-logs approach holds up on the kind of telemetry an actual inspector would have to work with.<span class="marginal"><span class="label">Why this is hard</span>Most of the work was getting telemetry that real labs already collect but do not share: DCGM at 10 Hz, per-rank NCCL logs, NIC counters. The combination of streams at this resolution — nvsmi, DCGM, per-rank NCCL, and NIC counters, with ground-truth adversarial labels alongside the prover's claims — is uncommon in public GPU-workload datasets.</span></p>
+
+    <p>I rented two H100 SXM hosts on RunPod, in different US regions, and ran a fixed schedule on each. I ran workload phases, one idle baseline, and three adversarial phases:</p>
+
+    <ul>
+      <li>30-minute pretraining run on TinyStories with a small GPT (<code>gpt-tiny</code>, ~10M parameters).</li>
+      <li>30-minute pretraining run on TinyStories with the larger model (<code>gpt-small</code>, the GPT-2 architecture, ~124M parameters).</li>
+      <li>15-minute inference run loading the larger model's checkpoint.</li>
+      <li>20-minute fine-tune of <code>gpt-tiny</code> on WikiText.</li>
+      <li>5-minute idle phase, as a baseline.</li>
+    </ul>
+
+    <p>The three adversarial phases each run a real workload and lie about what it is. Each lie is picked to attack a different governance property.<span class="marginal"><span class="label">8-phase schedule</span><svg viewBox="0 0 240 70" width="100%" style="display:block; background:#fff; border:1px solid var(--rule); padding:6px;" font-family="ui-monospace, monospace"><rect x="0" y="20" width="50" height="22" fill="#a8d3b8"></rect><rect x="50" y="20" width="50" height="22" fill="#a8d3b8"></rect><rect x="100" y="20" width="25" height="22" fill="#a8d3b8"></rect><rect x="125" y="20" width="33" height="22" fill="#a8d3b8"></rect><rect x="158" y="20" width="8" height="22" fill="#d8cfb8"></rect><rect x="166" y="20" width="25" height="22" fill="#e69aa6"></rect><rect x="191" y="20" width="25" height="22" fill="#e69aa6"></rect><rect x="216" y="20" width="24" height="22" fill="#e69aa6"></rect><text x="0" y="14" font-size="7" fill="#888">tinyP</text><text x="50" y="14" font-size="7" fill="#888">smallP</text><text x="100" y="14" font-size="7" fill="#888">infer</text><text x="125" y="14" font-size="7" fill="#888">tinyFT</text><text x="158" y="14" font-size="7" fill="#888">idle</text><text x="166" y="58" font-size="7" fill="#8a1d1d">P1</text><text x="191" y="58" font-size="7" fill="#8a1d1d">P2</text><text x="216" y="58" font-size="7" fill="#8a1d1d">P3</text></svg>4 workload phases (green) + 1 idle (neutral) + 3 adversarial (red), 145 min per host.</span></p>
+
+    <p>The <b>first adversarial phase</b> runs a training workload and labels it as inference. This is the lie that defeats a training-FLOP cap, because if a training run is reported as inference, the declared training compute stays under whatever cap is in place. The signal that gives this lie away is NCCL: training requires the two GPUs to synchronize gradients on every step, and the per-rank NCCL log records each of those calls, while inference never issues them.</p>
+
+    <p>The <b>second adversarial phase</b> runs the larger model but labels the workload as the smaller one. This is the lie that defeats a model-size cap. In our captures, the larger model occupies about 18.8 GB of HBM in steady state and the smaller one about 2 GB, so there is no plausible way to fit the larger model into the smaller's memory footprint without changing the workload itself.</p>
+
+    <p>The <b>third adversarial phase</b> fine-tunes an existing checkpoint but labels the run as a fresh pretraining job. This is the lie that hides an undeclared fine-tune inside a declared training window — a harder property than the first two, included here as a stretch case. Fine-tuning in this setup freezes the embedding layer and uses a learning rate two orders of magnitude below pretraining, and both choices leave visible signatures in the loss and gradient traces.</p>
+
+    <p>Ground-truth labels live in <code>workload_labels.jsonl</code> alongside the prover's claimed labels. The whole capture is a label-flip benchmark: any verifier can be scored against it.<span class="marginal"><span class="label">By the numbers</span>34,072 rows · 1.33 GB on disk · 2 hosts × 8 phases · captured under CC-BY-4.0 at <a href="https://huggingface.co/datasets/jasminexli/verifier-challenge-traces">huggingface.co/datasets/jasminexli/verifier-challenge-traces</a>.</span></p>
+
+    <!-- <h3 id="anatomy">Anatomy of an H100 log</h3> -->
+
+    <p>For each phase, on each host, we captured six streams. <code>nvsmi.csv</code> is <code>nvidia-smi</code> polled once a second, recording the basic dashboard counters every cloud provider exposes: power, utilization, memory used, clock speed, temperature. <code>dcgm.csv</code> is NVIDIA's data-center GPU manager sampled at ten samples per second, a deeper layer that most cloud providers do not enable by default and which we installed the daemon for ourselves. A couple of DCGM's most useful counters — NVLink traffic and tensor-core activity — require a privileged container, which RunPod does not grant on community pods, so we ran without those and noted the gap in the dataset card.</p>
+
+    <p>The four other streams are NCCL logs per rank (every collective communication call between the two GPUs, gzipped), <code>/proc/net/dev</code> polled at 1 Hz as a NIC-level cross-check, model checkpoints saved at the end of training phases, and a <code>provenance.json</code> file with host metadata, GPU UUIDs, driver and NCCL version, and a wall-clock skew estimate so the two hosts can be temporally aligned.</p>
+
+    <p>The combined resolution is the part that is unusual in public datasets. People who run real workloads tend not to share this much, and people who write about verification tend not to run real workloads. None of the streams is individually conclusive, but together they leave very little room for a prover to lie.</p>
+
+    <p>Two excerpts from the actual capture, both <code>gpt-small</code> on the same checkpoint:</p>
+
+    <pre class="log-block"><span class="lh">phases/honest_pretrain_small/nvsmi.csv · steady-state training · both GPUs</span><span class="hd">timestamp                       gpu  util%  mem (MiB)  power (W)  temp (°C)</span>
+2026/04/29 07:20:20.991          0    100      18787      578.66       54
+2026/04/29 07:20:20.992          1    100      18787      568.88       55
+2026/04/29 07:20:21.992          0    100      18787      575.94       54
+2026/04/29 07:20:21.993          1    100      18787      567.14       55
+2026/04/29 07:20:22.993          0    100      18787      576.77       53
+2026/04/29 07:20:22.994          1    100      18787      566.75       55
+
+<span class="lh">phases/honest_inference_small/nvsmi.csv · steady-state inference · both GPUs</span><span class="hd">timestamp                       gpu  util%  mem (MiB)  power (W)  temp (°C)</span>
+2026/04/29 07:48:52.395          0     55       2079      174.42       34
+2026/04/29 07:48:52.395          1     54       2079      171.82       35
+2026/04/29 07:48:53.396          0     55       2079      174.87       34
+2026/04/29 07:48:53.396          1     53       2079      171.75       36
+2026/04/29 07:48:54.397          0     55       2079      174.37       34
+2026/04/29 07:48:54.397          1     54       2079      173.09       36</pre>
+
+    <p>Both excerpts are running the same <code>gpt-small</code> model on the same H100 pair, so the difference between the two blocks is entirely the workload signature, not the hardware. Training pins both GPUs at 100% utilization and around 575 W of power draw, while inference holds steady at about 55% utilization and 174 W. The memory footprint differs by roughly an order of magnitude (18.8 GB versus 2.1 GB), and the temperature gap directly reflects the power gap. None of these differences are surprising once they are visible — the point of the testbed is that they are recoverable from telemetry the prover cannot fully control without changing the workload itself.</p>
+
+    <p>Across the six streams, the signatures we relied on were the following:</p>
+
+    <ul>
+      <li>Steady-state power and utilization plateaus differ by roughly 3× between training and inference on the same model.</li>
+      <li>HBM footprint scales with model size, so a 124M-parameter model cannot hide in the footprint of a 10M-parameter one.</li>
+      <li>NCCL collectives fire on every training step, while inference does not issue them at all.</li>
+      <li>Idle phases sit at a power floor around 75 W per GPU, well below any active workload.</li>
+      <li>For cross-checking, PCIe TX/RX from DCGM and NIC counters from <code>/proc/net/dev</code> agree with the NCCL log's claims about traffic, so a tampered NCCL log is detectable from the orthogonal streams.</li>
+    </ul>
+
+    <h3 id="results">Results</h3>
+
+    <p>We started by running the agent on the laptop traces. Across the seven canonical test cases — one clean training trace, one clean inference trace, and five adversarial mutations designed to fool a naive classifier — the agent returned the correct verdict on all seven, at roughly <strong>$0.15 per call</strong>.<span class="marginal"><span class="label">Most-cited signals</span>FLOP-per-token ratio (training is ~3× higher than inference) · presence/absence of a <code>_real_training</code> block · memory profile shape (training pre-allocates and stays flat; inference grows with the KV cache) · weight drift across the run.</span> Per-case rationales are at <a href="/inspector/agent">/inspector/agent</a>.</p>
+
+    <p>The red-team loop we ran alongside the verifier is more interesting than the verdicts themselves. Claude plays both sides: in each round, a red-team agent looks at the schema, the existing evasions, and the last ten rounds, and proposes a new attack — a function that mutates a clean log into a lying one that should still pass the verifier. The mutate function runs in a sandbox, the verifier classifies the result, and the round is appended to a public JSONL.</p>
+
+    <p>We ran this loop for sixty rounds. Fifteen attacks succeeded, and each one was closed by a protocol patch the next round. The patch list turns out to be the more interesting artifact, since every dimension of the schema needed an explicit uniqueness or stability constraint before the agent could be relied on (truncation, model-hash drift, op-type relabelling, hash-and-config rotation, token under-reporting, cross-job fingerprint pollution), and by the end the protocol had grown from four implicit rules to nineteen.<span class="marginal"><span class="label">Patch trajectory</span><svg viewBox="0 0 240 110" width="100%" style="display:block; background:#fff; border:1px solid var(--rule); padding:6px;" font-family="ui-monospace, monospace"><line x1="32" y1="14" x2="32" y2="92" stroke="#888" stroke-width="0.4"></line><line x1="32" y1="92" x2="234" y2="92" stroke="#888" stroke-width="0.4"></line><text x="28" y="18" font-size="8" fill="#888" text-anchor="end">19</text><text x="28" y="95" font-size="8" fill="#888" text-anchor="end">4</text><text x="32" y="105" font-size="8" fill="#888">round 1</text><text x="234" y="105" font-size="8" fill="#888" text-anchor="end">60</text><polyline fill="none" stroke="var(--accent)" stroke-width="1.4" points="32,92 50,86 65,80 80,74 95,68 110,62 125,56 140,50 155,44 170,38 180,32 190,26 200,20 215,17 234,14"></polyline></svg>Rules in protocol over the 60-round red-team loop. 4 → 19.</span> The full history is at <a href="/inspector/redteam">/inspector/redteam</a>.</p>
+
+    <p>We're currently running the inspector agent end-to-end on the H100 capture and will update results soon. The dataset ships with ground-truth labels — <code>workload_labels.jsonl</code> carries both the truth and the prover's claim for every phase, and our verifier can be easily scored against it.</p>
+
+    <h3 id="didnt">Current limitations</h3>
+
+    <ul>
+      <li><strong>Multi-node fabric.</strong> Single-host on the laptop, two hosts on the testbed. Real frontier training is hundreds of nodes with distinct topology. The hard part of verification is the fabric, not the chip.<span class="marginal"><span class="label">Note</span>Cross-node verification needs per-rank NCCL + per-link bandwidth. NVLink is intra-node only; the inter-node fabric (InfiniBand, RoCE) is the harder verification target.</span></li>
+      <li><strong>DCGM counters that need privileged access.</strong> We ran on RunPod community pods, which don't grant the privileged container (or <code>CAP_SYS_ADMIN</code>) that DCGM needs to read NVLink TX/RX, TENSOR_ACTIVE, and DRAM_ACTIVE. Those three counters carry signals — gradient-sync bandwidth, mixed-precision usage, memory throughput — that several of the harder verification properties depend on. We worked around the gap and noted it in the dataset card, but the H100 results above use only counters readable from an unprivileged container.</li>
+      <li><strong>Hardware attestation.</strong> Nothing the prover writes into the log is cryptographically tied to the silicon that produced it. Without TEEs (Trusted Execution Environments — chips that can sign attestations of what they ran) or signed hardware attestations, a sufficiently sophisticated adversary can forge any log we read.<span class="marginal"><span class="label">Note</span>TEE-signed attestations exist on Intel SGX, AMD SEV-SNP, and (since 2024) H100 Confidential Computing. None used in this prototype.</span></li>
+      <li><strong>Sovereign trust:</strong> We did initial tests using Opus-4.7 as inspector agent. However, a truly deployable inspector will need to run through an open-source narrow model that all parties can audit. We plan next to finetune our own open-weights model as automated inspector agent.</li>
+      <li><strong>Compound attacks.</strong> Each red-team round mutates one dimension; we did not stress two attack classes at once.<span class="marginal"><span class="label">Note</span>The realistic threat model is op_type relabel + token under-reporting + fingerprint rotation simultaneously. None of the 60 red-team rounds tested combinations.</span></li>
+      <li><strong>n=2 hosts on the testbed.</strong> Real cross-host variance is unknown.</li>
+      <li><strong>Train-vs-inference is suspiciously easy.</strong> The five-stream H100 telemetry separates training and inference roughly trivially. The harder properties (FLOP cap, undeclared fine-tune, identity) are the test of the framework.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="next">Our next steps</h2>
+
+    <p>First, we want to <b>focus on harder compute-usage properties to verify.</b><span class="marginal"><span class="label">Properties × signals</span><span class="mini"><span class="hd">property</span><span class="hd">load-bearing signal</span><span>FLOP cap</span><span>power × time vs Kaplan floor</span><span>model size</span><span>tensor-core util, mem footprint</span><span>undeclared finetune</span><span>NCCL bursts during "inference"</span><span>served identity</span><span>weight-checkpoint hash at load</span></span>What we'd want each verifier to read off first.</span></p>
+
+    <ul>
+      <li><span class="diff medium">[medium]</span> <strong>FLOP-budget compliance.</strong> Did this run consume more compute than the declared cap? FLOPs (floating-point operations, the standard unit of compute spent) are the primitive any training-compute cap is denominated in.<span class="marginal"><span class="label">Note</span>Two independent floors on declared compute: the Kaplan estimate (6 × params × tokens) and integrated power × time × FLOPs/W from hardware counters. Honest transformer runs agree within ~10%.</span></li>
+      <li><span class="diff medium">[medium]</span> <strong>Model <i>identity</i> compliance.</strong> Is the trained model the one you said you were going to train? This is stronger than the served-model identity check below, because the trained checkpoint has to match a declared training run — its data, procedure, and resulting weights — not just a declared architecture.</li>
+      <li><span class="diff hard">[hard]</span> <strong>Undeclared fine-tuning or post-training.</strong> Labs could load existing checkpoints and run undeclared fine-tuning or post-training. The hard part is distinguishing this from benign inference, because RL sampling — which is post-training — has the same telemetry shape as serving an existing model. The canonical defence is <em>"we were not training, we were sampling from the existing model"</em>, and it is hard to refute from datacenter-access telemetry alone. This is probably the most realistic abuse pattern.</li>
+      <li><span class="diff easy">[easy]</span> <strong>Is the served model the declared model?</strong> Inference-side identity is the easy version: you can fingerprint the weights at load time, then verify subsequent inference uses those weights.</li>
+    </ul>
+
+    <p>Other things on the list, grouped by area:</p>
+
+    <p><strong>Improving the verifier:</strong></p><ul>
+      <li><span class="diff hard">[hard]</span> <strong>A mechanistic write-up</strong> of which signals the agent is actually using to make its determination, head-by-head. Right now we know the cited signals, but we don't yet have a reliable map from signal to weight.</li>
+      <li><span class="diff hard">[hard]</span> <strong>Realistic-subset verifier.</strong> We want to run on only the realistic subset of logs an inspector would see — input/output to the rack, with proprietary internal telemetry redacted. This is the version that matters for actual deployment, and the version we have not yet built.</li>
+      <li><span class="diff research">[research]</span> <strong>An open-source verifier model</strong> fine-tuned on the corpus and published on Hugging Face. Right now the verifier is a Sonnet wrapper, but we want to train an open-source model that would actually be trusted by a sovereign auditor for deployment on-prem.</li>
+    </ul>
+
+    <p><strong>Improving the data:</strong></p>
+    <ul>
+      <li><span class="diff medium">[medium]</span> <strong>Large-scale data collection of real production-shaped traces: </strong>we want to publish a clean baseline of production traces gained from many inference and training runs, or convince labs to share their logs with us.</li>
+      <li><span class="diff medium">[medium]</span> <strong>Full multi-node implementation with privileged GPU access.</strong>&nbsp;We are currently bottlenecked on <i>funding for compute</i> and <i>access to privileged GPUs</i>. On the latter: cloud GPU providers (e.g. RunPod's community GPUs) do not expose DCGM counters, including NVLink TX/RX, tensor-core activity, and DRAM activity. Several of the harder verification properties (FLOP-budget compliance via integrated power × FLOPs/W, gradient-sync verification, mixed-precision attestation) depend on these counters being readable. We will look into requesting RunPod Secure Cloud, Lambda, Crusoe, an on-prem cluster, or a sponsored slice of a frontier provider's hardware.<span class="marginal"><span class="label">Note</span>AWS does not expose DCGM. GCP partially does. RunPod Secure Cloud, Lambda, and Crusoe grant privileged container access on request; community-tier RunPod, which we used, does not. Verification testbeds need raw-access providers.</span></li>
+    </ul>
+
+    <p><strong>Building the challenge:</strong></p>
+    <ul>
+      <li><span class="diff easy">[easy]</span>&nbsp;<b>Identifying a</b><strong>&nbsp;list of compute-usage properties we cannot yet detect but want to verify.</strong>&nbsp;This has not been comprehensively done before, and would be useful both as a theoretical contribution and a guiding lode for verifier implementation progress.</li>
+      <li><span class="diff easy">[easy]</span> <strong>A Fermi estimate</strong> of the hardware requirements to scale this approach to a production-scale datacenter.</li>
+      <li><span class="diff medium">[medium]</span> <strong>A stronger adversary model</strong>&nbsp;<b>(red team). </b>We'd like to develop stronger models for what real attempted evasions in compute-usage logs would look like from adversaries.</li>
+      <li><span class="diff medium">[medium]</span> <strong>Challenge prompts, leaderboard, evaluation harness</strong> — the mechanical surface that turns "an idea for a competition" into "a competition you can actually enter."</li>
+      <li><span class="marginal"><span class="label">Note</span>Standard log-based intrusion-detection evasion taxonomy applies: padding, substitution, fragmentation, encoding. The 60-round loop ported the first two.</span></li>
+    </ul>
+
+    <p><strong>Protocols:</strong></p>
+    <ul>
+      <li><span class="diff research">[research]</span> <strong>A first-cut networking protocol</strong> for between-chip communication that an inspector could reasonably observe without reading inside any one chip.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="closing">Support us</h2>
+
+    <p>AI is the most consequential technology of our time, and we still cannot verify the most basic facts about how it's built.&nbsp;</p><p><b>We want to build&nbsp;<i>the</i>&nbsp;adversarially robust, privacy-preserving verifier that different parties will trust.</b></p><p>AI verification has the same shape&nbsp;as DARPA's Grand Challenge, ImageNet, and the Vesuvius Challenge. The problem is real and the solution path is unclear, but not technically impossible. We believe that setting a public challenge will move the progress of the field materially.&nbsp;</p><p>Simultaneously, we want to forge forward with novel research and building ourselves, through standards-setting and our automated inspection infrastructure.</p>
+
+    <details class="plan">
+      <summary>Show our phased plan</summary>
+      <ul>
+        <li><strong>Phase 1, May–June (~$25k for compute, travel).</strong> Stand up a datacenter-scale MVP on a rented 8×H100 node — retrain GPT-2, capture the full multi-stream log, get the verifier reading real workloads. Begin collaborations with RAND, MIRI, DARPA, the State Department, the Frontier Model Forum, and the major cloud providers, to figure out which verification properties are actually load-bearing. Stretch goal: present the MVP at ISE 2026 in Singapore (a US–China AI governance exchange, May 17–19) and meet Chinese researchers in person.</li>
+        <li><strong>Phase 2, June–September (~$70k for compute, talent).</strong> Lock the testbed for three-to-five challenge types — training-run attestation, training-vs-inference classification, undeclared-workload detection, FLOP-budget compliance, model-identity. Specify the scoring function and the adversarial budget. Send to frontier-lab security researchers to break before we publish.</li>
+        <li><strong>Phase 3, October ($50k–$500k for prize, marketing, judging).</strong> Public Verifier Challenge launch. Open competition, prize pool, public leaderboard. The one we open the doors on.</li>
+      </ul>
+    </details>
+
+    <p>We are currently seeking funding, mentorship, and sponsorship from compute providers and labs.</p>
+
+    <div class="resource-row">
+      <a class="resource-btn" href="mailto:jasonhausenloy@gmail.com">Email Jason</a>
+      <a class="resource-btn" href="mailto:jasminexinzeli@gmail.com">Email Jasmine</a>
+      <a class="resource-btn" href="https://github.com/jasonhausenloy/inspector-agents">GitHub</a>
+      <a class="resource-btn" href="https://huggingface.co/datasets/jasminexli/verifier-challenge-traces">Hugging Face</a>
+    </div>
+
+  </article>
+</div>
+
+<script>
+(function() {
+  const headings = Array.from(document.querySelectorAll('article h2, article h3'));
+  const links = Array.from(document.querySelectorAll('.toc li'));
+  const tocAnchors = Array.from(document.querySelectorAll('.toc a'));
+
+  const setActive = (id) => {
+    links.forEach(l => l.classList.remove('active'));
+    const li = document.querySelector('.toc a[href="#' + id + '"]')?.parentElement;
+    li?.classList.add('active');
+  };
+
+  let suppressUntil = 0;
+  const observer = new IntersectionObserver((entries) => {
+    if (Date.now() < suppressUntil) return;
+    entries.forEach(e => {
+      if (e.isIntersecting) setActive(e.target.id);
+    });
+  }, { rootMargin: '-12% 0px -78% 0px' });
+  headings.forEach(h => observer.observe(h));
+
+  tocAnchors.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      if (!href.startsWith('#')) return;
+      const id = href.slice(1);
+      if (!document.getElementById(id)) return;
+      setActive(id);
+      suppressUntil = Date.now() + 900;
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
