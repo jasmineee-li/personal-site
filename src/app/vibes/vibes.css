@@ -1,24 +1,30 @@
+.vibes-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.975rem;
+  margin-bottom: 2rem;
+}
+
 .vibes-gallery {
   column-count: 3;
-  column-gap: 12px;
+  column-gap: 14px;
   padding-bottom: 3rem;
 }
 
 .vibes-gallery-item {
   break-inside: avoid;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  margin-bottom: 14px;
+  border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vibes-gallery-item:hover {
-  transform: scale(1.015);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
 [data-theme="dark"] .vibes-gallery-item:hover {
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.06);
 }
 
 .vibes-gallery-item img {
@@ -27,20 +33,111 @@
   display: block;
 }
 
+/* ---- Quote card ---- */
+.vibe-quote {
+  display: block;
+  margin: 0 0 14px;
+  padding: 1.25rem 1.35rem;
+  background: var(--hover-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+}
+
+.vibe-quote-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.vibe-quote-body p {
+  margin: 0 0 0.75rem;
+}
+
+.vibe-quote-body p:last-child {
+  margin-bottom: 0;
+}
+
+.vibe-quote-attribution {
+  margin-top: 0.9rem;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+}
+
+/* ---- Video card ---- */
+.vibe-video {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--hover-bg);
+}
+
+.vibe-video-thumb {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.vibe-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.vibe-video:hover .vibe-video-play {
+  background: var(--accent);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.vibe-video-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.85rem 0.85rem;
+}
+
+.vibe-video-title {
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+}
+
+.vibe-video-source {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
 .vibes-empty {
   text-align: center;
   padding: 4rem 1rem;
   opacity: 0.5;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .vibes-gallery {
     column-count: 2;
-    column-gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vibes-gallery {
+    column-count: 1;
+    column-gap: 0;
   }
 
-  .vibes-gallery-item {
-    margin-bottom: 8px;
-    border-radius: 4px;
+  .vibe-quote-body {
+    font-size: 0.92rem;
   }
 }
