@@ -21,6 +21,7 @@ const nextConfig = {
       { source: '/inspector', destination: '/inspector.html' },
       { source: '/inspector/agent', destination: '/inspector/agent.html' },
       { source: '/inspector/redteam', destination: '/inspector/redteam.html' },
+      { source: '/eval-coop-paper', destination: '/eval-coop-paper.pdf' },
     ];
   },
 };
