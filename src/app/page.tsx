@@ -196,7 +196,18 @@ export default function Home() {
             </a>
             , working on safety engagements for Chinese AI labs.
           </li>
-          <li>Thinking about AI verification.</li>
+          <li>
+            Thinking about AI verification at the{" "}
+            <a
+              className="hyperlink"
+              href="https://saif.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Safe AI Forum
+            </a>
+            .
+          </li>
         </ul>
 
         <p className="leading-relaxed mb-4">
@@ -295,7 +306,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Nature
+            <em>Nature</em>
           </a>{" "}
           and{" "}
           <a
@@ -304,7 +315,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            analytical chemistry
+            <em>Analytical Chemistry</em>
           </a>
           . Some other loves:{" "}
           <span
@@ -329,8 +340,8 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>
-          , history of progress, outdoor physical challenges (half-marathon-ing,
-          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my{" "}
+          , history of progress, outdoor adventures (running, thru-hiking),
+          tomato egg noodles, shoehorns, the Bay Area, China, my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
