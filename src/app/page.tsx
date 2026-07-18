@@ -194,7 +194,7 @@ export default function Home() {
             >
               SaferAI
             </a>
-            , working on safety engagements for Chinese AI labs.
+            , working on safety evaluations for Chinese AI labs.
           </li>
           <li>Thinking about AI verification.</li>
         </ul>
@@ -343,7 +343,7 @@ export default function Home() {
 
         <p className="leading-relaxed mb-4">
           Please reach out and say hi (
-          <span className="whitespace-nowrap">
+          <span className="whitespace-nowrap italic">
             jasmine xinze li [at] gmail [dot] com
           </span>
           )!
