@@ -7,9 +7,15 @@ export default function Projects() {
 
       <div className="mb-10 space-y-4 text-body-sm">
         <p>
-          I currently work on technical and international governance for frontier
-          AI. I am easily nerdsniped, and in the past have focused on a variety
-          of other research questions.
+          I currently focus on technical and international governance of frontier
+          AI, particularly AI verification and Sino-Western cooperation. I care
+          most about reducing risks of misuse, loss-of-control, and
+          concentration of power.
+        </p>
+
+        <p>
+          In the past, I&apos;ve explored a variety of other research questions
+          in technical AI safety and alignment.
         </p>
 
         <details className="group border-l-2 border-gray-200 pl-4">
@@ -17,18 +23,16 @@ export default function Projects() {
             <span className="inline-block transition-transform group-open:rotate-90">
               ▸
             </span>
-            past research directions
+            see more here
           </summary>
           <div className="mt-4 space-y-4">
-            <p>My research has broadly spanned three areas:</p>
             <ol className="list-decimal pl-6 space-y-3">
               <li>
                 <span className="font-semibold">Oversight and control.</span>{" "}
                 What oversight measures robustly scale to increasingly capable
-                frontier language models? I focused on training-time mitigations
-                for evaluation awareness and model introspection — understanding
-                how and when models represent the distinction between evaluation
-                and deployment, and how to intervene on this.
+                frontier language models? How do we understand situational
+                awareness, model introspection, and other mentalistic
+                properties?
               </li>
               <li>
                 <span className="font-semibold">
@@ -46,24 +50,20 @@ export default function Projects() {
               </li>
             </ol>
             <p>
-              Research directions that have excited me most: understanding model
-              introspection and situational awareness, exploring
-              metacognition-based alignment techniques, alignment pretraining,
-              and operationalizing AI-induced human disempowerment.
-            </p>
-            <p>
-              In a past life, I researched analytical chemistry and published in{" "}
-              <span className="italic">Nature Communications</span> and ACS
-              journals.
+              How do we operationalize AI-induced human disempowerment?
             </p>
           </div>
         </details>
 
         <p>
-          I care about impact. I want to be the most excellent researcher I can
-          be. I enjoy rapid experimentation and careful truth-seeking. Above all
-          else, I care about real-world impact and choosing the right, most
-          pressing problems to work on.
+          I am most driven by impact — helping us &lsquo;win&rsquo;. As a doer
+          and generalist, I try to make things happen in the world
+          strategically. As a researcher, I enjoy rapid experimentation and
+          careful truth-seeking.
+        </p>
+
+        <p>
+          It helps, too, that I absolutely love my work — I&apos;m very lucky :)
         </p>
       </div>
 
