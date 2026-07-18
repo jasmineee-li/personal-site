@@ -5,51 +5,168 @@ export default function Projects() {
     <div className="py-12 sm:py-16">
       <h2 className="text-xl font-bold mb-4 accent-font">Research Overview</h2>
 
-      <div className="mb-10 space-y-4 text-body-sm">
-        <p>My research broadly spans three areas:</p>
-        <ol className="list-decimal pl-6 space-y-3">
-          <li>
-            <span className="font-semibold">Oversight and control.</span> What
-            oversight measures robustly scale to increasingly capable frontier
-            language models? I currently focus on training-time mitigations for
-            evaluation awareness and model introspection — understanding how and
-            when models represent the distinction between evaluation and
-            deployment, and how to intervene on this.
-          </li>
-          <li>
-            <span className="font-semibold">Value alignment and epistemics.</span>{" "}
-            How can we train models to be more honest? How can AI uplift human
-            truth-seeking and moral progress, and how do we prevent harmful value
-            lock-in?
-          </li>
-          <li>
-            <span className="font-semibold">Agent security.</span> How do we
-            design scalable, realistic environments for evaluating agent misuse
-            and misbehavior — for example, in computer use and MCP settings?
-          </li>
-        </ol>
+      <div className="mb-10 space-y-4 leading-relaxed">
         <p>
-          As of March 2026, the research directions that excite me most are:
-          understanding model introspection and situational awareness, exploring
-          metacognition-based alignment techniques, alignment pretraining, and
-          operationalizing AI-induced human disempowerment.
+          I currently focus on technical and international governance of frontier
+          AI, particularly AI verification and Sino-Western cooperation. I care
+          most about reducing risks of misuse, loss-of-control, and
+          concentration of power.
         </p>
+
         <p>
-          I want to be the most excellent researcher I can be. I enjoy rapid
-          experimentation and careful truth-seeking. Above all else, I care about
-          real-world impact and choosing the right, most pressing problems to
-          work on.
+          In the past, I&apos;ve explored a{" "}
+          <span className="research-reveal">
+            <span className="hoverable-footnote" tabIndex={0}>
+              variety of other research questions
+            </span>
+            <span className="research-popover" role="note">
+              <span className="research-item">
+                <span className="font-semibold">Oversight and control.</span>{" "}
+                What oversight measures robustly scale to increasingly capable
+                frontier language models? How do we understand situational
+                awareness, model introspection, and other mentalistic
+                properties?
+              </span>
+              <span className="research-item">
+                <span className="font-semibold">
+                  Value alignment and epistemics.
+                </span>{" "}
+                How can we train models to be more honest? How can AI uplift
+                human truth-seeking and moral progress, and how do we prevent
+                harmful value lock-in?
+              </span>
+              <span className="research-item">
+                <span className="font-semibold">Agent security.</span> How do we
+                design scalable, realistic environments for evaluating agent
+                misuse and misbehavior — for example, in computer use and MCP
+                settings?
+              </span>
+              <span className="research-item">
+                How do we operationalize AI-induced human disempowerment?
+              </span>
+            </span>
+          </span>{" "}
+          in technical AI safety and alignment.
         </p>
+
         <p>
-          In a past life, I researched analytical chemistry and published in{" "}
-          <span className="italic">Nature Communications</span> and ACS
-          journals.
+          I am most driven by impact — helping us &lsquo;win&rsquo;. As a doer
+          and generalist, I try to make things happen in the world
+          strategically. As a researcher, I enjoy rapid experimentation and
+          careful truth-seeking.
+        </p>
+
+        <p>
+          It helps, too, that I absolutely love my work — I&apos;m very lucky :)
         </p>
       </div>
 
       <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">Papers</h2>
       <div className="divide-y divide-gray-200">
         <div className="pb-6">
+          <a
+            href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AI Epistemic Risks: Emerging Mechanisms &amp; Evidence
+          </a>
+          <p className="italic text-sub mt-1">
+            Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B.,{" "}
+            <span className="font-semibold not-italic">Li, J.</span>, Bengio,
+            Y., Rand, D., et al.
+          </p>
+          <p className="text-sub mt-1">SSRN, 2026</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SSRN
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
+          <a
+            href="https://openreview.net/forum?id=8fk9XYWtSQ"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent
+            Safety Benchmarks
+          </a>
+          <p className="italic text-sub mt-1">
+            <span className="font-semibold not-italic">Li, J.X.</span>, Chew,
+            A., Lin, M., Jones, E.K., Fu, X., Zou, A.
+          </p>
+          <p className="text-sub mt-1">ICML AIWILD Workshop, 2026</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://openreview.net/forum?id=8fk9XYWtSQ"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OpenReview
+            </a>
+            ] [
+            <a
+              href="https://github.com/jasmineee-li/warp"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
+          <a
+            href="https://turntrout.com/eval-cooperation"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Eval Cooperativeness May Be a Scalable Mitigation for Eval Gaming
+          </a>
+          <p className="italic text-sub mt-1">
+            <span className="font-semibold not-italic">Li, J.</span>, Turner,
+            A.M.
+          </p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://turntrout.com/eval-cooperation"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              blogpost
+            </a>
+            ] [
+            <a
+              href="https://github.com/jasmineee-li/eval-awareness/"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
           <a
             href="https://arxiv.org/abs/2509.01938"
             className="hyperlink"
@@ -167,7 +284,7 @@ export default function Projects() {
             A three-dimensional paper-based isoelectric focusing device for
             direct analysis of proteins in physiological samples
           </a>
-          <p className="text-sub mt-1">ANALYTICAL CHEMISTRY, 2021</p>
+          <p className="text-sub mt-1">Analytical Chemistry, 2021</p>
           <p className="text-sub mt-1">
             [
             <a

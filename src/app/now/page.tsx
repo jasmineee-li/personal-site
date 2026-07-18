@@ -7,12 +7,12 @@ export default function Now() {
     <div className="py-12 sm:py-16">
       <h1 className="text-xl font-medium mb-6 accent-font">Now</h1>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         I moved to London! Back in the homeland and excited to explore this
         lovely city, though I miss the Bay Area a bunch.
       </p>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         I&apos;m currently at{" "}
         <a
           className="hyperlink"
@@ -27,7 +27,7 @@ export default function Now() {
         philanthropic capital deployment/grantmaking.
       </p>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         Text me if you want to do some fun backpacking/biking trip in UK/Europe
         this summer — I&apos;m itching to be outside!! I&apos;ll probably also
         visit Ox and Cam soon, for all the friends there.
@@ -35,7 +35,7 @@ export default function Now() {
 
       <div className="mt-10 pt-6 border-t border-gray-300">
         <h2 className="text-lg font-medium mb-4 accent-font">Archive</h2>
-        <ul className="space-y-2 text-base leading-relaxed">
+        <ul className="space-y-2 leading-relaxed">
           {archive.map((entry) => (
             <li key={entry.href}>
               <Link href={entry.href} className="hyperlink">

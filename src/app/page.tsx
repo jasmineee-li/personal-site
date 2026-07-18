@@ -185,7 +185,7 @@ export default function Home() {
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
-            I&apos;m a Research Scientist at{" "}
+            Working on safety evals for Chinese AI labs at{" "}
             <a
               className="hyperlink"
               href="https://www.safer-ai.org/"
@@ -194,7 +194,7 @@ export default function Home() {
             >
               SaferAI
             </a>
-            , working on safety engagements for Chinese AI labs.
+            .
           </li>
           <li>Thinking about AI verification.</li>
         </ul>
@@ -209,8 +209,25 @@ export default function Home() {
           >
             MATS
           </a>{" "}
-          9/9.1 Fellow under Alex Turner, working on training mitigations for
-          evaluation gaming. I also built automated agent redteaming infra at{" "}
+          9/9.1 Fellow under Alex Turner, where I developed a{" "}
+          <a
+            className="hyperlink"
+            href="https://turntrout.com/eval-cooperation"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            training mitigation for evaluation gaming
+          </a>
+          . I also built{" "}
+          <a
+            className="hyperlink"
+            href="https://github.com/jasmineee-li/warp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            agent security infra
+          </a>{" "}
+          at{" "}
           <a
             className="hyperlink"
             href="https://www.grayswan.ai/"
@@ -246,7 +263,11 @@ export default function Home() {
           >
             ICLR
           </a>
-          . I&apos;m on leave from Cornell, where I studied CS &amp; English as
+          .
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I&apos;m on leave from Cornell, where I studied CS &amp; English as
           a{" "}
           <a
             className="hyperlink"
@@ -290,21 +311,21 @@ export default function Home() {
           In high school, I really enjoyed tinkering with microfluidics, and
           published in{" "}
           <a
-            className="hyperlink"
+            className="hyperlink italic"
             href="https://www.nature.com/articles/s41467-023-39574-3"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Nature
+            Nature Comm
           </a>{" "}
           and{" "}
           <a
-            className="hyperlink"
+            className="hyperlink italic"
             href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
             target="_blank"
             rel="noopener noreferrer"
           >
-            analytical chemistry
+            Analytical Chemistry
           </a>
           . Some other loves:{" "}
           <span
@@ -339,9 +360,9 @@ export default function Home() {
 
         <p className="leading-relaxed mb-4">
           Please reach out and say hi (
-          <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
-            jasminexinzeli@gmail.com
-          </a>
+          <span className="whitespace-nowrap italic">
+            jasmine xinze li [at] gmail [dot] com
+          </span>
           )!
         </p>
 
@@ -475,18 +496,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <p className="text-sm mb-6">
-            My stack is{" "}
-            <a
-              href="https://github.com/jasmineee-li/zap-writing-plugin"
-              className="hyperlink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              this
-            </a>
-            .
-          </p>
           {postsLoading ? (
             <p className="text-sm text-gray-500 py-4">Loading posts...</p>
           ) : (

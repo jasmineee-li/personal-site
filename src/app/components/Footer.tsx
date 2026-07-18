@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="border-t border-gray-200 mt-16 py-8" style={{ background: 'var(--background)' }}>
       <div className="max-w-[720px] mx-auto px-6">
         <div className="text-sm text-gray-600 mb-3">
-          jasminexinzeli at gmail
+          jasmine xinze li [at] gmail [dot] com
         </div>
         <div className="flex flex-wrap gap-4 text-sm">
           <a href="https://jasminexli.substack.com" className="hyperlink">
