@@ -11,7 +11,7 @@ export default function NowArchive20260226() {
       <h1 className="text-xl font-medium mb-2 accent-font">Now (archived)</h1>
       <p className="text-sm text-gray-600 mb-6">Feb 26, 2026</p>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         I&apos;m currently a{" "}
         <a
           className="hyperlink"
@@ -29,7 +29,7 @@ export default function NowArchive20260226() {
         want to prevent that.
       </p>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         I&apos;m also co-organizing{" "}
         <a
           className="hyperlink"
@@ -61,7 +61,7 @@ export default function NowArchive20260226() {
         in the UK this April for the wonderful Idealists Collective.
       </p>
 
-      <p className="mb-4 text-base leading-relaxed">
+      <p className="mb-4 leading-relaxed">
         I&apos;ve also been thinking a lot lately about gradual disempowerment
         and civilizational resilience.
       </p>
@@ -69,7 +69,7 @@ export default function NowArchive20260226() {
       <h2 className="text-lg font-medium mt-10 mb-4 accent-font">
         Current goals
       </h2>
-      <ul className="list-disc pl-6 space-y-2 mb-6 text-base leading-relaxed">
+      <ul className="list-disc pl-6 space-y-2 mb-6 leading-relaxed">
         <li>
           Finishing up Gray Swan research developing better web agent evaluation
           infrastructure
