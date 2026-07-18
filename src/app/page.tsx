@@ -479,18 +479,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <p className="text-sm mb-6">
-            My stack is{" "}
-            <a
-              href="https://github.com/jasmineee-li/zap-writing-plugin"
-              className="hyperlink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              this
-            </a>
-            .
-          </p>
           {postsLoading ? (
             <p className="text-sm text-gray-500 py-4">Loading posts...</p>
           ) : (
