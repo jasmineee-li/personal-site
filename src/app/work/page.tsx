@@ -5,7 +5,7 @@ export default function Projects() {
     <div className="py-12 sm:py-16">
       <h2 className="text-xl font-bold mb-4 accent-font">Research Overview</h2>
 
-      <div className="mb-10 space-y-4 text-body-sm">
+      <div className="mb-10 space-y-4 leading-relaxed">
         <p>
           I currently focus on technical and international governance of frontier
           AI, particularly AI verification and Sino-Western cooperation. I care
@@ -14,46 +14,40 @@ export default function Projects() {
         </p>
 
         <p>
-          In the past, I&apos;ve explored a variety of other research questions
-          in technical AI safety and alignment.
-        </p>
-
-        <details className="group border-l-2 border-gray-200 pl-4">
-          <summary className="hyperlink cursor-pointer list-none inline-flex items-center gap-1.5">
-            <span className="inline-block transition-transform group-open:rotate-90">
-              ▸
+          In the past, I&apos;ve explored a{" "}
+          <span className="research-reveal">
+            <span className="hoverable-footnote" tabIndex={0}>
+              variety of other research questions
             </span>
-            see more here
-          </summary>
-          <div className="mt-4 space-y-4">
-            <ol className="list-decimal pl-6 space-y-3">
-              <li>
+            <span className="research-popover" role="note">
+              <span className="research-item">
                 <span className="font-semibold">Oversight and control.</span>{" "}
                 What oversight measures robustly scale to increasingly capable
                 frontier language models? How do we understand situational
                 awareness, model introspection, and other mentalistic
                 properties?
-              </li>
-              <li>
+              </span>
+              <span className="research-item">
                 <span className="font-semibold">
                   Value alignment and epistemics.
                 </span>{" "}
                 How can we train models to be more honest? How can AI uplift
                 human truth-seeking and moral progress, and how do we prevent
                 harmful value lock-in?
-              </li>
-              <li>
+              </span>
+              <span className="research-item">
                 <span className="font-semibold">Agent security.</span> How do we
                 design scalable, realistic environments for evaluating agent
                 misuse and misbehavior — for example, in computer use and MCP
                 settings?
-              </li>
-            </ol>
-            <p>
-              How do we operationalize AI-induced human disempowerment?
-            </p>
-          </div>
-        </details>
+              </span>
+              <span className="research-item">
+                How do we operationalize AI-induced human disempowerment?
+              </span>
+            </span>
+          </span>{" "}
+          in technical AI safety and alignment.
+        </p>
 
         <p>
           I am most driven by impact — helping us &lsquo;win&rsquo;. As a doer

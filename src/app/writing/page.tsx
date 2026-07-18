@@ -84,7 +84,7 @@ export default function Writing() {
   return (
     <div className="py-12 sm:py-16">
       <h1 className="text-xl font-medium mb-6 accent-font">Writing</h1>
-      <p className="mb-6 text-base leading-relaxed">
+      <p className="mb-6 leading-relaxed">
         I publish essays at{" "}
         <a
           className="hyperlink"

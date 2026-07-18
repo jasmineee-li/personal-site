@@ -103,6 +103,56 @@ body {
   border-bottom: none;
 }
 
+/* Inline hover reveal (e.g. past research questions) */
+.research-reveal {
+  position: relative;
+  display: inline;
+}
+
+.research-popover {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.6rem;
+  width: max-content;
+  max-width: min(440px, 88vw);
+  padding: 1rem 1.2rem;
+  background: var(--background);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--foreground);
+  text-align: left;
+  white-space: normal;
+  z-index: 50;
+}
+
+/* Transparent bridge so the cursor can cross the gap into the popover */
+.research-popover::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 0;
+  right: 0;
+  height: 0.6rem;
+}
+
+.research-reveal:hover .research-popover,
+.research-reveal:focus-within .research-popover {
+  display: block;
+}
+
+.research-item {
+  display: block;
+}
+
+.research-item + .research-item {
+  margin-top: 0.7rem;
+}
+
 /* Sidebar footnotes */
 .sidebar-footnotes {
   display: none;

@@ -194,7 +194,7 @@
     border-bottom: none;
   }
 
-  /* Overlay behind menu */
+  /* Overlay behind menu — transparent click-catcher to close the menu */
   .mobile-overlay {
     display: block;
     position: fixed;
@@ -202,7 +202,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: transparent;
     z-index: -1;
   }
 }
