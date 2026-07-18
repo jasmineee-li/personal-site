@@ -6,44 +6,64 @@ export default function Projects() {
       <h2 className="text-xl font-bold mb-4 accent-font">Research Overview</h2>
 
       <div className="mb-10 space-y-4 text-body-sm">
-        <p>My research broadly spans three areas:</p>
-        <ol className="list-decimal pl-6 space-y-3">
-          <li>
-            <span className="font-semibold">Oversight and control.</span> What
-            oversight measures robustly scale to increasingly capable frontier
-            language models? I currently focus on training-time mitigations for
-            evaluation awareness and model introspection — understanding how and
-            when models represent the distinction between evaluation and
-            deployment, and how to intervene on this.
-          </li>
-          <li>
-            <span className="font-semibold">Value alignment and epistemics.</span>{" "}
-            How can we train models to be more honest? How can AI uplift human
-            truth-seeking and moral progress, and how do we prevent harmful value
-            lock-in?
-          </li>
-          <li>
-            <span className="font-semibold">Agent security.</span> How do we
-            design scalable, realistic environments for evaluating agent misuse
-            and misbehavior — for example, in computer use and MCP settings?
-          </li>
-        </ol>
         <p>
-          As of March 2026, the research directions that excite me most are:
-          understanding model introspection and situational awareness, exploring
-          metacognition-based alignment techniques, alignment pretraining, and
-          operationalizing AI-induced human disempowerment.
+          I currently work on technical and international governance for frontier
+          AI. I am easily nerdsniped, and in the past have focused on a variety
+          of other research questions.
         </p>
+
+        <details className="group border-l-2 border-gray-200 pl-4">
+          <summary className="hyperlink cursor-pointer list-none inline-flex items-center gap-1.5">
+            <span className="inline-block transition-transform group-open:rotate-90">
+              ▸
+            </span>
+            past research directions
+          </summary>
+          <div className="mt-4 space-y-4">
+            <p>My research has broadly spanned three areas:</p>
+            <ol className="list-decimal pl-6 space-y-3">
+              <li>
+                <span className="font-semibold">Oversight and control.</span>{" "}
+                What oversight measures robustly scale to increasingly capable
+                frontier language models? I focused on training-time mitigations
+                for evaluation awareness and model introspection — understanding
+                how and when models represent the distinction between evaluation
+                and deployment, and how to intervene on this.
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Value alignment and epistemics.
+                </span>{" "}
+                How can we train models to be more honest? How can AI uplift
+                human truth-seeking and moral progress, and how do we prevent
+                harmful value lock-in?
+              </li>
+              <li>
+                <span className="font-semibold">Agent security.</span> How do we
+                design scalable, realistic environments for evaluating agent
+                misuse and misbehavior — for example, in computer use and MCP
+                settings?
+              </li>
+            </ol>
+            <p>
+              Research directions that have excited me most: understanding model
+              introspection and situational awareness, exploring
+              metacognition-based alignment techniques, alignment pretraining,
+              and operationalizing AI-induced human disempowerment.
+            </p>
+            <p>
+              In a past life, I researched analytical chemistry and published in{" "}
+              <span className="italic">Nature Communications</span> and ACS
+              journals.
+            </p>
+          </div>
+        </details>
+
         <p>
-          I want to be the most excellent researcher I can be. I enjoy rapid
-          experimentation and careful truth-seeking. Above all else, I care about
-          real-world impact and choosing the right, most pressing problems to
-          work on.
-        </p>
-        <p>
-          In a past life, I researched analytical chemistry and published in{" "}
-          <span className="italic">Nature Communications</span> and ACS
-          journals.
+          I care about impact. I want to be the most excellent researcher I can
+          be. I enjoy rapid experimentation and careful truth-seeking. Above all
+          else, I care about real-world impact and choosing the right, most
+          pressing problems to work on.
         </p>
       </div>
 

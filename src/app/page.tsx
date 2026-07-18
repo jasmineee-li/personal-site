@@ -343,9 +343,9 @@ export default function Home() {
 
         <p className="leading-relaxed mb-4">
           Please reach out and say hi (
-          <a className="hyperlink" href="mailto:jasminexinzeli@gmail.com">
-            jasminexinzeli@gmail.com
-          </a>
+          <span className="whitespace-nowrap">
+            jasmine xinze li [at] gmail [dot] com
+          </span>
           )!
         </p>
 
