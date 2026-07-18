@@ -51,6 +51,109 @@ export default function Projects() {
       <div className="divide-y divide-gray-200">
         <div className="pb-6">
           <a
+            href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AI Epistemic Risks: Emerging Mechanisms &amp; Evidence
+          </a>
+          <p className="italic text-sub mt-1">
+            Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B.,{" "}
+            <span className="font-semibold not-italic">Li, J.</span>, Bengio,
+            Y., Rand, D., et al.
+          </p>
+          <p className="text-sub mt-1">SSRN, 2026</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SSRN
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
+          <a
+            href="https://openreview.net/forum?id=8fk9XYWtSQ"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent
+            Safety Benchmarks
+          </a>
+          <p className="italic text-sub mt-1">
+            <span className="font-semibold not-italic">Li, J.X.</span>, Chew,
+            A., Lin, M., Jones, E.K., Fu, X., Zou, A.
+          </p>
+          <p className="text-sub mt-1">ICML AIWILD Workshop, 2026</p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://openreview.net/forum?id=8fk9XYWtSQ"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OpenReview
+            </a>
+            ] [
+            <a
+              href="https://github.com/jasmineee-li/warp"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
+          <a
+            href="https://turntrout.com/eval-cooperation"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Eval Cooperativeness May Be a Scalable Mitigation for Eval Gaming
+          </a>
+          <p className="italic text-sub mt-1">
+            <span className="font-semibold not-italic">Li, J.</span>, Turner,
+            A.M.
+          </p>
+          <p className="text-sub mt-1">
+            [
+            <a
+              href="https://turntrout.com/eval-cooperation"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              blogpost
+            </a>
+            ] [
+            <a
+              href="https://github.com/jasmineee-li/eval-awareness/"
+              className="hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ]
+          </p>
+        </div>
+
+        <div className="py-6">
+          <a
             href="https://arxiv.org/abs/2509.01938"
             className="hyperlink"
             target="_blank"
@@ -167,7 +270,7 @@ export default function Projects() {
             A three-dimensional paper-based isoelectric focusing device for
             direct analysis of proteins in physiological samples
           </a>
-          <p className="text-sub mt-1">ANALYTICAL CHEMISTRY, 2021</p>
+          <p className="text-sub mt-1">Analytical Chemistry, 2021</p>
           <p className="text-sub mt-1">
             [
             <a

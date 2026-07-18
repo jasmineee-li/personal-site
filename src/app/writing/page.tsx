@@ -63,6 +63,15 @@ export default function Writing() {
     return textarea.value;
   };
 
+  const stripHtml = (str: string): string => {
+    if (!str) return "";
+    // Parse the markup so entity-encoded or literal tags collapse to plain
+    // text, then normalize whitespace.
+    const tmp = document.createElement("div");
+    tmp.innerHTML = str;
+    return (tmp.textContent || tmp.innerText || "").replace(/\s+/g, " ").trim();
+  };
+
   const extractFirstImg = (html: string): string | null => {
     if (!html) return null;
     const match = html.match(/<img[^>]+src="([^"]+)"/i);
@@ -130,7 +139,7 @@ export default function Writing() {
                         </p>
                       )}
                       <p className="substack-desc">
-                        {truncate(decodeHtmlEntities(post.description), 160)}
+                        {truncate(stripHtml(post.description), 160)}
                       </p>
                     </div>
                   </div>

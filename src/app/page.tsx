@@ -246,7 +246,11 @@ export default function Home() {
           >
             ICLR
           </a>
-          . I&apos;m on leave from Cornell, where I studied CS &amp; English as
+          .
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I&apos;m on leave from Cornell, where I studied CS &amp; English as
           a{" "}
           <a
             className="hyperlink"
@@ -290,21 +294,21 @@ export default function Home() {
           In high school, I really enjoyed tinkering with microfluidics, and
           published in{" "}
           <a
-            className="hyperlink"
+            className="hyperlink italic"
             href="https://www.nature.com/articles/s41467-023-39574-3"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Nature
+            Nature Comm
           </a>{" "}
           and{" "}
           <a
-            className="hyperlink"
+            className="hyperlink italic"
             href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
             target="_blank"
             rel="noopener noreferrer"
           >
-            analytical chemistry
+            Analytical Chemistry
           </a>
           . Some other loves:{" "}
           <span
