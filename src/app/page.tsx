@@ -185,7 +185,7 @@ export default function Home() {
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
-            I&apos;m a Research Scientist at{" "}
+            Working on safety evals for Chinese AI labs at{" "}
             <a
               className="hyperlink"
               href="https://www.safer-ai.org/"
@@ -194,7 +194,7 @@ export default function Home() {
             >
               SaferAI
             </a>
-            , working on safety evaluations for Chinese AI labs.
+            .
           </li>
           <li>Thinking about AI verification.</li>
         </ul>
@@ -209,8 +209,25 @@ export default function Home() {
           >
             MATS
           </a>{" "}
-          9/9.1 Fellow under Alex Turner, working on training mitigations for
-          evaluation gaming. I also built automated agent redteaming infra at{" "}
+          9/9.1 Fellow under Alex Turner, where I developed a{" "}
+          <a
+            className="hyperlink"
+            href="https://turntrout.com/eval-cooperation"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            training mitigation for evaluation gaming
+          </a>
+          . I also built{" "}
+          <a
+            className="hyperlink"
+            href="https://github.com/jasmineee-li/warp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            agent security infra
+          </a>{" "}
+          at{" "}
           <a
             className="hyperlink"
             href="https://www.grayswan.ai/"
