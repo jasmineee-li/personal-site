@@ -1,6 +1,6 @@
 # Quotes
 
-This file syncs to jasminexli.com/words automatically on save.
+This file (~/quotes.md) syncs to jasminexli.com/words automatically on save.
 
 Format:
 - Everything above the first `---` (this note) is ignored.
