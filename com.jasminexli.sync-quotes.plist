@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jasminexli.sync-quotes</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>/Users/jasminexli/personal-site/my-site/sync-quotes.sh</string>
+    </array>
+
+    <!-- Watch the quotes file for changes -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/jasminexli/Documents/quotes.md</string>
+    </array>
+
+    <!-- Don't fire more than once per minute even with rapid saves -->
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/sync-quotes.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/sync-quotes.log</string>
+</dict>
+</plist>
