@@ -16,7 +16,7 @@
     <!-- Watch the quotes file for changes -->
     <key>WatchPaths</key>
     <array>
-        <string>/Users/jasminexli/Documents/quotes.md</string>
+        <string>/Users/jasminexli/quotes.md</string>
     </array>
 
     <!-- Don't fire more than once per minute even with rapid saves -->

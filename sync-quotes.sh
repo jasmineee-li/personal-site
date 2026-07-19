@@ -1,5 +1,7 @@
 #!/bin/bash
-# Sync quotes from ~/Documents/quotes.md to the site and deploy.
+# Sync quotes from ~/quotes.md to the site and deploy.
+# (Lives in the home root, not ~/Documents — macOS TCC blocks launchd
+# jobs from reading Documents without Full Disk Access.)
 # Commits to main via a dedicated detached worktree, so it works no matter
 # which branch the primary checkout has out.
 # Usage:
@@ -7,7 +9,7 @@
 #   ./sync-quotes.sh --dry    # just copy into the working tree for local dev
 set -e
 
-SOURCE="$HOME/Documents/quotes.md"
+SOURCE="$HOME/quotes.md"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 WORKTREE="$(dirname "$REPO_DIR")/.quotes-sync-worktree"
 
