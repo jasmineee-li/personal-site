@@ -179,13 +179,14 @@ export default function Home() {
     <div className="py-12 sm:py-16 content-with-sidebar">
       {/* Main Content */}
       <div className="main-content-area">
-        <p className="leading-relaxed mb-4">Hey, I&apos;m Jasmine!</p>
-        <p className="leading-relaxed mb-2">
-          I&apos;m trying to make AI development go well. Currently:
+        <p className="leading-relaxed mb-4">
+          Hi, I&apos;m Jasmine! I work on US-China AI cooperation for safe AI
+          development.
         </p>
+        <p className="leading-relaxed mb-2">Now:</p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
-            Working on safety evals for Chinese AI labs at{" "}
+            Research Affiliate at{" "}
             <a
               className="hyperlink"
               href="https://www.safer-ai.org/"
@@ -194,7 +195,19 @@ export default function Home() {
             >
               SaferAI
             </a>
-            .
+            , building the Asian safety evaluations ecosystem;
+          </li>
+          <li>
+            Writing about AI governance at{" "}
+            <a
+              className="hyperlink"
+              href="https://jasminexli.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              The J-Space
+            </a>
+            ;
           </li>
           <li>Thinking about AI verification.</li>
         </ul>
@@ -209,23 +222,23 @@ export default function Home() {
           >
             MATS
           </a>{" "}
-          9/9.1 Fellow under Alex Turner, where I developed a{" "}
+          Fellow under Alex Turner, where I worked on{" "}
           <a
             className="hyperlink"
             href="https://turntrout.com/eval-cooperation"
             target="_blank"
             rel="noopener noreferrer"
           >
-            training mitigation for evaluation gaming
+            training mitigations for evaluation gaming
           </a>
-          . I also built{" "}
+          . I also researched{" "}
           <a
             className="hyperlink"
             href="https://github.com/jasmineee-li/warp"
             target="_blank"
             rel="noopener noreferrer"
           >
-            agent security infra
+            agent security
           </a>{" "}
           at{" "}
           <a
@@ -236,7 +249,7 @@ export default function Home() {
           >
             Gray Swan AI
           </a>
-          , researched LLM honesty with the{" "}
+          , AI honesty with the{" "}
           <a
             className="hyperlink"
             href="https://www.safe.ai/"
@@ -245,7 +258,7 @@ export default function Home() {
           >
             Center for AI Safety
           </a>
-          , and presented alignment benchmarks at{" "}
+          , and value alignment (
           <a
             className="hyperlink"
             href="https://arxiv.org/abs/2406.20087"
@@ -253,8 +266,8 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             NeurIPS
-          </a>{" "}
-          and{" "}
+          </a>
+          ,{" "}
           <a
             className="hyperlink"
             href="https://arxiv.org/abs/2509.01938"
@@ -263,12 +276,11 @@ export default function Home() {
           >
             ICLR
           </a>
-          .
+          ).
         </p>
 
         <p className="leading-relaxed mb-4">
-          I&apos;m on leave from Cornell, where I studied CS &amp; English as
-          a{" "}
+          I studied CS at Cornell as a{" "}
           <a
             className="hyperlink"
             href="https://milstein-program.as.cornell.edu/"
@@ -308,8 +320,8 @@ export default function Home() {
         </p>
 
         <p className="leading-relaxed mb-4">
-          In high school, I really enjoyed tinkering with microfluidics, and
-          published in{" "}
+          In my past life, I enjoyed tinkering with microfluidics, and published
+          in{" "}
           <a
             className="hyperlink italic"
             href="https://www.nature.com/articles/s41467-023-39574-3"
@@ -327,7 +339,7 @@ export default function Home() {
           >
             Analytical Chemistry
           </a>
-          . Some other loves:{" "}
+          ! Some other loves:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -337,11 +349,7 @@ export default function Home() {
           >
             persimmons
           </span>
-          , positive hyperstition, party hosting,{" "}
-          <Link href="/writing" className="hyperlink">
-            writing
-          </Link>
-          ,{" "}
+          , progress and economics,{" "}
           <a
             className="hyperlink"
             href="https://www.givingwhatwecan.org/pledge"
@@ -350,8 +358,7 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>
-          , history of progress, outdoor physical challenges (half-marathon-ing,
-          thru-hiking), tomato egg noodles, shoehorns, the Bay Area, my{" "}
+          , backpacking, tomato egg noodles, shoehorns, San Francisco, my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
