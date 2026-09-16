@@ -172,7 +172,7 @@ export default function Home() {
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hi, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-2">
-          I work on US-China AI cooperation for safe AI development. Now:
+          I work on US-China AI cooperation for safe AI development. Currently:
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
