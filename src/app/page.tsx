@@ -49,7 +49,6 @@ export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
   const [activeFootnote, setActiveFootnote] = useState<string | null>(null);
   const [recentPosts, setRecentPosts] = useState<SubstackPost[]>([]);
-  const [allPosts, setAllPosts] = useState<SubstackPost[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
   const [showPersimmons, setShowPersimmons] = useState(false);
   const [persimmonPositions, setPersimmonPositions] = useState<
@@ -68,7 +67,6 @@ export default function Home() {
         if (data.status !== "ok" || !Array.isArray(data.items)) {
           throw new Error(data.message || "Failed to parse feed");
         }
-        setAllPosts(data.items);
         setRecentPosts(data.items.slice(0, 3));
         setPostsLoading(false);
       } catch (err) {
@@ -96,13 +94,6 @@ export default function Home() {
     const textarea = document.createElement("textarea");
     textarea.innerHTML = str;
     return textarea.value;
-  };
-
-  const handleRandomPost = () => {
-    if (allPosts.length > 0) {
-      const randomIndex = Math.floor(Math.random() * allPosts.length);
-      window.open(allPosts[randomIndex].link, "_blank");
-    }
   };
 
   const handlePersimmonHover = (isHovering: boolean) => {
@@ -179,11 +170,10 @@ export default function Home() {
     <div className="py-12 sm:py-16 content-with-sidebar">
       {/* Main Content */}
       <div className="main-content-area">
-        <p className="leading-relaxed mb-4">
-          Hi, I&apos;m Jasmine! I work on US-China AI cooperation for safe AI
-          development.
+        <p className="leading-relaxed mb-4">Hi, I&apos;m Jasmine!</p>
+        <p className="leading-relaxed mb-2">
+          I work on US-China AI cooperation for safe AI development. Now:
         </p>
-        <p className="leading-relaxed mb-2">Now:</p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
             Research Affiliate at{" "}
@@ -222,7 +212,7 @@ export default function Home() {
           >
             MATS
           </a>{" "}
-          Fellow under Alex Turner, where I worked on{" "}
+          Fellow under Alex Turner, working on{" "}
           <a
             className="hyperlink"
             href="https://turntrout.com/eval-cooperation"
@@ -474,55 +464,33 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Recent  */}
+        {/* Recent writing */}
         <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
-          <div className="flex justify-between items-baseline mb-2 flex-wrap gap-3">
-            <h2 className="text-xl font-medium accent-font">Recent writing</h2>
-            <div className="flex gap-4 items-center">
-              <button onClick={handleRandomPost} className="random-button">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="random-icon"
-                >
-                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                </svg>
-                Random
-              </button>
-              <Link
-                href="/writing"
-                className="text-sm hover:text-gray-900 transition-colors"
-              >
-                All posts →
-              </Link>
-            </div>
+          <div className="flex justify-between items-baseline mb-5 flex-wrap gap-3">
+            <h2 className="writing-heading accent-font">Recent writing</h2>
+            <Link href="/writing" className="writing-all-link">
+              All posts →
+            </Link>
           </div>
           {postsLoading ? (
             <p className="text-sm text-gray-500 py-4">Loading posts...</p>
           ) : (
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {recentPosts.map((post, index) => (
                 <li key={index}>
                   <a
                     href={post.link}
-                    className="block group"
+                    className="writing-row group"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="flex justify-between items-baseline gap-6">
-                      <span className="text-base group-hover:text-[#a10000] transition-colors">
-                        {decodeHtmlEntities(post.title)}
-                      </span>
-                      <span className="text-sm text-gray-500 whitespace-nowrap flex-shrink-0">
-                        {formatDate(post.pubDate)}
-                      </span>
-                    </div>
+                    <span className="writing-title">
+                      {decodeHtmlEntities(post.title)}
+                    </span>
+                    <span className="writing-leader" aria-hidden="true" />
+                    <span className="writing-date">
+                      {formatDate(post.pubDate)}
+                    </span>
                   </a>
                 </li>
               ))}

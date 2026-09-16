@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-const archive = [{ date: "Feb 26, 2026", href: "/now/2026-02-26" }];
+const archive = [
+  { date: "Jun 9, 2026", href: "/now/2026-06-09" },
+  { date: "Feb 26, 2026", href: "/now/2026-02-26" },
+];
 
 export default function Now() {
   return (
@@ -8,29 +11,22 @@ export default function Now() {
       <h1 className="text-xl font-medium mb-6 accent-font">Now</h1>
 
       <p className="mb-4 leading-relaxed">
-        I moved to London! Back in the homeland and excited to explore this
-        lovely city, though I miss the Bay Area a bunch.
+        Back in the US! Working on projects in Track-2 diplomacy, auditing
+        ecosystem buildout, and technical verification fieldbuilding.
       </p>
 
       <p className="mb-4 leading-relaxed">
-        I&apos;m currently at{" "}
+        I&apos;ve been very, very grateful for my wonderful friends, lovely
+        weather, and Hint water. Goals for the rest of the year are{" "}
         <a
           className="hyperlink"
-          href="https://www.safer-ai.org/"
+          href="https://jasminexli.substack.com/p/2026-h2-personal-goals"
           target="_blank"
           rel="noopener noreferrer"
         >
-          SaferAI
-        </a>{" "}
-        as a Research Scientist, where I&apos;m helping engage Chinese labs in
-        AI safety. Thinking most about: AI verification, US-China engagement, &amp;
-        philanthropic capital deployment/grantmaking.
-      </p>
-
-      <p className="mb-4 leading-relaxed">
-        Text me if you want to do some fun backpacking/biking trip in UK/Europe
-        this summer — I&apos;m itching to be outside!! I&apos;ll probably also
-        visit Ox and Cam soon, for all the friends there.
+          here
+        </a>
+        .
       </p>
 
       <div className="mt-10 pt-6 border-t border-gray-300">
@@ -48,7 +44,7 @@ export default function Now() {
 
       <div className="mt-8 pt-6 border-t border-gray-300">
         <p className="text-sm text-gray-600">
-          Last updated Jun 9, 2026.{" "}
+          Last updated Sep 16, 2026.{" "}
           <a
             href="https://nownownow.com/about"
             className="hyperlink"

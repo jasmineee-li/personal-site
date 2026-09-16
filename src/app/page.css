@@ -77,3 +77,50 @@
     font-size: 1.25rem !important; /* 20px */
   }
 }
+
+/* Recent writing */
+.writing-heading {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.writing-all-link {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.writing-all-link:hover {
+  color: var(--link-hover);
+}
+
+.writing-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.writing-title {
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.writing-row:hover .writing-title {
+  color: var(--link-hover);
+}
+
+/* Dotted leader between title and date, as in a table of contents */
+.writing-leader {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1px dotted var(--text-secondary);
+  opacity: 0.5;
+}
+
+.writing-date {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
