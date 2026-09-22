@@ -190,7 +190,7 @@ export default function Home() {
           <li>
             Writing about AI governance at{" "}
             <a
-              className="hyperlink"
+              className="hyperlink italic"
               href="https://jasminexli.substack.com/"
               target="_blank"
               rel="noopener noreferrer"
@@ -329,7 +329,8 @@ export default function Home() {
           >
             Analytical Chemistry
           </a>
-          ! Some other loves:{" "}
+          ! I grew up in England, Houston, and Xi&apos;an, China; I&apos;m lucky
+          to have fond memories spanning continents. Some other loves:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
@@ -348,7 +349,8 @@ export default function Home() {
           >
             the 10% pledge 🔸
           </a>
-          , backpacking, tomato egg noodles, shoehorns, San Francisco, my{" "}
+          , backpacking, flowers, sketching, tomato egg noodles, San Francisco,
+          my{" "}
           <Link href="/friends" className="hyperlink">
             friends
           </Link>
