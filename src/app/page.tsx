@@ -306,12 +306,8 @@ export default function Home() {
           >
             first AI safety class
           </a>
-          .
-        </p>
-
-        <p className="leading-relaxed mb-4">
-          In my past life, I enjoyed tinkering with microfluidics, and published
-          in{" "}
+          . In my past life, I enjoyed tinkering with microfluidics, and
+          published in{" "}
           <a
             className="hyperlink italic"
             href="https://www.nature.com/articles/s41467-023-39574-3"
@@ -329,7 +325,11 @@ export default function Home() {
           >
             Analytical Chemistry
           </a>
-          ! I grew up in 🇬🇧🇺🇸🇨🇳, and am lucky to have fond memories spanning
+          !
+        </p>
+
+        <p className="leading-relaxed mb-4">
+          I grew up in 🇬🇧🇺🇸🇨🇳, and am lucky to have fond memories spanning
           continents. Some other loves:{" "}
           <span
             className={`hoverable-footnote ${
