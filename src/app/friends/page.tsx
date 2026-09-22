@@ -40,11 +40,8 @@ function Persimmon() {
 export default function Friends() {
   return (
     <div className="py-12 sm:py-16">
-      <h1 className="text-xl font-medium mb-4 accent-font">Friends</h1>
-      <p className="mb-10 leading-relaxed">
-        Some of the people I&apos;m lucky to call my friends. Not exhaustive;
-        very much a work in progress :)
-      </p>
+      <h1 className="text-xl font-medium mb-2 accent-font">Friends</h1>
+      <p className="mb-10 text-gray-500 italic">work in progress :)</p>
 
       <ul className="friend-grid">
         {friends.map((friend) => (
