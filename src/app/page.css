@@ -101,7 +101,6 @@
 }
 
 .writing-title {
-  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -109,12 +108,23 @@
   color: var(--link-hover);
 }
 
-/* Dotted leader between title and date, as in a table of contents */
+/* Period leader between title and date, set in the body serif like a
+   print table of contents. Right-aligned so the dot columns line up across
+   rows; the mask hides the clipped partial glyph at the left edge. */
 .writing-leader {
   flex: 1;
   min-width: 1.5rem;
-  border-bottom: 1px dotted var(--text-secondary);
-  opacity: 0.5;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  mask-image: linear-gradient(to right, transparent, #000 0.6rem);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 0.6rem);
+}
+
+.writing-leader::after {
+  content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
 }
 
 .writing-date {
