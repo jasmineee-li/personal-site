@@ -329,8 +329,8 @@ export default function Home() {
           >
             Analytical Chemistry
           </a>
-          ! I grew up in England, Houston, and Xi&apos;an, China; I&apos;m lucky
-          to have fond memories spanning continents. Some other loves:{" "}
+          ! I grew up in 🇬🇧🇺🇸🇨🇳, and am lucky to have fond memories spanning
+          continents. Some other loves:{" "}
           <span
             className={`hoverable-footnote ${
               activeFootnote === "persimmons" ? "active" : ""
