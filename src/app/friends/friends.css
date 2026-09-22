@@ -1,0 +1,44 @@
+/* Friends page: a loose wrapped grid of names, each with a small persimmon */
+
+.friend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem 2.75rem;
+  padding: 0.5rem 0 0 0.75rem;
+  list-style: none;
+  margin: 0;
+}
+
+.friend-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.friend-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.friend-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.friend-link:hover .friend-name {
+  color: var(--link-hover);
+}
+
+.friend-link:hover .friend-icon {
+  transform: rotate(-12deg) scale(1.15);
+}
+
+@media (max-width: 480px) {
+  .friend-grid {
+    gap: 1.25rem 1.75rem;
+    padding-left: 0.25rem;
+  }
+}
