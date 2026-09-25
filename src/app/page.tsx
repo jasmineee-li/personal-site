@@ -203,7 +203,16 @@ export default function Home() {
         </ul>
 
         <p className="leading-relaxed mb-4">
-          Previously, I was a{" "}
+          Previously, I was a Visiting Researcher at{" "}
+          <a
+            className="hyperlink"
+            href="https://saif.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Safe AI Forum
+          </a>
+          , working on verification, and a{" "}
           <a
             className="hyperlink"
             href="https://www.matsprogram.org/"
