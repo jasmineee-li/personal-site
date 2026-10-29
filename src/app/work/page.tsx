@@ -1,20 +1,15 @@
 import Image from "next/image";
+import BlogList from "../components/BlogList";
 
 export default function Projects() {
   return (
     <div className="py-12 sm:py-16">
-      <h2 className="text-xl font-bold mb-4 accent-font">Research Overview</h2>
+      <h2 className="text-xl font-bold mb-4 accent-font">Overview</h2>
 
       <div className="mb-10 space-y-4 leading-relaxed">
         <p>
-          I currently focus on technical and international governance of frontier
-          AI, particularly AI verification and Sino-Western cooperation. I care
-          most about reducing risks of misuse, loss-of-control, and
-          concentration of power.
-        </p>
-
-        <p>
-          In the past, I&apos;ve explored a{" "}
+          I currently focus on technical and international governance of
+          frontier AI. In the past, I&apos;ve explored a{" "}
           <span className="research-reveal">
             <span className="hoverable-footnote" tabIndex={0}>
               variety of other research questions
@@ -50,15 +45,12 @@ export default function Projects() {
         </p>
 
         <p>
-          I am most driven by impact — helping us &lsquo;win&rsquo;. As a doer
-          and generalist, I try to make things happen in the world
+          As a doer and generalist, I try to make things happen in the world
           strategically. As a researcher, I enjoy rapid experimentation and
           careful truth-seeking.
         </p>
 
-        <p>
-          It helps, too, that I absolutely love my work — I&apos;m very lucky :)
-        </p>
+        <p>I absolutely love my work — I&apos;m very lucky ☺︎</p>
       </div>
 
       <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">Papers</h2>
@@ -300,6 +292,63 @@ export default function Projects() {
         </div>
       </div>
 
+      {/* Blog Section */}
+      <h2
+        id="blog"
+        className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font scroll-mt-8"
+      >
+        Blog
+      </h2>
+      <p className="mb-6 leading-relaxed">
+        I write about AI at{" "}
+        <a
+          className="hyperlink italic"
+          href="https://jasminexli.substack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          The J-Space
+        </a>
+        .
+      </p>
+      <BlogList />
+
+      {/* Media Section */}
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
+        Media
+      </h2>
+      <ul className="list-disc pl-6 space-y-3">
+        <li>
+          <a
+            href="https://www.theinformation.com/newsletters/ai-agenda/ai-evaluators-struggle-models-know-tested"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AI Evaluators Struggle as Models Know They&apos;re Being Tested
+          </a>
+          <p className="italic">The Information, AI Agenda</p>
+        </li>
+      </ul>
+
+      {/* Mentorship Section */}
+      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
+        Mentorship
+      </h2>
+      <ul className="list-disc pl-6 space-y-3">
+        <li>
+          Fall 2026 Mentor,{" "}
+          <a
+            href="https://www.securefrontier.ai/mentors"
+            className="hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Frontier AI Security Residency
+          </a>
+        </li>
+      </ul>
+
       {/* Organizing Section */}
       <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
         Organizing
@@ -339,20 +388,6 @@ export default function Projects() {
           >
             HTML Day 2025, Seattle
           </a>
-          <p className="italic">
-            an HTML freewrite embracing HTML energy, the slow web, and community
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://x.com/jasminexli/status/1944220797196730552"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Saturday 8am Walk &amp; Yaps
-          </a>
-          <p className="italic">weekly saturday morning walks in seattle</p>
         </li>
         <li>
           <a
@@ -363,9 +398,6 @@ export default function Projects() {
           >
             Pen &amp; Ponder
           </a>
-          <p className="italic">
-            a 1 month writing experiment &amp; toronto writeathon!
-          </p>
         </li>
       </ul>
 
