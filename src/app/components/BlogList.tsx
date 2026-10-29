@@ -8,9 +8,8 @@ interface SubstackPost {
   pubDate: string;
 }
 
-const FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-  "https://jasminexli.substack.com/feed",
-)}`;
+// Served by src/app/api/substack/route.ts, which proxies the Substack RSS feed.
+const FEED_URL = "/api/substack";
 
 const formatDate = (iso: string) => {
   try {
@@ -46,8 +45,8 @@ export default function BlogList({ limit }: { limit?: number }) {
         const response = await fetch(FEED_URL);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
-        if (data.status !== "ok" || !Array.isArray(data.items)) {
-          throw new Error(data.message || "Failed to parse feed");
+        if (!Array.isArray(data.items)) {
+          throw new Error(data.error || "Failed to parse feed");
         }
         setPosts(limit ? data.items.slice(0, limit) : data.items);
       } catch (err) {
