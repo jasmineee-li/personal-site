@@ -3,14 +3,7 @@ import "./page.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-interface SubstackPost {
-  title: string;
-  link: string;
-  pubDate: string;
-  description: string;
-  content: string;
-}
+import BlogList from "./components/BlogList";
 
 const footnotes = [
   {
@@ -48,53 +41,10 @@ export default function Home() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [activeFootnote, setActiveFootnote] = useState<string | null>(null);
-  const [recentPosts, setRecentPosts] = useState<SubstackPost[]>([]);
-  const [postsLoading, setPostsLoading] = useState(true);
   const [showPersimmons, setShowPersimmons] = useState(false);
   const [persimmonPositions, setPersimmonPositions] = useState<
     PersimmonPosition[]
   >([]);
-
-  useEffect(() => {
-    const fetchSubstackFeed = async () => {
-      try {
-        const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-          "https://jasminexli.substack.com/feed",
-        )}`;
-        const response = await fetch(rssUrl);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        if (data.status !== "ok" || !Array.isArray(data.items)) {
-          throw new Error(data.message || "Failed to parse feed");
-        }
-        setRecentPosts(data.items.slice(0, 3));
-        setPostsLoading(false);
-      } catch (err) {
-        console.error("Substack feed error:", err);
-        setPostsLoading(false);
-      }
-    };
-    fetchSubstackFeed();
-  }, []);
-
-  const formatDate = (iso: string) => {
-    try {
-      return new Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-      }).format(new Date(iso));
-    } catch {
-      return "";
-    }
-  };
-
-  const decodeHtmlEntities = (str: string): string => {
-    if (!str) return "";
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = str;
-    return textarea.value;
-  };
 
   const handlePersimmonHover = (isHovering: boolean) => {
     if (isHovering) {
@@ -171,9 +121,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="main-content-area">
         <p className="leading-relaxed mb-4">Hi, I&apos;m Jasmine!</p>
-        <p className="leading-relaxed mb-2">
-          I work on US-China AI cooperation for safe AI development. Currently:
-        </p>
+        <p className="leading-relaxed mb-2">I work on AI governance. Currently:</p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
           <li>
             Research Affiliate at{" "}
@@ -185,10 +133,10 @@ export default function Home() {
             >
               SaferAI
             </a>
-            , building the Asian safety evaluations ecosystem;
+            ;
           </li>
           <li>
-            Writing about AI governance at{" "}
+            Writing about AI &amp; China at{" "}
             <a
               className="hyperlink italic"
               href="https://jasminexli.substack.com/"
@@ -199,7 +147,18 @@ export default function Home() {
             </a>
             ;
           </li>
-          <li>Thinking about AI verification.</li>
+          <li>
+            Running{" "}
+            <a
+              className="hyperlink"
+              href="https://aistranslate.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Babel Translation
+            </a>
+            .
+          </li>
         </ul>
 
         <p className="leading-relaxed mb-4">
@@ -470,34 +429,11 @@ export default function Home() {
         <div className="mt-12 sm:mt-16 border-t border-gray-200 pt-8">
           <div className="flex justify-between items-baseline mb-5 flex-wrap gap-3">
             <h2 className="writing-heading accent-font">Recent writing</h2>
-            <Link href="/writing" className="writing-all-link">
+            <Link href="/work#blog" className="writing-all-link">
               All posts →
             </Link>
           </div>
-          {postsLoading ? (
-            <p className="text-sm text-gray-500 py-4">Loading posts...</p>
-          ) : (
-            <ul className="space-y-3">
-              {recentPosts.map((post, index) => (
-                <li key={index}>
-                  <a
-                    href={post.link}
-                    className="writing-row group"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="writing-title">
-                      {decodeHtmlEntities(post.title)}
-                    </span>
-                    <span className="writing-leader" aria-hidden="true" />
-                    <span className="writing-date">
-                      {formatDate(post.pubDate)}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+          <BlogList limit={3} />
         </div>
       </div>
 
