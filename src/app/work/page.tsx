@@ -53,9 +53,11 @@ export default function Projects() {
         <p>I absolutely love my work — I&apos;m very lucky ☺︎</p>
       </div>
 
-      <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">Papers</h2>
-      <div className="divide-y divide-gray-200">
-        <div className="pb-6">
+      <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">
+        Papers
+      </h2>
+      <ul className="list-disc pl-6 space-y-3">
+        <li>
           <a
             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
             className="hyperlink"
@@ -64,65 +66,47 @@ export default function Projects() {
           >
             AI Epistemic Risks: Emerging Mechanisms &amp; Evidence
           </a>
-          <p className="italic text-sub mt-1">
-            Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B.,{" "}
-            <span className="font-semibold not-italic">Li, J.</span>, Bengio,
-            Y., Rand, D., et al.
-          </p>
-          <p className="text-sub mt-1">SSRN, 2026</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic">Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B., <span className="font-semibold not-italic">Li, J.</span>, Bengio, Y., Rand, D., et al</span>. SSRN, 2026.{" "}
+            [<a
               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               SSRN
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://openreview.net/forum?id=8fk9XYWtSQ"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent
-            Safety Benchmarks
+            WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent Safety Benchmarks
           </a>
-          <p className="italic text-sub mt-1">
-            <span className="font-semibold not-italic">Li, J.X.</span>, Chew,
-            A., Lin, M., Jones, E.K., Fu, X., Zou, A.
-          </p>
-          <p className="text-sub mt-1">ICML AIWILD Workshop, 2026</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic"><span className="font-semibold not-italic">Li, J.X.</span>, Chew, A., Lin, M., Jones, E.K., Fu, X., Zou, A</span>. ICML AIWILD Workshop, 2026.{" "}
+            [<a
               href="https://openreview.net/forum?id=8fk9XYWtSQ"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               OpenReview
-            </a>
-            ] [
-            <a
+            </a>] [<a
               href="https://github.com/jasmineee-li/warp"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://turntrout.com/eval-cooperation"
             className="hyperlink"
@@ -131,34 +115,26 @@ export default function Projects() {
           >
             Eval Cooperativeness May Be a Scalable Mitigation for Eval Gaming
           </a>
-          <p className="italic text-sub mt-1">
-            <span className="font-semibold not-italic">Li, J.</span>, Turner,
-            A.M.
-          </p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic"><span className="font-semibold not-italic">Li, J.</span>, Turner, A.M</span>.{" "}
+            [<a
               href="https://turntrout.com/eval-cooperation"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               blogpost
-            </a>
-            ] [
-            <a
+            </a>] [<a
               href="https://github.com/jasmineee-li/eval-awareness/"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://arxiv.org/abs/2509.01938"
             className="hyperlink"
@@ -167,27 +143,19 @@ export default function Projects() {
           >
             EigenBench: A Comparative Behavioral Measure of Value Alignment
           </a>
-          <p className="italic text-sub mt-1">
-            Chang, J., Piff, L., Sana, S.,{" "}
-            <span className="font-semibold not-italic">Li, J.X.</span>, Levine,
-            L.
-          </p>
-          <p className="text-sub mt-1">ICLR Oral (Top 5%), 2026</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic">Chang, J., Piff, L., Sana, S., <span className="font-semibold not-italic">Li, J.X.</span>, Levine, L</span>. ICLR Oral (Top 5%), 2026.{" "}
+            [<a
               href="https://arxiv.org/abs/2509.01938"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               arXiv
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://arxiv.org/pdf/2406.20087"
             className="hyperlink"
@@ -196,101 +164,82 @@ export default function Projects() {
           >
             ProgressGym: Alignment with a Millennium of Moral Progress
           </a>
-          <p className="italic text-sub mt-1">
-            Qiu, T., Zhang, Y., Huang, Z.,{" "}
-            <span className="font-semibold not-italic">Li, J.X.</span>, et al.
-          </p>
-          <p className="text-sub mt-1">NeurIPS Spotlight (Top 10%), 2024</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic">Qiu, T., Zhang, Y., Huang, Z., <span className="font-semibold not-italic">Li, J.X.</span>, et al</span>. NeurIPS Spotlight (Top 10%), 2024.{" "}
+            [<a
               href="https://arxiv.org/abs/2406.20087"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               arXiv
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Scaling laws for contrastive activation addition with refusal
-            mechanisms and Llama 2 models
+            Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
           </a>
-          <p className="italic text-sub mt-1">Mentored by Abdur Raheem Ali</p>
-          <p className="text-sub mt-1">ICML Workshop, 2025</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            <span className="italic">Mentored by Abdur Raheem Ali</span>. ICML Workshop, 2025.{" "}
+            [<a
               href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               paper
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="py-6">
+        </li>
+        <li>
           <a
             href="https://www.nature.com/articles/s41467-023-39574-3"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Machining water through laser cutting of nanoparticle-encased water
-            pancakes
+            Machining water through laser cutting of nanoparticle-encased water pancakes
           </a>
-          <p className="text-sub mt-1">Nature Communications, 2023</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            Nature Communications, 2023.{" "}
+            [<a
               href="https://www.nature.com/articles/s41467-023-39574-3"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               paper
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-
-        <div className="pt-6">
+        </li>
+        <li>
           <a
             href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
             className="hyperlink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            A three-dimensional paper-based isoelectric focusing device for
-            direct analysis of proteins in physiological samples
+            A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
           </a>
-          <p className="text-sub mt-1">Analytical Chemistry, 2021</p>
-          <p className="text-sub mt-1">
-            [
-            <a
+          <p className="text-sub text-sm mt-0.5">
+            Analytical Chemistry, 2021.{" "}
+            [<a
               href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
               className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
               paper
-            </a>
-            ]
+            </a>]
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
 
       {/* Blog Section */}
       <h2
