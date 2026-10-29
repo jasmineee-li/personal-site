@@ -298,63 +298,6 @@ export default function Projects() {
         </li>
       </ul>
 
-      {/* Blog Section */}
-      <h2
-        id="blog"
-        className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font scroll-mt-8"
-      >
-        Blog
-      </h2>
-      <p className="mb-6 leading-relaxed">
-        I write about AI at{" "}
-        <a
-          className="hyperlink italic"
-          href="https://jasminexli.substack.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          The J-Space
-        </a>
-        .
-      </p>
-      <BlogList />
-
-      {/* Media Section */}
-      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
-        Media
-      </h2>
-      <ul className="list-disc pl-6 space-y-3">
-        <li>
-          <a
-            href="https://www.theinformation.com/newsletters/ai-agenda/ai-evaluators-struggle-models-know-tested"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            AI Evaluators Struggle as Models Know They&apos;re Being Tested
-          </a>
-          <p className="italic">The Information, AI Agenda</p>
-        </li>
-      </ul>
-
-      {/* Mentorship Section */}
-      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
-        Mentorship
-      </h2>
-      <ul className="list-disc pl-6 space-y-3">
-        <li>
-          Fall 2026 Mentor,{" "}
-          <a
-            href="https://www.securefrontier.ai/mentors"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Frontier AI Security Residency
-          </a>
-        </li>
-      </ul>
-
       {/* Organizing Section */}
       <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
         Organizing
