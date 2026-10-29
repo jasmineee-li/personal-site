@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,10 +11,12 @@ const geistSans = localFont({
   weight: "100 900",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+// Self-hosted (latin subset, variable weight) so the build does not
+// depend on fetching from Google Fonts.
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGroteskVF.woff2",
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600"],
+  weight: "300 700",
 });
 
 export const metadata: Metadata = {
