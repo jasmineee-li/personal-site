@@ -1,4 +1,3 @@
-import Image from "next/image";
 import BlogList from "../components/BlogList";
 
 export default function Projects() {
@@ -47,10 +46,9 @@ export default function Projects() {
         <p>
           As a doer and generalist, I try to make things happen in the world
           strategically. As a researcher, I enjoy rapid experimentation and
-          careful truth-seeking.
+          careful truth-seeking. I absolutely love my work — I&apos;m very
+          lucky ☺︎
         </p>
-
-        <p>I absolutely love my work — I&apos;m very lucky ☺︎</p>
       </div>
 
       <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">
@@ -70,7 +68,7 @@ export default function Projects() {
             <span className="italic">Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B., <span className="font-semibold not-italic">Li, J.</span>, Bengio, Y., Rand, D., et al</span>. SSRN, 2026.{" "}
             [<a
               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -88,17 +86,17 @@ export default function Projects() {
             WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent Safety Benchmarks
           </a>
           <p className="text-sub text-sm mt-0.5">
-            <span className="italic"><span className="font-semibold not-italic">Li, J.X.</span>, Chew, A., Lin, M., Jones, E.K., Fu, X., Zou, A</span>. ICML AIWILD Workshop, 2026.{" "}
+            <span className="italic"><span className="font-semibold not-italic">Li, J.X.</span>, Chew, A., Lin, M., Jones, E.K., Fu, X., Zou, A</span>. AIWILD, ICML, 2026.{" "}
             [<a
               href="https://openreview.net/forum?id=8fk9XYWtSQ"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
               OpenReview
             </a>] [<a
               href="https://github.com/jasmineee-li/warp"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -119,14 +117,14 @@ export default function Projects() {
             <span className="italic"><span className="font-semibold not-italic">Li, J.</span>, Turner, A.M</span>.{" "}
             [<a
               href="https://turntrout.com/eval-cooperation"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
               blogpost
             </a>] [<a
               href="https://github.com/jasmineee-li/eval-awareness/"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -147,7 +145,7 @@ export default function Projects() {
             <span className="italic">Chang, J., Piff, L., Sana, S., <span className="font-semibold not-italic">Li, J.X.</span>, Levine, L</span>. ICLR Oral (Top 5%), 2026.{" "}
             [<a
               href="https://arxiv.org/abs/2509.01938"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -168,7 +166,7 @@ export default function Projects() {
             <span className="italic">Qiu, T., Zhang, Y., Huang, Z., <span className="font-semibold not-italic">Li, J.X.</span>, et al</span>. NeurIPS Spotlight (Top 10%), 2024.{" "}
             [<a
               href="https://arxiv.org/abs/2406.20087"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -186,10 +184,17 @@ export default function Projects() {
             Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
           </a>
           <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Mentored by Abdur Raheem Ali</span>. ICML Workshop, 2025.{" "}
+            <span className="italic">Ali, S.A.R., Xu, J., Yang, I., <span className="font-semibold not-italic">Li, J.X.</span>, Arslan, A., Benham, C</span>. NewInML, ICML, 2025.{" "}
             [<a
+              href="https://arxiv.org/abs/2507.11771"
+              className="hyperlink paper-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              arXiv
+            </a>] [<a
               href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -207,10 +212,10 @@ export default function Projects() {
             Machining water through laser cutting of nanoparticle-encased water pancakes
           </a>
           <p className="text-sub text-sm mt-0.5">
-            Nature Communications, 2023.{" "}
+            <span className="italic">Niu, J., Liu, W., <span className="font-semibold not-italic">Li, J.X.</span>, Pang, X., Liu, Y., Zhang, C., Yue, K., Zhou, Y., Xu, F., Li, X., Li, F</span>. Nature Communications, 2023.{" "}
             [<a
               href="https://www.nature.com/articles/s41467-023-39574-3"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -228,10 +233,10 @@ export default function Projects() {
             A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
           </a>
           <p className="text-sub text-sm mt-0.5">
-            Analytical Chemistry, 2021.{" "}
+            <span className="italic">Jiang, X., Li, F., Niu, J., Bao, Z., Wei, Z., <span className="font-semibold not-italic">Li, J.X.</span></span>. Analytical Chemistry, 2021.{" "}
             [<a
               href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
-              className="hyperlink"
+              className="hyperlink paper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -286,7 +291,6 @@ export default function Projects() {
       </h2>
       <ul className="list-disc pl-6 space-y-3">
         <li>
-          Fall 2026 Mentor,{" "}
           <a
             href="https://www.securefrontier.ai/mentors"
             className="hyperlink"
@@ -295,6 +299,7 @@ export default function Projects() {
           >
             Frontier AI Security Residency
           </a>
+          , Fall 2026
         </li>
       </ul>
 
@@ -349,75 +354,6 @@ export default function Projects() {
           </a>
         </li>
       </ul>
-
-      {/* Code Section */}
-      <h2 className="text-xl font-bold mt-12 border-t border-gray-200 pt-8 mb-4 accent-font">
-        Code
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="border p-4">
-          <Image
-            src="/assets/ritu.png"
-            alt="Ritu"
-            width={500}
-            height={300}
-            className="w-full h-auto mb-2"
-          />
-          <a
-            href="https://www.figma.com/design/xK9GDMaTPGRWGEn7wM7sxi/Ritu-Hackathon-Pitch-Deck?node-id=0-1"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ritu
-          </a>
-          <p className="text-sm text-gray-500 mt-1">
-            Smart pest and weather prediction for farmers. Grand Prize, Cornell
-            Switch the Pitch Hackathon
-          </p>
-        </div>
-        <div className="border p-4">
-          <Image
-            src="/assets/ALIGN.png"
-            alt="ALIGN"
-            width={500}
-            height={300}
-            className="w-full h-auto mb-2"
-          />
-          <a
-            href="https://www.figma.com/design/adCoXHePOw4PVcsFkgJch3/LII-Hackathon?t=zVF9CFd6cRZLcrIe-0"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ALIGN
-          </a>
-          <p className="text-sm text-gray-500 mt-1">
-            Designed optimized database and search for Wex, Cornell Legal
-            Information Institute&apos;s dictionary. First Prize, LII Hackathon
-          </p>
-        </div>
-        <div className="border p-4">
-          <Image
-            src="/assets/circles.jpg"
-            alt="Circles"
-            width={500}
-            height={300}
-            className="w-full h-auto mb-2"
-          />
-          <a
-            href="https://devpost.com/software/circles-8cfnod#updates"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Circles
-          </a>
-          <p className="text-sm text-gray-500 mt-1">
-            Frictionless friend meetups. Big Red Hacks 2024
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

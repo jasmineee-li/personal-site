@@ -269,6 +269,13 @@ footer {
   text-shadow: 0 0 8px rgba(247, 96, 69, 0.15);
 }
 
+/* Bracketed [SSRN] [arXiv] [GitHub] links under each paper */
+.paper-link {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+
 /* Clean, minimal headings */
 h1,
 h2,

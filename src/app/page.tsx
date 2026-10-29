@@ -180,7 +180,16 @@ export default function Home() {
           >
             training mitigations for evaluation gaming
           </a>
-          . I also researched{" "}
+          . I also researched verification at{" "}
+          <a
+            className="hyperlink"
+            href="https://saif.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Safe AI Forum
+          </a>
+          ,{" "}
           <a
             className="hyperlink"
             href="https://github.com/jasmineee-li/warp"
