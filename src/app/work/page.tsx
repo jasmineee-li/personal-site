@@ -184,8 +184,15 @@ export default function Projects() {
             Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
           </a>
           <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Mentored by Abdur Raheem Ali</span>. ICML Workshop, 2025.{" "}
+            <span className="italic">Ali, S.A.R., Xu, J., Yang, I., <span className="font-semibold not-italic">Li, J.X.</span>, Arslan, A., Benham, C</span>. NewInML, ICML, 2025.{" "}
             [<a
+              href="https://arxiv.org/abs/2507.11771"
+              className="hyperlink paper-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              arXiv
+            </a>] [<a
               href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
               className="hyperlink paper-link"
               target="_blank"
@@ -205,7 +212,7 @@ export default function Projects() {
             Machining water through laser cutting of nanoparticle-encased water pancakes
           </a>
           <p className="text-sub text-sm mt-0.5">
-            Nature Communications, 2023.{" "}
+            <span className="italic">Niu, J., Liu, W., <span className="font-semibold not-italic">Li, J.X.</span>, Pang, X., Liu, Y., Zhang, C., Yue, K., Zhou, Y., Xu, F., Li, X., Li, F</span>. Nature Communications, 2023.{" "}
             [<a
               href="https://www.nature.com/articles/s41467-023-39574-3"
               className="hyperlink paper-link"
@@ -226,7 +233,7 @@ export default function Projects() {
             A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
           </a>
           <p className="text-sub text-sm mt-0.5">
-            Analytical Chemistry, 2021.{" "}
+            <span className="italic">Jiang, X., Li, F., Niu, J., Bao, Z., Wei, Z., <span className="font-semibold not-italic">Li, J.X.</span></span>. Analytical Chemistry, 2021.{" "}
             [<a
               href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
               className="hyperlink paper-link"
