@@ -180,7 +180,16 @@ export default function Home() {
           >
             training mitigations for evaluation gaming
           </a>
-          . I also did research at{" "}
+          . I also researched{" "}
+          <a
+            className="hyperlink"
+            href="https://github.com/jasmineee-li/warp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            agent security
+          </a>{" "}
+          at{" "}
           <a
             className="hyperlink"
             href="https://www.grayswan.ai/"
@@ -189,7 +198,7 @@ export default function Home() {
           >
             Gray Swan AI
           </a>
-          , the{" "}
+          , AI honesty with the{" "}
           <a
             className="hyperlink"
             href="https://www.safe.ai/"
