@@ -117,9 +117,9 @@ export default function Home() {
   }, [isHovered]);
 
   return (
-    <div className="py-12 sm:py-16 content-with-sidebar">
+    <div className="py-12 sm:py-16">
       {/* Main Content */}
-      <div className="main-content-area">
+      <div>
         <p className="leading-relaxed mb-4">Hi, I&apos;m Jasmine!</p>
         <p className="leading-relaxed mb-2">I work on AI governance. Currently:</p>
         <ul className="list-disc pl-6 mb-4 space-y-2 leading-relaxed">
