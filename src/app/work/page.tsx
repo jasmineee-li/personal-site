@@ -1,4 +1,6 @@
+import { Fragment } from "react";
 import BlogList from "../components/BlogList";
+import { papers } from "./papers";
 
 export default function Projects() {
   return (
@@ -54,196 +56,54 @@ export default function Projects() {
       <h2 className="text-xl font-bold mb-4 border-t border-gray-200 pt-8 accent-font">
         Papers
       </h2>
-      <ul className="list-disc pl-6 space-y-3">
-        <li>
-          <a
-            href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            AI Epistemic Risks: Emerging Mechanisms &amp; Evidence
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Casper, S., Stray, J., Gausen, A., Jones, C., Christian, B., <span className="font-semibold not-italic">Li, J.</span>, Bengio, Y., Rand, D., et al</span>. SSRN, 2026.{" "}
-            [<a
-              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6873005"
-              className="hyperlink paper-link"
+      <ul className="paper-list">
+        {papers.map((paper) => (
+          <li key={paper.href}>
+            <a
+              href={paper.href}
+              className="hyperlink"
               target="_blank"
               rel="noopener noreferrer"
             >
-              SSRN
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://openreview.net/forum?id=8fk9XYWtSQ"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            WARP: Measuring and Mitigating Evaluation Awareness in Browser-Agent Safety Benchmarks
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic"><span className="font-semibold not-italic">Li, J.X.</span>, Chew, A., Lin, M., Jones, E.K., Fu, X., Zou, A</span>. AIWILD, ICML, 2026.{" "}
-            [<a
-              href="https://openreview.net/forum?id=8fk9XYWtSQ"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              OpenReview
-            </a>] [<a
-              href="https://github.com/jasmineee-li/warp"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://turntrout.com/eval-cooperation"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Eval Cooperativeness May Be a Scalable Mitigation for Eval Gaming
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic"><span className="font-semibold not-italic">Li, J.</span>, Turner, A.M</span>.{" "}
-            [<a
-              href="https://turntrout.com/eval-cooperation"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              blogpost
-            </a>] [<a
-              href="https://github.com/jasmineee-li/eval-awareness/"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://arxiv.org/abs/2509.01938"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            EigenBench: A Comparative Behavioral Measure of Value Alignment
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Chang, J., Piff, L., Sana, S., <span className="font-semibold not-italic">Li, J.X.</span>, Levine, L</span>. ICLR Oral (Top 5%), 2026.{" "}
-            [<a
-              href="https://arxiv.org/abs/2509.01938"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              arXiv
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://arxiv.org/pdf/2406.20087"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ProgressGym: Alignment with a Millennium of Moral Progress
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Qiu, T., Zhang, Y., Huang, Z., <span className="font-semibold not-italic">Li, J.X.</span>, et al</span>. NeurIPS Spotlight (Top 10%), 2024.{" "}
-            [<a
-              href="https://arxiv.org/abs/2406.20087"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              arXiv
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Scaling laws for contrastive activation addition with refusal mechanisms and Llama 2 models
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Ali, S.A.R., Xu, J., Yang, I., <span className="font-semibold not-italic">Li, J.X.</span>, Arslan, A., Benham, C</span>. NewInML, ICML, 2025.{" "}
-            [<a
-              href="https://arxiv.org/abs/2507.11771"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              arXiv
-            </a>] [<a
-              href="https://drive.google.com/file/d/1-uK8lsKApXFikfCdQIixFNwu0uWL1gSJ/view"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              paper
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://www.nature.com/articles/s41467-023-39574-3"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Machining water through laser cutting of nanoparticle-encased water pancakes
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Niu, J., Liu, W., <span className="font-semibold not-italic">Li, J.X.</span>, Pang, X., Liu, Y., Zhang, C., Yue, K., Zhou, Y., Xu, F., Li, X., Li, F</span>. Nature Communications, 2023.{" "}
-            [<a
-              href="https://www.nature.com/articles/s41467-023-39574-3"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              paper
-            </a>]
-          </p>
-        </li>
-        <li>
-          <a
-            href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
-            className="hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            A three-dimensional paper-based isoelectric focusing device for direct analysis of proteins in physiological samples
-          </a>
-          <p className="text-sub text-sm mt-0.5">
-            <span className="italic">Jiang, X., Li, F., Niu, J., Bao, Z., Wei, Z., <span className="font-semibold not-italic">Li, J.X.</span></span>. Analytical Chemistry, 2021.{" "}
-            [<a
-              href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.0c04883"
-              className="hyperlink paper-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              paper
-            </a>]
-          </p>
-        </li>
+              {paper.title}
+            </a>
+            <p className="paper-meta">
+              {paper.authors.map((author, i) => {
+                const me = author.startsWith("*");
+                const name = me ? author.slice(1) : author;
+                return (
+                  <Fragment key={i}>
+                    {i > 0 && ", "}
+                    {me ? <span className="paper-me">{name}</span> : name}
+                  </Fragment>
+                );
+              })}
+              {paper.venue && (
+                <>
+                  {" "}
+                  <span className="paper-venue">{paper.venue}.</span>
+                </>
+              )}
+              {paper.links.length > 0 && (
+                <span className="paper-links">
+                  {paper.links.map((link, i) => (
+                    <Fragment key={link.href}>
+                      {i > 0 && <span className="paper-sep">·</span>}
+                      <a
+                        href={link.href}
+                        className="paper-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    </Fragment>
+                  ))}
+                </span>
+              )}
+            </p>
+          </li>
+        ))}
       </ul>
 
       {/* Blog Section */}

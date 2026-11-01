@@ -86,7 +86,6 @@ export default function BlogList({ limit }: { limit?: number }) {
             <span className="writing-title">
               {decodeHtmlEntities(post.title) || "Untitled"}
             </span>
-            <span className="writing-leader" aria-hidden="true" />
             <span className="writing-date">{formatDate(post.pubDate)}</span>
           </a>
         </li>

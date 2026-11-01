@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { parseFeed } from "./parseFeed";
+import { isHidden } from "./hiddenPosts";
 
 // Proxies the Substack RSS feed so the browser never calls a third party.
 // rss2json (previously used) now sits behind a Cloudflare challenge that
@@ -27,7 +28,7 @@ export async function GET() {
         { status: 502 },
       );
     }
-    const items = parseFeed(await res.text());
+    const items = parseFeed(await res.text()).filter((item) => !isHidden(item));
     return NextResponse.json(
       { items },
       { headers: { "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400" } },
