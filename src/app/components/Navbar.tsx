@@ -4,15 +4,20 @@ import "./Navbar.css";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
+  { href: "/now", label: "Now" },
+  { href: "/resume", label: "Resume" },
+];
+
 const Navbar = () => {
   const pathname = usePathname();
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Read initial theme from document (set by blocking script in layout)
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "dark") {
+    if (document.documentElement.getAttribute("data-theme") === "dark") {
       setTheme("dark");
     }
   }, []);
@@ -24,70 +29,37 @@ const Navbar = () => {
     localStorage.setItem("theme", next);
   };
 
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/work", label: "Work" },
-    { href: "/now", label: "Now" },
-    { href: "/resume", label: "Resume" },
-  ];
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <nav className="grid-navbar">
-      <div className="grid-navbar-content">
-        <div className="grid-navbar-left">
-          <Link href="/" className="grid-navbar-cell">
-            Jasmine Li
-          </Link>
-          <button
-            className="mobile-menu-toggle"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className={`hamburger ${menuOpen ? "open" : ""}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
-        </div>
-        <div className={`grid-navbar-right ${menuOpen ? "mobile-open" : ""}`}>
-          {navLinks.map((link) => (
+    <nav className="site-nav" aria-label="Main">
+      <Link href="/" className="site-nav-name">
+        Jasmine Li
+      </Link>
+      <ul className="site-nav-links">
+        {navLinks.map((link) => (
+          <li key={link.href}>
             <Link
-              key={link.href}
               href={link.href}
-              className={`grid-navbar-cell ${
-                pathname === link.href ? "active" : ""
-              }`}
+              className={`site-nav-link ${isActive(link.href) ? "active" : ""}`}
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
             </Link>
-          ))}
+          </li>
+        ))}
+        <li>
           <button
+            type="button"
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
           >
             {theme === "light" ? (
               <svg
-                width="16"
-                height="16"
+                width="15"
+                height="15"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -99,8 +71,8 @@ const Navbar = () => {
               </svg>
             ) : (
               <svg
-                width="16"
-                height="16"
+                width="15"
+                height="15"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -120,11 +92,8 @@ const Navbar = () => {
               </svg>
             )}
           </button>
-        </div>
-      </div>
-      {menuOpen && (
-        <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />
-      )}
+        </li>
+      </ul>
     </nav>
   );
 };
