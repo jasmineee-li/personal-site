@@ -11,15 +11,14 @@
   gap: 1rem 1.5rem;
   flex-wrap: wrap;
   border-bottom: 1px solid var(--border-color);
-  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
-  font-size: 0.95rem;
+  font-family: inherit; /* Georgia, same as the body text */
+  font-size: 1rem;
   position: relative;
   z-index: 1;
 }
 
 .site-nav-name {
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
   color: var(--foreground);
   text-decoration: none;
   white-space: nowrap;
@@ -79,7 +78,7 @@
 @media (max-width: 480px) {
   .site-nav {
     padding: 1.1rem 1.5rem 0.8rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .site-nav-links {
