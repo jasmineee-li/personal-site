@@ -388,28 +388,6 @@ export default function Home() {
               </div>
               <div className="carousel-item">
                 <Image
-                  src="/assets/IMG_2108.jpg"
-                  alt="Personal photo"
-                  className="carousel-image"
-                  width={400}
-                  height={300}
-                  quality={85}
-                  loading="lazy"
-                />
-              </div>
-              <div className="carousel-item">
-                <Image
-                  src="/assets/IMG_1871.jpg"
-                  alt="Personal photo"
-                  className="carousel-image"
-                  width={400}
-                  height={300}
-                  quality={85}
-                  loading="lazy"
-                />
-              </div>
-              <div className="carousel-item">
-                <Image
                   src="/assets/IMG_1174.JPEG"
                   alt="Personal photo"
                   className="carousel-image"
